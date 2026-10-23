@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{C38E72ED-0512-4B4B-985F-BACFADAD5B8E}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{E1583A4C-9DC4-4B89-B69F-1F6AEB8D3D44}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -80,11 +80,29 @@
                       cachedName="NombreTipoComprobante"
                       lineageId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreTipoComprobante]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[NombreEstado]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[Estado]"
                       cachedDataType="wstr"
                       cachedLength="15"
-                      cachedName="NombreEstado"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreEstado]" />
+                      cachedName="Estado"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Estado]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[UPPER]([TRIM](#{Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Estado]})) == "CREDITO" ? "EMITIDO" : #{Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Estado]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(TRIM(Estado)) == "CREDITO" ? "EMITIDO" : Estado</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -118,29 +136,6 @@
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
                           name="FriendlyExpression">Serie + "-" + (DT_WSTR,10)NumeroComprobante</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Estado]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      length="15"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Estado]"
-                      name="Estado"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreEstado]} == "CREDITO" ? "EMITIDO" : #{Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreEstado]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">NombreEstado == "CREDITO" ? "EMITIDO" : NombreEstado</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -294,11 +289,6 @@
                       cachedName="NumeroComprobante"
                       lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[NumeroComprobante]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdTipoComprobante]"
-                      cachedDataType="i4"
-                      cachedName="IdTipoComprobante"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[IdTipoComprobante]" />
-                    <inputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreTipoComprobante]"
                       cachedDataType="wstr"
                       cachedLength="30"
@@ -331,23 +321,8 @@
               <outputs>
                 <output
                   refId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]"
-                  isSorted="true"
                   name="Salida de combinación de mezcla">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdEstadoComprobante]"
-                      dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdEstadoComprobante]"
-                      name="IdEstadoComprobante"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdEstadoComprobante]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdVenta]"
                       dataType="i4"
@@ -389,19 +364,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]"
-                      dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]"
-                      name="IdTipoComprobante">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdTipoComprobante]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreTipoComprobante]"
                       dataType="wstr"
                       length="30"
@@ -416,11 +378,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreEstado]"
+                      refId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Estado]"
                       dataType="wstr"
                       length="15"
-                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreEstado]"
-                      name="NombreEstado">
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Estado]"
+                      name="Estado">
                       <properties>
                         <property
                           containsID="true"
@@ -520,23 +482,8 @@
               <outputs>
                 <output
                   refId="Package\Tarea Flujo de datos\Combinación por IdTipoComprobante.Outputs[Salida de combinación de mezcla]"
-                  isSorted="true"
                   name="Salida de combinación de mezcla">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Combinación por IdTipoComprobante.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]"
-                      dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Combinación por IdTipoComprobante.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]"
-                      name="IdTipoComprobante"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\Tarea Flujo de datos\Combinación por IdTipoComprobante.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdTipoComprobante]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Combinación por IdTipoComprobante.Outputs[Salida de combinación de mezcla].Columns[IdVenta]"
                       dataType="i4"
@@ -625,7 +572,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[DimComprobante]</property>
+                  name="OpenRowset">[DimComprobante]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -720,7 +667,7 @@
                       cachedLength="15"
                       cachedName="Estado"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\DimComprobante.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Estado]" />
+                      lineageId="Package\Tarea Flujo de datos\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Estado]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\DimComprobante.Inputs[Entrada de destino de OLE DB].Columns[MedioPago]"
                       cachedDataType="wstr"
@@ -1250,23 +1197,6 @@
                   name="Entrada de ordenación">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación].Columns[IdTipoComprobante]"
-                      cachedDataType="i4"
-                      cachedName="IdTipoComprobante"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Tarea Flujo de datos\Combinación por IdTipoComprobante.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación].Columns[IdVenta]"
                       cachedDataType="i4"
                       cachedName="IdVenta"
@@ -1358,19 +1288,6 @@
                   isSorted="true"
                   name="Salida de ordenación">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[IdTipoComprobante]"
-                      dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[IdTipoComprobante]"
-                      name="IdTipoComprobante">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Tarea Flujo de datos\Combinación por IdTipoComprobante.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[IdVenta]"
                       dataType="i4"
@@ -2007,7 +1924,7 @@
         <NodeLayout
           Size="167,42"
           Id="Package\Tarea Flujo de datos\TipoComprobante"
-          TopLeft="433,55" />
+          TopLeft="433,57" />
         <NodeLayout
           Size="128,42"
           Id="Package\Tarea Flujo de datos\Ordenar 3"
@@ -2064,18 +1981,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB1]"
-          TopLeft="518.25,97">
+          TopLeft="518.25,99">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54"
+              EndConnector="0,52"
               Start="0,0"
-              End="0,46.5">
+              End="0,44.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5" />
+                    End="0,44.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

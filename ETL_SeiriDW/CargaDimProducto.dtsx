@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{EF74D2D4-C6F4-4CB9-94D2-CBFD54DCE883}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{306FF537-7EB2-4550-A107-6227D26BED01}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -32,7 +32,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}"
-          SQLTask:SqlStatementSource="delete * from dbo.DimProducto" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.DimProducto') IS NOT NULL TRUNCATE TABLE dbo.DimProducto;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -77,13 +77,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoBase]},"No especificado")</property>
+                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoBase]},"NO ESPECIFICADO")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACENULL(TipoBase,"No especificado")</property>
+                          name="FriendlyExpression">REPLACENULL(TipoBase,"NO ESPECIFICADO")</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -101,13 +101,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Caracteristica]},"No especificado")</property>
+                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Caracteristica]},"NO ESPECIFICADO")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACENULL(Caracteristica,"No especificado")</property>
+                          name="FriendlyExpression">REPLACENULL(Caracteristica,"NO ESPECIFICADO")</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -125,13 +125,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Linea]},"No especificado")</property>
+                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Linea]},"NO ESPECIFICADO")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACENULL(Linea,"No especificado")</property>
+                          name="FriendlyExpression">REPLACENULL(Linea,"NO ESPECIFICADO")</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -149,13 +149,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Capacidad]},"No especificado")</property>
+                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Capacidad]},"NO ESPECIFICADO")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACENULL(Capacidad,"No especificado")</property>
+                          name="FriendlyExpression">REPLACENULL(Capacidad,"NO ESPECIFICADO")</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -173,13 +173,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Medida]},"No especificado")</property>
+                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Medida]},"NO ESPECIFICADO")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACENULL(Medida,"No especificado")</property>
+                          name="FriendlyExpression">REPLACENULL(Medida,"NO ESPECIFICADO")</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -197,13 +197,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Color]},"No especificado")</property>
+                          name="Expression">[REPLACENULL](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Color]},"NO ESPECIFICADO")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACENULL(Color,"No especificado")</property>
+                          name="FriendlyExpression">REPLACENULL(Color,"NO ESPECIFICADO")</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -225,25 +225,7 @@
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="NombreCategoria"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]} == "TODO" ? "MULTIUSO" : #{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">NombreCategoria == "TODO" ? "MULTIUSO" : NombreCategoria</property>
-                      </properties>
-                    </inputColumn>
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]" />
                     <inputColumn
                       refId="Package\CargaDimProducto\Columna derivada.Inputs[Entrada de columna derivada].Columns[StockActual]"
                       cachedDataType="numeric"
@@ -378,6 +360,29 @@
                           name="FriendlyExpression">GETDATE()</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[Categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[UPPER]([TRIM](#{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]})) == "TODO" ? "MULTIUSO" : #{Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(TRIM(NombreCategoria)) == "TODO" ? "MULTIUSO" : NombreCategoria</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -508,12 +513,6 @@
                       cachedName="Color"
                       lineageId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[Color]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[UnidadMedida]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="UnidadMedida"
-                      lineageId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[UnidadMedida]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
@@ -548,17 +547,6 @@
                       cachedName="Estado"
                       lineageId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[Estado]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdCategoria]"
-                      cachedDataType="i4"
-                      cachedName="IdCategoria"
-                      lineageId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[IdCategoria]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CodigoCategoria"
-                      lineageId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[CodigoCategoria]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreCategoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
@@ -579,12 +567,6 @@
                       cachedSortKeyPosition="1"
                       lineageId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación].Columns[IdMaterial]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[CodigoMaterial]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoMaterial"
-                      lineageId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación].Columns[CodigoMaterial]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[NombreMaterial]"
                       cachedDataType="wstr"
                       cachedLength="40"
@@ -597,23 +579,8 @@
               <outputs>
                 <output
                   refId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
-                  isSorted="true"
                   name="Salida de combinación de mezcla">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]"
-                      name="IdMaterial"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IdMaterial]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdProducto]"
                       dataType="i4"
@@ -766,20 +733,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]"
-                      name="UnidadMedida">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[UnidadMedida]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]"
                       dataType="numeric"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]"
@@ -854,33 +807,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]"
-                      name="IdCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]"
-                      name="CodigoCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]"
                       dataType="wstr"
                       length="30"
@@ -892,20 +818,6 @@
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
                           name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]"
-                      name="CodigoMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[CodigoMaterial]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -966,11 +878,6 @@
                       cachedSortKeyPosition="1"
                       lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[IdOrigen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdMaterial]"
-                      cachedDataType="i4"
-                      cachedName="IdMaterial"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[IdMaterial]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdProducto]"
                       cachedDataType="i4"
                       cachedName="IdProducto"
@@ -1029,12 +936,6 @@
                       cachedName="Color"
                       lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[Color]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[UnidadMedida]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="UnidadMedida"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[UnidadMedida]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
@@ -1069,28 +970,11 @@
                       cachedName="Estado"
                       lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[Estado]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdCategoria]"
-                      cachedDataType="i4"
-                      cachedName="IdCategoria"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[IdCategoria]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CodigoCategoria"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[CodigoCategoria]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreCategoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="NombreCategoria"
                       lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[NombreCategoria]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoMaterial]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoMaterial"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[CodigoMaterial]" />
                     <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreMaterial]"
                       cachedDataType="wstr"
@@ -1112,12 +996,6 @@
                       cachedSortKeyPosition="1"
                       lineageId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación].Columns[IdOrigen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[CodigoOrigen]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoOrigen"
-                      lineageId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación].Columns[CodigoOrigen]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[NombreOrigen]"
                       cachedDataType="wstr"
                       cachedLength="40"
@@ -1130,11 +1008,6 @@
                       cachedName="TipoOrigen"
                       lineageId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación].Columns[TipoOrigen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[FechaPedido]"
-                      cachedDataType="dbDate"
-                      cachedName="FechaPedido"
-                      lineageId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación].Columns[FechaPedido]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[FechaLlegadaAlmacen]"
                       cachedDataType="dbDate"
                       cachedName="FechaLlegadaAlmacen"
@@ -1146,22 +1019,8 @@
               <outputs>
                 <output
                   refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]"
-                  isSorted="true"
                   name="Salida de combinación de mezcla">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]"
-                      name="IdMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdMaterial]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdProducto]"
                       dataType="i4"
@@ -1301,20 +1160,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]"
-                      name="UnidadMedida">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[UnidadMedida]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]"
                       dataType="numeric"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]"
@@ -1389,33 +1234,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]"
-                      name="IdCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]"
-                      name="CodigoCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]"
                       dataType="wstr"
                       length="30"
@@ -1430,20 +1248,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]"
-                      name="CodigoMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoMaterial]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreMaterial]"
                       dataType="wstr"
                       length="40"
@@ -1455,34 +1259,6 @@
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
                           name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreMaterial]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdOrigen]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdOrigen]"
-                      name="IdOrigen"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[IdOrigen]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoOrigen]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoOrigen]"
-                      name="CodigoOrigen">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[CodigoOrigen]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1511,19 +1287,6 @@
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
                           name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[TipoOrigen]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[FechaPedido]"
-                      dataType="dbDate"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[FechaPedido]"
-                      name="FechaPedido">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[FechaPedido]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1583,11 +1346,6 @@
                       cachedSortKeyPosition="1"
                       lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdTipoProducto]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdMaterial]"
-                      cachedDataType="i4"
-                      cachedName="IdMaterial"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdMaterial]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdProducto]"
                       cachedDataType="i4"
                       cachedName="IdProducto"
@@ -1641,12 +1399,6 @@
                       cachedName="Color"
                       lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[Color]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[UnidadMedida]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="UnidadMedida"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[UnidadMedida]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
@@ -1681,45 +1433,17 @@
                       cachedName="Estado"
                       lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[Estado]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdCategoria]"
-                      cachedDataType="i4"
-                      cachedName="IdCategoria"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdCategoria]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CodigoCategoria"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[CodigoCategoria]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreCategoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="NombreCategoria"
                       lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[NombreCategoria]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoMaterial]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoMaterial"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[CodigoMaterial]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreMaterial]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreMaterial"
                       lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[NombreMaterial]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdOrigen]"
-                      cachedDataType="i4"
-                      cachedName="IdOrigen"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdOrigen]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoOrigen]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoOrigen"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[CodigoOrigen]" />
                     <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreOrigen]"
                       cachedDataType="wstr"
@@ -1732,11 +1456,6 @@
                       cachedLength="30"
                       cachedName="TipoOrigen"
                       lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[TipoOrigen]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[FechaPedido]"
-                      cachedDataType="dbDate"
-                      cachedName="FechaPedido"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[FechaPedido]" />
                     <inputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[FechaLlegadaAlmacen]"
                       cachedDataType="dbDate"
@@ -1769,22 +1488,8 @@
               <outputs>
                 <output
                   refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla]"
-                  isSorted="true"
                   name="Salida de combinación de mezcla">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]"
-                      name="IdMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdMaterial]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdProducto]"
                       dataType="i4"
@@ -1911,20 +1616,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]"
-                      name="UnidadMedida">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[UnidadMedida]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]"
                       dataType="numeric"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]"
@@ -1999,33 +1690,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]"
-                      name="IdCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]"
-                      name="CodigoCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]"
                       dataType="wstr"
                       length="30"
@@ -2040,20 +1704,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]"
-                      name="CodigoMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoMaterial]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreMaterial]"
                       dataType="wstr"
                       length="40"
@@ -2065,33 +1715,6 @@
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
                           name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreMaterial]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdOrigen]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdOrigen]"
-                      name="IdOrigen">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdOrigen]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoOrigen]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoOrigen]"
-                      name="CodigoOrigen">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[CodigoOrigen]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2123,19 +1746,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaPedido]"
-                      dataType="dbDate"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaPedido]"
-                      name="FechaPedido">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[FechaPedido]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaLlegadaAlmacen]"
                       dataType="dbDate"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaLlegadaAlmacen]"
@@ -2146,20 +1756,6 @@
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
                           name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[FechaLlegadaAlmacen]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdTipoProducto]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdTipoProducto]"
-                      name="IdTipoProducto"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada derecha de combinación de mezcla].Columns[IdTipoProducto]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2197,7 +1793,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[Destino de DimProducto]</property>
+                  name="OpenRowset">[dbo].[DimProducto]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -2416,12 +2012,12 @@
                       externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreCategoria]"
+                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
-                      cachedName="NombreCategoria"
+                      cachedName="Categoria"
                       externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]" />
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[Categoria]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2814,23 +2410,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar.Inputs[Entrada de ordenación].Columns[UnidadMedida]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="UnidadMedida"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[UnidadMedida]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar.Inputs[Entrada de ordenación].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
@@ -3108,20 +2687,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación].Columns[UnidadMedida]"
-                      name="UnidadMedida">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[UnidadMedida]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación].Columns[PrecioAlmacen]"
                       dataType="numeric"
                       lineageId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación].Columns[PrecioAlmacen]"
@@ -3240,23 +2805,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 1.Inputs[Entrada de ordenación].Columns[CodigoCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CodigoCategoria"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[CodigoCategoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 1.Inputs[Entrada de ordenación].Columns[NombreCategoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
@@ -3295,20 +2843,6 @@
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 1.Outputs[Salida de ordenación].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Ordenar 1.Outputs[Salida de ordenación].Columns[CodigoCategoria]"
-                      name="CodigoCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[CodigoCategoria]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -3370,23 +2904,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 2.Inputs[Entrada de ordenación].Columns[CodigoMaterial]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoMaterial"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[CodigoMaterial]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 2.Inputs[Entrada de ordenación].Columns[NombreMaterial]"
                       cachedDataType="wstr"
                       cachedLength="40"
@@ -3425,20 +2942,6 @@
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación].Columns[CodigoMaterial]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación].Columns[CodigoMaterial]"
-                      name="CodigoMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[CodigoMaterial]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -3684,23 +3187,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 3.Inputs[Entrada de ordenación].Columns[UnidadMedida]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="UnidadMedida"
-                      lineageId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 3.Inputs[Entrada de ordenación].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
@@ -3778,40 +3264,6 @@
                       cachedLength="15"
                       cachedName="Estado"
                       lineageId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[Estado]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 3.Inputs[Entrada de ordenación].Columns[IdCategoria]"
-                      cachedDataType="i4"
-                      cachedName="IdCategoria"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 3.Inputs[Entrada de ordenación].Columns[CodigoCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CodigoCategoria"
-                      lineageId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4016,20 +3468,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[UnidadMedida]"
-                      name="UnidadMedida">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[PrecioAlmacen]"
                       dataType="numeric"
                       lineageId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[PrecioAlmacen]"
@@ -4104,33 +3542,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[IdCategoria]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[IdCategoria]"
-                      name="IdCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[CodigoCategoria]"
-                      name="CodigoCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación].Columns[NombreCategoria]"
                       dataType="wstr"
                       length="30"
@@ -4172,23 +3583,6 @@
                   refId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación]"
                   name="Entrada de ordenación">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación].Columns[IdMaterial]"
-                      cachedDataType="i4"
-                      cachedName="IdMaterial"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
                     <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación].Columns[IdProducto]"
                       cachedDataType="i4"
@@ -4374,23 +3768,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación].Columns[UnidadMedida]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="UnidadMedida"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
@@ -4480,61 +3857,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación].Columns[IdCategoria]"
-                      cachedDataType="i4"
-                      cachedName="IdCategoria"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación].Columns[CodigoCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CodigoCategoria"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación].Columns[NombreCategoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="NombreCategoria"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación].Columns[CodigoMaterial]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoMaterial"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4573,19 +3900,6 @@
                   isSorted="true"
                   name="Salida de ordenación">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[IdMaterial]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[IdMaterial]"
-                      name="IdMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[IdProducto]"
                       dataType="i4"
@@ -4739,20 +4053,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[UnidadMedida]"
-                      name="UnidadMedida">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[PrecioAlmacen]"
                       dataType="numeric"
                       lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[PrecioAlmacen]"
@@ -4827,33 +4127,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[IdCategoria]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[IdCategoria]"
-                      name="IdCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[CodigoCategoria]"
-                      name="CodigoCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[NombreCategoria]"
                       dataType="wstr"
                       length="30"
@@ -4865,20 +4138,6 @@
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[CodigoMaterial]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación].Columns[CodigoMaterial]"
-                      name="CodigoMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -4940,23 +4199,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 5.Inputs[Entrada de ordenación].Columns[CodigoOrigen]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoOrigen"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[CodigoOrigen]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 5.Inputs[Entrada de ordenación].Columns[NombreOrigen]"
                       cachedDataType="wstr"
                       cachedLength="40"
@@ -4979,22 +4221,6 @@
                       cachedLength="30"
                       cachedName="TipoOrigen"
                       lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 5.Inputs[Entrada de ordenación].Columns[FechaPedido]"
-                      cachedDataType="dbDate"
-                      cachedName="FechaPedido"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5047,20 +4273,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación].Columns[CodigoOrigen]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación].Columns[CodigoOrigen]"
-                      name="CodigoOrigen">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[CodigoOrigen]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación].Columns[NombreOrigen]"
                       dataType="wstr"
                       length="40"
@@ -5086,19 +4298,6 @@
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación].Columns[FechaPedido]"
-                      dataType="dbDate"
-                      lineageId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación].Columns[FechaPedido]"
-                      name="FechaPedido">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5142,22 +4341,6 @@
                   refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación]"
                   name="Entrada de ordenación">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[IdMaterial]"
-                      cachedDataType="i4"
-                      cachedName="IdMaterial"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
                     <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[IdProducto]"
                       cachedDataType="i4"
@@ -5327,23 +4510,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[UnidadMedida]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="UnidadMedida"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
@@ -5433,39 +4599,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[IdCategoria]"
-                      cachedDataType="i4"
-                      cachedName="IdCategoria"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[CodigoCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CodigoCategoria"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[NombreCategoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
@@ -5483,62 +4616,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[CodigoMaterial]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoMaterial"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[NombreMaterial]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreMaterial"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreMaterial]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[IdOrigen]"
-                      cachedDataType="i4"
-                      cachedName="IdOrigen"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdOrigen]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[CodigoOrigen]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoOrigen"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoOrigen]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5585,22 +4667,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[FechaPedido]"
-                      cachedDataType="dbDate"
-                      cachedName="FechaPedido"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[FechaPedido]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación].Columns[FechaLlegadaAlmacen]"
                       cachedDataType="dbDate"
                       cachedName="FechaLlegadaAlmacen"
@@ -5626,19 +4692,6 @@
                   isSorted="true"
                   name="Salida de ordenación">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdMaterial]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdMaterial]"
-                      name="IdMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdProducto]"
                       dataType="i4"
@@ -5779,20 +4832,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[UnidadMedida]"
-                      name="UnidadMedida">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[PrecioAlmacen]"
                       dataType="numeric"
                       lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[PrecioAlmacen]"
@@ -5867,33 +4906,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdCategoria]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdCategoria]"
-                      name="IdCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[CodigoCategoria]"
-                      name="CodigoCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[NombreCategoria]"
                       dataType="wstr"
                       length="30"
@@ -5908,20 +4920,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[CodigoMaterial]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[CodigoMaterial]"
-                      name="CodigoMaterial">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[NombreMaterial]"
                       dataType="wstr"
                       length="40"
@@ -5933,33 +4931,6 @@
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NombreMaterial]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdOrigen]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[IdOrigen]"
-                      name="IdOrigen">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdOrigen]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[CodigoOrigen]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[CodigoOrigen]"
-                      name="CodigoOrigen">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CodigoOrigen]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5988,19 +4959,6 @@
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[TipoOrigen]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[FechaPedido]"
-                      dataType="dbDate"
-                      lineageId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación].Columns[FechaPedido]"
-                      name="FechaPedido">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[FechaPedido]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -6191,16 +5149,6 @@
                       name="IdCategoria"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoCategoria]"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[CodigoCategoria]"
-                      name="CodigoCategoria"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[NombreCategoria]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
@@ -6239,12 +5187,6 @@
                       dataType="i4"
                       lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[IdCategoria]"
                       name="IdCategoria" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[CodigoCategoria]"
-                      name="CodigoCategoria" />
                     <outputColumn
                       refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[NombreCategoria]"
                       dataType="wstr"
@@ -6339,16 +5281,6 @@
                       name="IdMaterial"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[CodigoMaterial]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoMaterial]"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[CodigoMaterial]"
-                      name="CodigoMaterial"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[NombreMaterial]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
@@ -6387,12 +5319,6 @@
                       dataType="i4"
                       lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[IdMaterial]"
                       name="IdMaterial" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[CodigoMaterial]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[CodigoMaterial]"
-                      name="CodigoMaterial" />
                     <outputColumn
                       refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[NombreMaterial]"
                       dataType="wstr"
@@ -6487,16 +5413,6 @@
                       name="IdOrigen"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[CodigoOrigen]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoOrigen]"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[CodigoOrigen]"
-                      name="CodigoOrigen"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[NombreOrigen]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
@@ -6515,15 +5431,6 @@
                       length="30"
                       lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]"
                       name="TipoOrigen"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaPedido]"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]"
-                      name="FechaPedido"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
@@ -6577,12 +5484,6 @@
                       lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[IdOrigen]"
                       name="IdOrigen" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[CodigoOrigen]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[CodigoOrigen]"
-                      name="CodigoOrigen" />
-                    <outputColumn
                       refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[NombreOrigen]"
                       dataType="wstr"
                       length="40"
@@ -6594,11 +5495,6 @@
                       length="30"
                       lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[TipoOrigen]"
                       name="TipoOrigen" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[FechaPedido]"
-                      dataType="dbDate"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[FechaPedido]"
-                      name="FechaPedido" />
                     <outputColumn
                       refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
                       dataType="dbDate"
@@ -6806,16 +5702,6 @@
                       length="30"
                       lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Color]"
                       name="Color"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[UnidadMedida]"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[UnidadMedida]"
-                      name="UnidadMedida"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioAlmacen]"
@@ -7048,12 +5934,6 @@
                       length="30"
                       lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Color]"
                       name="Color" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[UnidadMedida]"
-                      name="UnidadMedida" />
                     <outputColumn
                       refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[PrecioAlmacen]"
                       dataType="numeric"
@@ -7339,12 +6219,6 @@
                       cachedName="Color"
                       lineageId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación].Columns[Color]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada izquierda de combinación de mezcla].Columns[UnidadMedida]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="UnidadMedida"
-                      lineageId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación].Columns[UnidadMedida]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada izquierda de combinación de mezcla].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
@@ -7393,12 +6267,6 @@
                       cachedSortKeyPosition="1"
                       lineageId="Package\CargaDimProducto\Ordenar 1.Outputs[Salida de ordenación].Columns[IdCategoria]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada derecha de combinación de mezcla].Columns[CodigoCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CodigoCategoria"
-                      lineageId="Package\CargaDimProducto\Ordenar 1.Outputs[Salida de ordenación].Columns[CodigoCategoria]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada derecha de combinación de mezcla].Columns[NombreCategoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
@@ -7411,7 +6279,6 @@
               <outputs>
                 <output
                   refId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla]"
-                  isSorted="true"
                   name="Salida de combinación de mezcla">
                   <outputColumns>
                     <outputColumn
@@ -7579,20 +6446,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]"
-                      name="UnidadMedida">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Unir Categoria.Inputs[Entrada izquierda de combinación de mezcla].Columns[UnidadMedida]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]"
                       dataType="numeric"
                       lineageId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]"
@@ -7664,34 +6517,6 @@
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
                           name="InputColumnID">#{Package\CargaDimProducto\Unir Categoria.Inputs[Entrada izquierda de combinación de mezcla].Columns[Estado]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]"
-                      name="IdCategoria"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Unir Categoria.Inputs[Entrada derecha de combinación de mezcla].Columns[IdCategoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]"
-                      name="CodigoCategoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="La columna de entrada asociada a esta columna de salida"
-                          name="InputColumnID">#{Package\CargaDimProducto\Unir Categoria.Inputs[Entrada derecha de combinación de mezcla].Columns[CodigoCategoria]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -7833,11 +6658,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170.4,41.6"
+          Size="170,42"
           Id="Package\Borrar DimProducto"
           TopLeft="259.166652506425,66.7333328692781" />
         <NodeLayout
-          Size="167.2,41.6"
+          Size="167,42"
           Id="Package\CargaDimProducto"
           TopLeft="270.833318535653,149.933332290716" />
         <EdgeLayout
@@ -7883,107 +6708,333 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\CargaDimProducto\Combinación de mezcla 2"
-          TopLeft="614.466638164058,769.799997233749" />
-        <NodeLayout
-          Size="116.8,41.6"
-          Id="Package\CargaDimProducto\Ordenar"
-          TopLeft="140.83332563854,143.866665666236" />
-        <NodeLayout
-          Size="145.6,41.6"
-          Id="Package\CargaDimProducto\Unir Categoria"
-          TopLeft="259.999985794227,252.199998246233" />
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\CargaDimProducto\Ordenar 6"
-          TopLeft="531.366640212967,684.999997450709" />
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\CargaDimProducto\Origen Material"
-          TopLeft="535.833304056692,252.199998246233" />
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\CargaDimProducto\Ordenar 7"
-          TopLeft="758.866627782916,690.599997739991" />
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\CargaDimProducto\Origen Categoria"
-          TopLeft="364.99998005728,51.9999996383985" />
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\CargaDimProducto\Ordenar 3"
-          TopLeft="325.833315530586,346.133331404792" />
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\CargaDimProducto\Ordenar 4"
-          TopLeft="395.533312115737,523.066664002869" />
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\CargaDimProducto\Ordenar 1"
-          TopLeft="377.49997937431,151.666665611996" />
-        <NodeLayout
-          Size="191.2,41.6"
-          Id="Package\CargaDimProducto\Destino de DimProducto"
-          TopLeft="595.8999728178,957.999997287989" />
-        <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\CargaDimProducto\Combinación de mezcla 1"
-          TopLeft="487.499973364176,612.133332164155" />
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\CargaDimProducto\Origen ORIGEN"
-          TopLeft="676.666629695232,433.533331169751" />
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\CargaDimProducto\Ordenar 5"
-          TopLeft="657.199964485567,517.799997739991" />
-        <NodeLayout
-          Size="154.4,41.6"
+          Size="154,42"
           Id="Package\CargaDimProducto\Origen Producto"
           TopLeft="140.83332563854,44.1999996926387" />
         <NodeLayout
-          Size="174.4,41.6"
+          Size="128,42"
+          Id="Package\CargaDimProducto\Ordenar 3"
+          TopLeft="325.833315530586,346.133331404792" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\CargaDimProducto\Combinación de mezcla 2"
+          TopLeft="614.466638164058,769.799997233749" />
+        <NodeLayout
+          Size="174,42"
           Id="Package\CargaDimProducto\Origen TipoProducto"
           TopLeft="759.499959158402,609.333331187831" />
         <NodeLayout
-          Size="189.6,41.6"
+          Size="191,42"
+          Id="Package\CargaDimProducto\Destino de DimProducto"
+          TopLeft="595.8999728178,957.999997287989" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\CargaDimProducto\Ordenar 6"
+          TopLeft="531.366640212967,684.999997450709" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\CargaDimProducto\Ordenar 7"
+          TopLeft="758.866627782916,690.599997739991" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\CargaDimProducto\Ordenar"
+          TopLeft="140.83332563854,143.866665666236" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\CargaDimProducto\Ordenar 2"
+          TopLeft="527.499971178672,342.33333095279" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\CargaDimProducto\Ordenar 4"
+          TopLeft="395.533312115737,523.066664002869" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\CargaDimProducto\Unir Categoria"
+          TopLeft="261.111096905338,253.311109357344" />
+        <NodeLayout
+          Size="190,42"
           Id="Package\CargaDimProducto\Combinación de mezcla"
           TopLeft="365.833313345082,434.199996980627" />
         <NodeLayout
-          Size="162.4,41.6"
+          Size="150,42"
+          Id="Package\CargaDimProducto\Origen Material"
+          TopLeft="535.833304056692,252.199998246233" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\CargaDimProducto\Origen ORIGEN"
+          TopLeft="676.666629695232,436.033331169751" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\CargaDimProducto\Ordenar 1"
+          TopLeft="377.49997937431,151.666665611996" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\CargaDimProducto\Ordenar 5"
+          TopLeft="657.199964485567,517.799997739991" />
+        <NodeLayout
+          Size="162,42"
           Id="Package\CargaDimProducto\Columna derivada"
           TopLeft="624.233304603068,861.666663984789" />
         <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\CargaDimProducto\Ordenar 2"
-          TopLeft="527.499971178672,342.33333095279" />
+          Size="198,42"
+          Id="Package\CargaDimProducto\Combinación de mezcla 1"
+          TopLeft="487.499973364176,612.133332164155" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\CargaDimProducto\Origen Categoria"
+          TopLeft="364.99998005728,51.9999996383985" />
         <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación5]"
-          TopLeft="439.89997937431,193.266665611996">
+          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB4]"
+          TopLeft="441.849979715795,93.5999996383985">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-84.1666602467499,58.9333326342371"
+              EndConnector="0,58.0666659735971"
               Start="0,0"
-              End="-84.1666602467499,51.4333326342371">
+              End="0,50.5666659735971">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.9756517590146" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.9756517590146"
-                    Point2="0,34.9756517590146"
-                    Point3="-4,34.9756517590146" />
+                    End="0,50.5666659735971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB3]"
+          TopLeft="846.699959158402,650.933331187831">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.4333313754867,39.6666665521597"
+              Start="0,0"
+              End="-25.4333313754867,32.1666665521597">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-80.1666602467499,34.9756517590146" />
+                    End="0,15.8333332760798" />
                   <mssgle:CubicBezierSegment
-                    Point1="-80.1666602467499,34.9756517590146"
-                    Point2="-84.1666602467499,34.9756517590146"
-                    Point3="-84.1666602467499,38.9756517590146" />
+                    Point1="0,15.8333332760798"
+                    Point2="0,19.8333332760798"
+                    Point3="-4,19.8333332760798" />
                   <mssgle:LineSegment
-                    End="-84.1666602467499,51.4333326342371" />
+                    End="-21.4333313754867,19.8333332760798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.4333313754867,19.8333332760798"
+                    Point2="-25.4333313754867,19.8333332760798"
+                    Point3="-25.4333313754867,23.8333332760798" />
+                  <mssgle:LineSegment
+                    End="-25.4333313754867,32.1666665521597" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB2]"
+          TopLeft="218.03332563854,85.7999996926387">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.8,58.0666659735971"
+              Start="0,0"
+              End="-18.8,50.5666659735971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.0333329867986" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.0333329867986"
+                    Point2="0,29.0333329867986"
+                    Point3="-4,29.0333329867986" />
+                  <mssgle:LineSegment
+                    End="-14.8,29.0333329867986" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.8,29.0333329867986"
+                    Point2="-18.8,29.0333329867986"
+                    Point3="-18.8,33.0333329867986" />
+                  <mssgle:LineSegment
+                    End="-18.8,50.5666659735971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB1]"
+          TopLeft="610.633304056692,293.799998246233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.7333328780201,48.5333327065574"
+              Start="0,0"
+              End="-20.7333328780201,41.0333327065574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2666663532787" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2666663532787"
+                    Point2="0,24.2666663532787"
+                    Point3="-4,24.2666663532787" />
+                  <mssgle:LineSegment
+                    End="-16.7333328780201,24.2666663532787" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.7333328780201,24.2666663532787"
+                    Point2="-20.7333328780201,24.2666663532787"
+                    Point3="-20.7333328780201,28.2666663532787" />
+                  <mssgle:LineSegment
+                    End="-20.7333328780201,41.0333327065574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB]"
+          TopLeft="753.666629695232,478.033331169751">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.9666652096651,39.76666657024"
+              Start="0,0"
+              End="-33.9666652096651,32.26666657024">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.88333328512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.88333328512"
+                    Point2="0,19.88333328512"
+                    Point3="-4,19.88333328512" />
+                  <mssgle:LineSegment
+                    End="-29.9666652096651,19.88333328512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.9666652096651,19.88333328512"
+                    Point2="-33.9666652096651,19.88333328512"
+                    Point3="-33.9666652096651,23.88333328512" />
+                  <mssgle:LineSegment
+                    End="-33.9666652096651,32.26666657024" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación7]"
+          TopLeft="821.266627782916,732.199997739991">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-76.3999896188581,37.5999994937579"
+              Start="0,0"
+              End="-76.3999896188581,30.0999994937579">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.3787948794173" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.3787948794173"
+                    Point2="0,22.3787948794173"
+                    Point3="-4,22.3787948794173" />
+                  <mssgle:LineSegment
+                    End="-72.3999896188581,22.3787948794173" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-72.3999896188581,22.3787948794173"
+                    Point2="-76.3999896188581,22.3787948794173"
+                    Point3="-76.3999896188581,26.3787948794173" />
+                  <mssgle:LineSegment
+                    End="-76.3999896188581,30.0999994937579" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación6]"
+          TopLeft="199.33332563854,185.866665666236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.777771266798,67.4444436911081"
+              Start="0,0"
+              End="111.777771266798,59.9444436911081">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.0280031662674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.0280031662674"
+                    Point2="0,40.0280031662674"
+                    Point3="4,40.0280031662674" />
+                  <mssgle:LineSegment
+                    End="107.777771266798,40.0280031662674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.777771266798,40.0280031662674"
+                    Point2="111.777771266798,40.0280031662674"
+                    Point3="111.777771266798,44.0280031662674" />
+                  <mssgle:LineSegment
+                    End="111.777771266798,59.9444436911081" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación5]"
+          TopLeft="439.99997937431,193.666665611996">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-82.8888824689719,59.6444437453482"
+              Start="0,0"
+              End="-82.8888824689719,52.1444437453482">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.3987349057757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.3987349057757"
+                    Point2="0,35.3987349057757"
+                    Point3="-4,35.3987349057757" />
+                  <mssgle:LineSegment
+                    End="-78.8888824689719,35.3987349057757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-78.8888824689719,35.3987349057757"
+                    Point2="-82.8888824689719,35.3987349057757"
+                    Point3="-82.8888824689719,39.3987349057757" />
+                  <mssgle:LineSegment
+                    End="-82.8888824689719,52.1444437453482" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8062,30 +7113,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación2]"
-          TopLeft="388.233315530586,387.733331404792">
+          TopLeft="389.833315530586,388.133331404792">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="42.1333311478297,46.4666655758354"
+              EndConnector="40.6666644811627,46.066665575835"
               Start="0,0"
-              End="42.1333311478297,38.9666655758354">
+              End="40.6666644811627,38.566665575835">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.6466939116477" />
+                    End="0,23.4091851547244" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.6466939116477"
-                    Point2="0,27.6466939116477"
-                    Point3="4,27.6466939116477" />
+                    Point1="0,23.4091851547244"
+                    Point2="0,27.4091851547244"
+                    Point3="4,27.4091851547244" />
                   <mssgle:LineSegment
-                    End="38.1333311478297,27.6466939116477" />
+                    End="36.6666644811627,27.4091851547244" />
                   <mssgle:CubicBezierSegment
-                    Point1="38.1333311478297,27.6466939116477"
-                    Point2="42.1333311478297,27.6466939116477"
-                    Point3="42.1333311478297,31.6466939116477" />
+                    Point1="36.6666644811627,27.4091851547244"
+                    Point2="40.6666644811627,27.4091851547244"
+                    Point3="40.6666644811627,31.4091851547244" />
                   <mssgle:LineSegment
-                    End="42.1333311478297,38.9666655758354" />
+                    End="40.6666644811627,38.566665575835" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8230,30 +7281,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de combinación de mezcla]"
-          TopLeft="332.799985794227,293.799998246233">
+          TopLeft="334.111096905338,295.311109357344">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="55.4333297363587,52.3333331585594"
+              EndConnector="55.7222186252479,50.8222220474478"
               Start="0,0"
-              End="55.4333297363587,44.8333331585594">
+              End="55.7222186252479,43.3222220474478">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.1666665792797" />
+                    End="0,21.4111110237239" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.1666665792797"
-                    Point2="0,26.1666665792797"
-                    Point3="4,26.1666665792797" />
+                    Point1="0,21.4111110237239"
+                    Point2="0,25.4111110237239"
+                    Point3="4,25.4111110237239" />
                   <mssgle:LineSegment
-                    End="51.4333297363587,26.1666665792797" />
+                    End="51.7222186252479,25.4111110237239" />
                   <mssgle:CubicBezierSegment
-                    Point1="51.4333297363587,26.1666665792797"
-                    Point2="55.4333297363587,26.1666665792797"
-                    Point3="55.4333297363587,30.1666665792797" />
+                    Point1="51.7222186252479,25.4111110237239"
+                    Point2="55.7222186252479,25.4111110237239"
+                    Point3="55.7222186252479,29.4111110237239" />
                   <mssgle:LineSegment
-                    End="55.4333297363587,44.8333331585594" />
+                    End="55.7222186252479,43.3222220474478" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8296,237 +7347,11 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB4]"
-          TopLeft="441.849979715795,93.5999996383985">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.0666659735971"
-              Start="0,0"
-              End="0,50.5666659735971">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5666659735971" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB3]"
-          TopLeft="846.699959158402,650.933331187831">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-25.4333313754867,39.6666665521597"
-              Start="0,0"
-              End="-25.4333313754867,32.1666665521597">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.8333332760798" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.8333332760798"
-                    Point2="0,19.8333332760798"
-                    Point3="-4,19.8333332760798" />
-                  <mssgle:LineSegment
-                    End="-21.4333313754867,19.8333332760798" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-21.4333313754867,19.8333332760798"
-                    Point2="-25.4333313754867,19.8333332760798"
-                    Point3="-25.4333313754867,23.8333332760798" />
-                  <mssgle:LineSegment
-                    End="-25.4333313754867,32.1666665521597" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB2]"
-          TopLeft="218.03332563854,85.7999996926387">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-18.8,58.0666659735971"
-              Start="0,0"
-              End="-18.8,50.5666659735971">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.0333329867986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.0333329867986"
-                    Point2="0,29.0333329867986"
-                    Point3="-4,29.0333329867986" />
-                  <mssgle:LineSegment
-                    End="-14.8,29.0333329867986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-14.8,29.0333329867986"
-                    Point2="-18.8,29.0333329867986"
-                    Point3="-18.8,33.0333329867986" />
-                  <mssgle:LineSegment
-                    End="-18.8,50.5666659735971" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB1]"
-          TopLeft="610.633304056692,293.799998246233">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-20.7333328780201,48.5333327065574"
-              Start="0,0"
-              End="-20.7333328780201,41.0333327065574">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2666663532787" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2666663532787"
-                    Point2="0,24.2666663532787"
-                    Point3="-4,24.2666663532787" />
-                  <mssgle:LineSegment
-                    End="-16.7333328780201,24.2666663532787" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-16.7333328780201,24.2666663532787"
-                    Point2="-20.7333328780201,24.2666663532787"
-                    Point3="-20.7333328780201,28.2666663532787" />
-                  <mssgle:LineSegment
-                    End="-20.7333328780201,41.0333327065574" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB]"
-          TopLeft="753.466629695232,475.133331169751">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-33.8666652096643,42.6666665702398"
-              Start="0,0"
-              End="-33.8666652096643,35.1666665702398">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.3333332851199" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.3333332851199"
-                    Point2="0,21.3333332851199"
-                    Point3="-4,21.3333332851199" />
-                  <mssgle:LineSegment
-                    End="-29.8666652096643,21.3333332851199" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-29.8666652096643,21.3333332851199"
-                    Point2="-33.8666652096643,21.3333332851199"
-                    Point3="-33.8666652096643,25.3333332851199" />
-                  <mssgle:LineSegment
-                    End="-33.8666652096643,35.1666665702398" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación7]"
-          TopLeft="821.266627782916,732.199997739991">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-76.3999896188581,37.5999994937579"
-              Start="0,0"
-              End="-76.3999896188581,30.0999994937579">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.3787948794173" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.3787948794173"
-                    Point2="0,22.3787948794173"
-                    Point3="-4,22.3787948794173" />
-                  <mssgle:LineSegment
-                    End="-72.3999896188581,22.3787948794173" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-72.3999896188581,22.3787948794173"
-                    Point2="-76.3999896188581,22.3787948794173"
-                    Point3="-76.3999896188581,26.3787948794173" />
-                  <mssgle:LineSegment
-                    End="-76.3999896188581,30.0999994937579" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación6]"
-          TopLeft="199.23332563854,185.466665666236">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="110.633326822354,66.7333325799968"
-              Start="0,0"
-              End="110.633326822354,59.2333325799968">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.6047821616068" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.6047821616068"
-                    Point2="0,39.6047821616068"
-                    Point3="4,39.6047821616068" />
-                  <mssgle:LineSegment
-                    End="106.633326822354,39.6047821616068" />
-                  <mssgle:CubicBezierSegment
-                    Point1="106.633326822354,39.6047821616068"
-                    Point2="110.633326822354,39.6047821616068"
-                    Point3="110.633326822354,43.6047821616068" />
-                  <mssgle:LineSegment
-                    End="110.633326822354,59.2333325799968" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen Material">
+    design-time-name="Package\CargaDimProducto\Origen Producto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8539,7 +7364,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen Categoria">
+    design-time-name="Package\CargaDimProducto\Origen TipoProducto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8565,6 +7390,19 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\CargaDimProducto\Origen Material">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\CargaDimProducto\Origen ORIGEN">
     <Properties>
       <Property>
@@ -8578,20 +7416,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen Producto">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen TipoProducto">
+    design-time-name="Package\CargaDimProducto\Origen Categoria">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
