@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{C0D4C625-E790-4641-9EAB-47CC416D003D}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{186F0FCC-5537-489D-91EF-C2F66452A198}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -496,11 +496,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Cargar FactInventario\Destino FactInventario"
+              refId="Package\Cargar FactInventario\FactInventario"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="Destino FactInventario"
+              name="FactInventario"
               usesDispositions="true"
               version="4">
               <properties>
@@ -553,7 +553,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Cargar FactInventario\Destino FactInventario.Connections[OleDbConnection]"
+                  refId="Package\Cargar FactInventario\FactInventario.Connections[OleDbConnection]"
                   connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -561,160 +561,160 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdMovimiento]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdMovimiento]"
                       cachedDataType="i4"
                       cachedName="IdMovimiento"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMovimiento]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMovimiento]"
                       lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMovimiento]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdAlmacen]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdAlmacen]"
                       cachedDataType="i4"
                       cachedName="IdAlmacen"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdAlmacen]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdAlmacen]"
                       lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdAlmacen]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdProducto]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdProducto]"
                       cachedDataType="i4"
                       cachedName="IdProducto"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
                       lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdProducto]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[Cantidad]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[Cantidad]"
                       cachedDataType="numeric"
                       cachedName="Cantidad"
                       cachedPrecision="12"
                       cachedScale="3"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cantidad]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cantidad]"
                       lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cantidad]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[StockResultante]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[StockResultante]"
                       cachedDataType="numeric"
                       cachedName="StockResultante"
                       cachedPrecision="12"
                       cachedScale="3"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockResultante]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockResultante]"
                       lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[StockResultante]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdVenta]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdVenta]"
                       cachedDataType="i4"
                       cachedName="IdVenta"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdVenta]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdVenta]"
                       lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdVenta]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdTipoMovimiento]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdTipoMovimiento]"
                       cachedDataType="i4"
                       cachedName="IdTipoMovimiento"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
                       lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdTipoMovimiento]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdFecha]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[IdFecha]"
                       cachedDataType="i4"
                       cachedName="IdFecha"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdFecha]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdFecha]"
                       lineageId="Package\Cargar FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[IdFecha]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[CantidadConSigno]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[CantidadConSigno]"
                       cachedDataType="numeric"
                       cachedName="CantidadConSigno"
                       cachedPrecision="18"
                       cachedScale="3"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantidadConSigno]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantidadConSigno]"
                       lineageId="Package\Cargar FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[CantidadConSigno]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[StockCorregido]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[StockCorregido]"
                       cachedDataType="numeric"
                       cachedName="StockCorregido"
                       cachedPrecision="12"
                       cachedScale="3"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
                       lineageId="Package\Cargar FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[StockCorregido]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[EsQuiebreStock]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[EsQuiebreStock]"
                       cachedDataType="i4"
                       cachedName="EsQuiebreStock"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[EsQuiebreStock]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[EsQuiebreStock]"
                       lineageId="Package\Cargar FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[EsQuiebreStock]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaCarga"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       lineageId="Package\Cargar FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
                     <inputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].Columns[StockPorActualizar]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[StockPorActualizar]"
                       cachedDataType="i4"
                       cachedName="StockPorActualizar"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
                       lineageId="Package\Cargar FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[StockPorActualizar]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMovimiento]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMovimiento]"
                       dataType="i4"
                       name="IdMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdAlmacen]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdAlmacen]"
                       dataType="i4"
                       name="IdAlmacen" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
                       dataType="i4"
                       name="IdProducto" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cantidad]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cantidad]"
                       dataType="numeric"
                       name="Cantidad"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockResultante]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockResultante]"
                       dataType="numeric"
                       name="StockResultante"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdVenta]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdVenta]"
                       dataType="i4"
                       name="IdVenta" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
                       dataType="i4"
                       name="IdTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdFecha]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdFecha]"
                       dataType="i4"
                       name="IdFecha" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantidadConSigno]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantidadConSigno]"
                       dataType="numeric"
                       name="CantidadConSigno"
                       precision="18"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
                       dataType="numeric"
                       name="StockCorregido"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[EsQuiebreStock]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[EsQuiebreStock]"
                       dataType="i4"
                       name="EsQuiebreStock" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       dataType="dbTimeStamp"
                       name="FechaCarga" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
                       dataType="i4"
                       name="StockPorActualizar" />
                   </externalMetadataColumns>
@@ -722,22 +722,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Cargar FactInventario\Destino FactInventario.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Cargar FactInventario\FactInventario.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Cargar FactInventario\FactInventario.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Destino FactInventario.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Cargar FactInventario\FactInventario.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Destino FactInventario.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Cargar FactInventario\FactInventario.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Destino FactInventario.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar FactInventario\FactInventario.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -746,387 +746,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Cargar FactInventario\Ordenar"
-              componentClassID="Microsoft.Sort"
-              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
-              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
-              name="Ordenar"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
-                  name="EliminateDuplicates">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
-                  expressionType="Notify"
-                  name="MaximumThreads">-1</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación]"
-                  name="Entrada de ordenación">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdMovimiento]"
-                      cachedDataType="i4"
-                      cachedName="IdMovimiento"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdMovimiento]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[FechaRegistro]"
-                      cachedDataType="dbDate"
-                      cachedName="FechaRegistro"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[FechaRegistro]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdAlmacen]"
-                      cachedDataType="i4"
-                      cachedName="IdAlmacen"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdProducto]"
-                      cachedDataType="i4"
-                      cachedName="IdProducto"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdProducto]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdTipoMovimiento]"
-                      cachedDataType="i4"
-                      cachedName="IdTipoMovimiento"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[Cantidad]"
-                      cachedDataType="numeric"
-                      cachedName="Cantidad"
-                      cachedPrecision="12"
-                      cachedScale="3"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[Cantidad]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[StockResultante]"
-                      cachedDataType="numeric"
-                      cachedName="StockResultante"
-                      cachedPrecision="12"
-                      cachedScale="3"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[StockResultante]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdVenta]"
-                      cachedDataType="i4"
-                      cachedName="IdVenta"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdVenta]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación]"
-                  isSorted="true"
-                  name="Salida de ordenación">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdMovimiento]"
-                      dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdMovimiento]"
-                      name="IdMovimiento">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdMovimiento]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[FechaRegistro]"
-                      dataType="dbDate"
-                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[FechaRegistro]"
-                      name="FechaRegistro">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[FechaRegistro]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdAlmacen]"
-                      dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdAlmacen]"
-                      name="IdAlmacen">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdProducto]"
-                      dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdProducto]"
-                      name="IdProducto">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdProducto]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdTipoMovimiento]"
-                      dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdTipoMovimiento]"
-                      name="IdTipoMovimiento"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad]"
-                      dataType="numeric"
-                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad]"
-                      name="Cantidad"
-                      precision="12"
-                      scale="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[Cantidad]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[StockResultante]"
-                      dataType="numeric"
-                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[StockResultante]"
-                      name="StockResultante"
-                      precision="12"
-                      scale="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[StockResultante]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdVenta]"
-                      dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdVenta]"
-                      name="IdVenta">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdVenta]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Cargar FactInventario\Ordenar 1"
-              componentClassID="Microsoft.Sort"
-              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
-              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
-              name="Ordenar 1"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
-                  name="EliminateDuplicates">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
-                  expressionType="Notify"
-                  name="MaximumThreads">-1</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Cargar FactInventario\Ordenar 1.Inputs[Entrada de ordenación]"
-                  name="Entrada de ordenación">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar 1.Inputs[Entrada de ordenación].Columns[IdTipoMovimiento]"
-                      cachedDataType="i4"
-                      cachedName="IdTipoMovimiento"
-                      lineageId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Cargar FactInventario\Ordenar 1.Inputs[Entrada de ordenación].Columns[Signo]"
-                      cachedDataType="i4"
-                      cachedName="Signo"
-                      lineageId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación]"
-                  isSorted="true"
-                  name="Salida de ordenación">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación].Columns[IdTipoMovimiento]"
-                      dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación].Columns[IdTipoMovimiento]"
-                      name="IdTipoMovimiento"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación].Columns[Signo]"
-                      dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación].Columns[Signo]"
-                      name="Signo">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Cargar FactInventario\Origen MovInventario"
+              refId="Package\Cargar FactInventario\MovInventario"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
-              name="Origen MovInventario"
+              name="MovInventario"
               usesDispositions="true"
               version="7">
               <properties>
@@ -1171,7 +795,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Cargar FactInventario\Origen MovInventario.Connections[OleDbConnection]"
+                  refId="Package\Cargar FactInventario\MovInventario.Connections[OleDbConnection]"
                   connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -1179,203 +803,203 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdMovimiento]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdMovimiento]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMovimiento]"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdMovimiento]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMovimiento]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdMovimiento]"
                       name="IdMovimiento"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[FechaRegistro]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[FechaRegistro]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaRegistro]"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[FechaRegistro]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaRegistro]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[FechaRegistro]"
                       name="FechaRegistro"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdAlmacen]"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdAlmacen]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]"
                       name="IdAlmacen"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdProducto]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdProducto]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProducto]"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdProducto]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProducto]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdProducto]"
                       name="IdProducto"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
                       name="IdTipoMovimiento"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[Cantidad]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[Cantidad]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[Cantidad]"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[Cantidad]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[Cantidad]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[Cantidad]"
                       name="Cantidad"
                       precision="12"
                       scale="3"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[StockResultante]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[StockResultante]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[StockResultante]"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[StockResultante]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[StockResultante]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[StockResultante]"
                       name="StockResultante"
                       precision="12"
                       scale="3"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdVenta]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdVenta]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdVenta]"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdVenta]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdVenta]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdVenta]"
                       name="IdVenta"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMovimiento]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMovimiento]"
                       dataType="i4"
                       name="IdMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaRegistro]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaRegistro]"
                       dataType="dbDate"
                       name="FechaRegistro" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[HoraRegistro]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[HoraRegistro]"
                       dataType="dbTime2"
                       name="HoraRegistro" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdAlmacen]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdAlmacen]"
                       dataType="i4"
                       name="IdAlmacen" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProducto]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProducto]"
                       dataType="i4"
                       name="IdProducto" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
                       dataType="i4"
                       name="IdTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[Cantidad]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[Cantidad]"
                       dataType="numeric"
                       name="Cantidad"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[StockResultante]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[StockResultante]"
                       dataType="numeric"
                       name="StockResultante"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdVenta]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdVenta]"
                       dataType="i4"
                       name="IdVenta" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[SerieCompra]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[SerieCompra]"
                       dataType="wstr"
                       length="10"
                       name="SerieCompra" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[NumeroCompra]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[NumeroCompra]"
                       dataType="wstr"
                       length="15"
                       name="NumeroCompra" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdUsuario]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[IdUsuario]"
                       dataType="i4"
                       name="IdUsuario" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdMovimiento]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdMovimiento]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdMovimiento]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdMovimiento]"
                       name="IdMovimiento" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[FechaRegistro]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[FechaRegistro]"
                       dataType="dbDate"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[FechaRegistro]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[FechaRegistro]"
                       name="FechaRegistro" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdAlmacen]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdAlmacen]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdAlmacen]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdAlmacen]"
                       name="IdAlmacen" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdProducto]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdProducto]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdProducto]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdProducto]"
                       name="IdProducto" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
                       name="IdTipoMovimiento" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[Cantidad]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[Cantidad]"
                       dataType="numeric"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[Cantidad]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[Cantidad]"
                       name="Cantidad"
                       precision="12"
                       scale="3" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[StockResultante]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[StockResultante]"
                       dataType="numeric"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[StockResultante]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[StockResultante]"
                       name="StockResultante"
                       precision="12"
                       scale="3" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdVenta]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdVenta]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdVenta]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[IdVenta]"
                       name="IdVenta" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1384,11 +1008,387 @@
               </outputs>
             </component>
             <component
-              refId="Package\Cargar FactInventario\Origen TipoMovimiento"
+              refId="Package\Cargar FactInventario\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdMovimiento]"
+                      cachedDataType="i4"
+                      cachedName="IdMovimiento"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdMovimiento]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[FechaRegistro]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaRegistro"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[FechaRegistro]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdAlmacen]"
+                      cachedDataType="i4"
+                      cachedName="IdAlmacen"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdProducto]"
+                      cachedDataType="i4"
+                      cachedName="IdProducto"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdTipoMovimiento]"
+                      cachedDataType="i4"
+                      cachedName="IdTipoMovimiento"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[Cantidad]"
+                      cachedDataType="numeric"
+                      cachedName="Cantidad"
+                      cachedPrecision="12"
+                      cachedScale="3"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[Cantidad]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[StockResultante]"
+                      cachedDataType="numeric"
+                      cachedName="StockResultante"
+                      cachedPrecision="12"
+                      cachedScale="3"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[StockResultante]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[IdVenta]"
+                      cachedDataType="i4"
+                      cachedName="IdVenta"
+                      lineageId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdVenta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdMovimiento]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdMovimiento]"
+                      name="IdMovimiento">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdMovimiento]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[FechaRegistro]"
+                      dataType="dbDate"
+                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[FechaRegistro]"
+                      name="FechaRegistro">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[FechaRegistro]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdAlmacen]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdAlmacen]"
+                      name="IdAlmacen">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdProducto]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdProducto]"
+                      name="IdProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdTipoMovimiento]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdTipoMovimiento]"
+                      name="IdTipoMovimiento"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad]"
+                      dataType="numeric"
+                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad]"
+                      name="Cantidad"
+                      precision="12"
+                      scale="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[Cantidad]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[StockResultante]"
+                      dataType="numeric"
+                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[StockResultante]"
+                      name="StockResultante"
+                      precision="12"
+                      scale="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[StockResultante]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdVenta]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[IdVenta]"
+                      name="IdVenta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB].Columns[IdVenta]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar FactInventario\Ordenar 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Cargar FactInventario\Ordenar 1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar 1.Inputs[Entrada de ordenación].Columns[IdTipoMovimiento]"
+                      cachedDataType="i4"
+                      cachedName="IdTipoMovimiento"
+                      lineageId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Ordenar 1.Inputs[Entrada de ordenación].Columns[Signo]"
+                      cachedDataType="i4"
+                      cachedName="Signo"
+                      lineageId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación].Columns[IdTipoMovimiento]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación].Columns[IdTipoMovimiento]"
+                      name="IdTipoMovimiento"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación].Columns[Signo]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactInventario\Ordenar 1.Outputs[Salida de ordenación].Columns[Signo]"
+                      name="Signo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar FactInventario\TipoMovimiento"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
-              name="Origen TipoMovimiento"
+              name="TipoMovimiento"
               usesDispositions="true"
               version="7">
               <properties>
@@ -1433,7 +1433,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Cargar FactInventario\Origen TipoMovimiento.Connections[OleDbConnection]"
+                  refId="Package\Cargar FactInventario\TipoMovimiento.Connections[OleDbConnection]"
                   connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -1441,75 +1441,75 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
-                      lineageId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      lineageId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
                       name="IdTipoMovimiento"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Signo]"
-                      lineageId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]"
+                      externalMetadataColumnId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Signo]"
+                      lineageId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]"
                       name="Signo"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
                       dataType="i4"
                       name="IdTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoMovimiento]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoMovimiento]"
                       dataType="wstr"
                       length="60"
                       name="NombreTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Naturaleza]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Naturaleza]"
                       dataType="wstr"
                       length="10"
                       name="Naturaleza" />
                     <externalMetadataColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Signo]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Signo]"
                       dataType="i4"
                       name="Signo" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      lineageId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
                       name="IdTipoMovimiento" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Signo]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Signo]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Signo]"
+                      lineageId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Signo]"
                       name="Signo" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1521,7 +1521,7 @@
           <paths>
             <path
               refId="Package\Cargar FactInventario.Paths[Salida de columna derivada]"
-              endId="Package\Cargar FactInventario\Destino FactInventario.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB]"
               name="Salida de columna derivada"
               startId="Package\Cargar FactInventario\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
@@ -1543,12 +1543,12 @@
               refId="Package\Cargar FactInventario.Paths[Salida de origen de OLE DB]"
               endId="Package\Cargar FactInventario\Ordenar 1.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
-              startId="Package\Cargar FactInventario\Origen TipoMovimiento.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\Cargar FactInventario\TipoMovimiento.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\Cargar FactInventario.Paths[Salida de origen de OLE DB1]"
               endId="Package\Cargar FactInventario\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
-              startId="Package\Cargar FactInventario\Origen MovInventario.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\Cargar FactInventario\MovInventario.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1581,7 +1581,7 @@
           Id="Package\Borrar FactInventario"
           TopLeft="309.999983062348,58.9333329235183" />
         <NodeLayout
-          Size="179,42"
+          Size="178.666666666667,42"
           Id="Package\Cargar FactInventario"
           TopLeft="314.99998278916,156.866665575836" />
         <EdgeLayout
@@ -1615,111 +1615,33 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="125,42"
-          Id="Package\Cargar FactInventario\Ordenar 1"
-          TopLeft="509.99997213483,128.266665774716" />
+          Size="117.333333333334,42"
+          Id="Package\Cargar FactInventario\Ordenar"
+          TopLeft="248.333319764999,121.333332489597" />
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Cargar FactInventario\FactInventario"
+          TopLeft="353.333314102558,381.333330681589" />
         <NodeLayout
           Size="190,42"
           Id="Package\Cargar FactInventario\Combinación de mezcla"
           TopLeft="331.6666485452,205.399998571674" />
         <NodeLayout
-          Size="182,42"
-          Id="Package\Cargar FactInventario\Destino FactInventario"
-          TopLeft="345.833314437834,381.333330681589" />
+          Size="125.333333333334,42"
+          Id="Package\Cargar FactInventario\Ordenar 1"
+          TopLeft="509.99997213483,128.266665774716" />
         <NodeLayout
-          Size="117,42"
-          Id="Package\Cargar FactInventario\Ordenar"
-          TopLeft="248.333319764999,121.333332489597" />
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Cargar FactInventario\TipoMovimiento"
+          TopLeft="501.74997323379,44.1999996926387" />
         <NodeLayout
-          Size="178,42"
-          Id="Package\Cargar FactInventario\Origen MovInventario"
-          TopLeft="212.499988389512,41.5999997107188" />
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Cargar FactInventario\Origen TipoMovimiento"
-          TopLeft="472.499974183739,44.1999996926387" />
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Cargar FactInventario\MovInventario"
+          TopLeft="228.12498769102,41.5999997107188" />
         <NodeLayout
           Size="162,42"
           Id="Package\Cargar FactInventario\Columna derivada"
           TopLeft="350.833314164646,292.933331296312" />
-        <EdgeLayout
-          Id="Package\Cargar FactInventario.Paths[Salida de origen de OLE DB1]"
-          TopLeft="304.016654077256,83.1999997107188">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.1333327788777"
-              Start="0,0"
-              End="0,30.6333327788777">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.6333327788777" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cargar FactInventario.Paths[Salida de origen de OLE DB]"
-          TopLeft="569.049973159284,85.7999996926387">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.4666660820776"
-              Start="0,0"
-              End="0,34.9666660820776">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.9666660820776" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cargar FactInventario.Paths[Salida de ordenación1]"
-          TopLeft="572.39997213483,169.866665774716">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-115.666656922963,35.5333327969578"
-              Start="0,0"
-              End="-115.666656922963,28.0333327969578">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.1415896390268" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.1415896390268"
-                    Point2="0,21.1415896390268"
-                    Point3="-4,21.1415896390268" />
-                  <mssgle:LineSegment
-                    End="-111.666656922963,21.1415896390268" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-111.666656922963,21.1415896390268"
-                    Point2="-115.666656922963,21.1415896390268"
-                    Point3="-115.666656922963,25.1415896390268" />
-                  <mssgle:LineSegment
-                    End="-115.666656922963,28.0333327969578" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar FactInventario.Paths[Salida de ordenación]"
           TopLeft="306.733319764999,162.933332489597">
@@ -1778,18 +1700,96 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar FactInventario.Paths[Salida de columna derivada]"
-          TopLeft="434.53331430124,334.533331296312">
+          TopLeft="429.249980800269,334.933331296312">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.799999385277"
+              EndConnector="0,46.399999385277"
               Start="0,0"
-              End="0,39.299999385277">
+              End="0,38.899999385277">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.299999385277" />
+                    End="0,38.899999385277" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar FactInventario.Paths[Salida de origen de OLE DB1]"
+          TopLeft="304.229153728009,84.2666663773855">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.0666661122115"
+              Start="0,0"
+              End="0,29.5666661122115">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5666661122115" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar FactInventario.Paths[Salida de origen de OLE DB]"
+          TopLeft="575.87497268431,86.8666663593054">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.3999994154106"
+              Start="0,0"
+              End="0,33.8999994154106">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.8999994154106" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar FactInventario.Paths[Salida de ordenación1]"
+          TopLeft="572.39997213483,169.866665774716">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-115.666656922963,35.5333327969578"
+              Start="0,0"
+              End="-115.666656922963,28.0333327969578">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.1415896390268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.1415896390268"
+                    Point2="0,21.1415896390268"
+                    Point3="-4,21.1415896390268" />
+                  <mssgle:LineSegment
+                    End="-111.666656922963,21.1415896390268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-111.666656922963,21.1415896390268"
+                    Point2="-115.666656922963,21.1415896390268"
+                    Point3="-115.666656922963,25.1415896390268" />
+                  <mssgle:LineSegment
+                    End="-115.666656922963,28.0333327969578" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1802,7 +1802,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar FactInventario\Destino FactInventario">
+    design-time-name="Package\Cargar FactInventario\FactInventario">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1815,7 +1815,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar FactInventario\Origen MovInventario">
+    design-time-name="Package\Cargar FactInventario\TipoMovimiento">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1828,7 +1828,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar FactInventario\Origen TipoMovimiento">
+    design-time-name="Package\Cargar FactInventario\MovInventario">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

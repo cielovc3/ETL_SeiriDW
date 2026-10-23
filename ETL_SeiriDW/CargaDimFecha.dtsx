@@ -12,8 +12,8 @@
   DTS:ObjectName="Ca"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{EEAD93A6-EE68-4AE8-AEC7-4E44F4AB5C83}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{9AA2754C-1258-4E32-9161-384D98D93405}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -502,11 +502,11 @@ FROM F;</property>
               </outputs>
             </component>
             <component
-              refId="Package\Cargar DimFecha\Destino de OLE DB"
+              refId="Package\Cargar DimFecha\DimFecha"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="Destino de OLE DB"
+              name="DimFecha"
               usesDispositions="true"
               version="4">
               <properties>
@@ -517,7 +517,7 @@ FROM F;</property>
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[DimFecha]</property>
+                  name="OpenRowset">[DimFecha]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -559,7 +559,7 @@ FROM F;</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Cargar DimFecha\Destino de OLE DB.Connections[OleDbConnection]"
+                  refId="Package\Cargar DimFecha\DimFecha.Connections[OleDbConnection]"
                   connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -567,161 +567,161 @@ FROM F;</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IdFecha]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[IdFecha]"
                       cachedDataType="i4"
                       cachedName="IdFecha"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdFecha]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdFecha]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[IdFecha]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Fecha]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[Fecha]"
                       cachedDataType="dbDate"
                       cachedName="Fecha"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[Fecha]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Anio]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[Anio]"
                       cachedDataType="i4"
                       cachedName="Anio"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[Anio]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Trimestre]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[Trimestre]"
                       cachedDataType="i4"
                       cachedName="Trimestre"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Trimestre]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[Trimestre]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[Trimestre]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NumeroMes]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[NumeroMes]"
                       cachedDataType="i4"
                       cachedName="NumeroMes"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroMes]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroMes]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[NumeroMes]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NombreMes]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[NombreMes]"
                       cachedDataType="wstr"
                       cachedLength="9"
                       cachedName="NombreMes"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMes]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMes]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[NombreMes]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DiaMes]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[DiaMes]"
                       cachedDataType="i4"
                       cachedName="DiaMes"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiaMes]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiaMes]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[DiaMes]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NumeroDiaSemana]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[NumeroDiaSemana]"
                       cachedDataType="i4"
                       cachedName="NumeroDiaSemana"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroDiaSemana]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroDiaSemana]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[NumeroDiaSemana]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NombreDiaSemana]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[NombreDiaSemana]"
                       cachedDataType="wstr"
                       cachedLength="9"
                       cachedName="NombreDiaSemana"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDiaSemana]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDiaSemana]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[NombreDiaSemana]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[EsFinDeSemana]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[EsFinDeSemana]"
                       cachedDataType="i4"
                       cachedName="EsFinDeSemana"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EsFinDeSemana]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[EsFinDeSemana]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[EsFinDeSemana]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CampanaComercial]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[CampanaComercial]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="CampanaComercial"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CampanaComercial]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[CampanaComercial]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[CampanaComercial]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[UltimaImportacion]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[UltimaImportacion]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="UltimaImportacion"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[UltimaImportacion]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[UltimaImportacion]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[UltimaImportacion]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DiasDesdeUltimaImportacion]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[DiasDesdeUltimaImportacion]"
                       cachedDataType="i4"
                       cachedName="DiasDesdeUltimaImportacion"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasDesdeUltimaImportacion]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasDesdeUltimaImportacion]"
                       lineageId="Package\Cargar DimFecha\Conexion a Fecha.Outputs[Salida de origen de OLE DB].Columns[DiasDesdeUltimaImportacion]" />
                     <inputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaCarga"
-                      externalMetadataColumnId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      externalMetadataColumnId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       lineageId="Package\Cargar DimFecha\Columna FechaCarga.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdFecha]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdFecha]"
                       dataType="i4"
                       name="IdFecha" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
                       dataType="dbDate"
                       name="Fecha" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio]"
                       dataType="i4"
                       name="Anio" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Trimestre]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[Trimestre]"
                       dataType="i4"
                       name="Trimestre" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroMes]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroMes]"
                       dataType="i4"
                       name="NumeroMes" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMes]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMes]"
                       dataType="wstr"
                       length="9"
                       name="NombreMes" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiaMes]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiaMes]"
                       dataType="i4"
                       name="DiaMes" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroDiaSemana]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroDiaSemana]"
                       dataType="i4"
                       name="NumeroDiaSemana" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDiaSemana]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDiaSemana]"
                       dataType="wstr"
                       length="9"
                       name="NombreDiaSemana" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EsFinDeSemana]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[EsFinDeSemana]"
                       dataType="i4"
                       name="EsFinDeSemana" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CampanaComercial]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[CampanaComercial]"
                       dataType="wstr"
                       length="15"
                       name="CampanaComercial" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[UltimaImportacion]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[UltimaImportacion]"
                       dataType="wstr"
                       length="40"
                       name="UltimaImportacion" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasDesdeUltimaImportacion]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasDesdeUltimaImportacion]"
                       dataType="i4"
                       name="DiasDesdeUltimaImportacion" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      refId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       dataType="dbTimeStamp"
                       name="FechaCarga" />
                   </externalMetadataColumns>
@@ -729,22 +729,22 @@ FROM F;</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Cargar DimFecha\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Cargar DimFecha\DimFecha.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Cargar DimFecha\DimFecha.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Cargar DimFecha\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Cargar DimFecha\DimFecha.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Cargar DimFecha\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Cargar DimFecha\DimFecha.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Cargar DimFecha\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar DimFecha\DimFecha.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -756,7 +756,7 @@ FROM F;</property>
           <paths>
             <path
               refId="Package\Cargar DimFecha.Paths[Salida de columna derivada]"
-              endId="Package\Cargar DimFecha\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\Cargar DimFecha\DimFecha.Inputs[Entrada de destino de OLE DB]"
               name="Salida de columna derivada"
               startId="Package\Cargar DimFecha\Columna FechaCarga.Outputs[Salida de columna derivada]" />
             <path
@@ -792,7 +792,7 @@ FROM F;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="163,42"
+          Size="162.666666666667,42"
           Id="Package\Borrar DimFecha"
           TopLeft="234,64" />
         <NodeLayout
@@ -830,11 +830,15 @@ FROM F;</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="128,42.6666666666667"
+          Id="Package\Cargar DimFecha\DimFecha"
+          TopLeft="234,262" />
+        <NodeLayout
           Size="168,42"
           Id="Package\Cargar DimFecha\Conexion a Fecha"
           TopLeft="234,67" />
         <NodeLayout
-          Size="187,42"
+          Size="186.666666666667,42"
           Id="Package\Cargar DimFecha\Columna FechaCarga"
           TopLeft="221,160" />
         <EdgeLayout
@@ -859,24 +863,32 @@ FROM F;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Cargar DimFecha\Destino de OLE DB"
-          TopLeft="234,262" />
         <EdgeLayout
           Id="Package\Cargar DimFecha.Paths[Salida de columna derivada]"
-          TopLeft="318,202">
+          TopLeft="314.333333333333,202">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-16.3333333333333,60"
               Start="0,0"
-              End="0,52.5">
+              End="-16.3333333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-12.3333333333333,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.3333333333333,30"
+                    Point2="-16.3333333333333,30"
+                    Point3="-16.3333333333333,34" />
+                  <mssgle:LineSegment
+                    End="-16.3333333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -889,15 +901,7 @@ FROM F;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar DimFecha\Conexion a Fecha">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Cargar DimFecha\Destino de OLE DB">
+    design-time-name="Package\Cargar DimFecha\DimFecha">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -906,6 +910,14 @@ FROM F;</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar DimFecha\Conexion a Fecha">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

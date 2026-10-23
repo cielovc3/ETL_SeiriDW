@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{54F25D8B-4675-498C-A0C5-281378473254}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{1EB75639-368D-4769-92F7-52CEACF24D2D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -36,13 +36,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:refId="Package\Cargar DimTipoMovimiento"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
       DTS:DTSID="{8F4C993F-D2C1-408A-89A2-271207212F9C}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:ObjectName="Cargar DimTipoMovimiento"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -50,7 +50,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Tarea Flujo de datos\Columna derivada"
+              refId="Package\Cargar DimTipoMovimiento\Columna derivada"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
@@ -58,35 +58,35 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
+                  refId="Package\Cargar DimTipoMovimiento\Columna derivada.Inputs[Entrada de columna derivada]"
                   description="Entrada en la transformación Columna derivada"
                   name="Entrada de columna derivada">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[NombreTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\Columna derivada.Inputs[Entrada de columna derivada].Columns[NombreTipoMovimiento]"
                       cachedDataType="wstr"
                       cachedLength="60"
                       cachedName="NombreTipoMovimiento"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]" />
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]"
+                  refId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada]"
                   description="Salida predeterminada de la transformación Columna derivada"
                   exclusionGroup="1"
                   name="Salida de columna derivada"
-                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Columna derivada.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Grupo]"
+                      refId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[Grupo]"
                       dataType="wstr"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
                       length="18"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Grupo]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[Grupo]"
                       name="Grupo"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -94,7 +94,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[FINDSTRING](#{Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"VENTAS",1) &gt; 0 ? "VENTA" : [FINDSTRING](#{Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"ANULACI",1) &gt; 0 ? "ANULACION DE VENTA" : [FINDSTRING](#{Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"COMPRAS",1) &gt; 0 ? "COMPRA" : [FINDSTRING](#{Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"TRANSFERENCIA",1) &gt; 0 ? "TRANSFERENCIA" : [FINDSTRING](#{Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"REGULARIZACION",1) &gt; 0 ? "AJUSTE DE STOCK" : "INVENTARIO INICIAL"</property>
+                          name="Expression">[FINDSTRING](#{Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"VENTAS",1) &gt; 0 ? "VENTA" : [FINDSTRING](#{Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"ANULACI",1) &gt; 0 ? "ANULACION DE VENTA" : [FINDSTRING](#{Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"COMPRAS",1) &gt; 0 ? "COMPRA" : [FINDSTRING](#{Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"TRANSFERENCIA",1) &gt; 0 ? "TRANSFERENCIA" : [FINDSTRING](#{Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]},"REGULARIZACION",1) &gt; 0 ? "AJUSTE DE STOCK" : "INVENTARIO INICIAL"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -104,11 +104,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]"
+                      refId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]"
                       name="FechaCarga"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -129,23 +129,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  refId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de error de columna derivada]"
                   description="Salida de error de la transformación Columna derivada"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de columna derivada"
-                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Columna derivada.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      refId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      refId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -154,7 +154,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos\DimTipoMovimiento"
+              refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
@@ -211,7 +211,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Connections[OleDbConnection]"
+                  refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Connections[OleDbConnection]"
                   connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -219,79 +219,79 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[IdTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[IdTipoMovimiento]"
                       cachedDataType="i4"
                       cachedName="IdTipoMovimiento"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]" />
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoMovimiento]"
                       cachedDataType="wstr"
                       cachedLength="60"
                       cachedName="NombreTipoMovimiento"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoMovimiento]"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]" />
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoMovimiento]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[Naturaleza]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[Naturaleza]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Naturaleza"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Naturaleza]"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Naturaleza]" />
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Naturaleza]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Naturaleza]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[Signo]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[Signo]"
                       cachedDataType="i4"
                       cachedName="Signo"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]" />
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[Grupo]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[Grupo]"
                       cachedDataType="wstr"
                       cachedLength="18"
                       cachedName="Grupo"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Grupo]" />
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[Grupo]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaCarga"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
                       dataType="i4"
                       name="IdTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoMovimiento]"
                       dataType="wstr"
                       length="60"
                       name="NombreTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Naturaleza]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Naturaleza]"
                       dataType="wstr"
                       length="10"
                       name="Naturaleza" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
                       dataType="i4"
                       name="Signo" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
                       dataType="wstr"
                       length="18"
                       name="Grupo" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       dataType="dbTimeStamp"
                       name="FechaCarga" />
                   </externalMetadataColumns>
@@ -299,22 +299,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -323,7 +323,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos\TipoMovimiento"
+              refId="Package\Cargar DimTipoMovimiento\TipoMovimiento"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
@@ -372,7 +372,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tarea Flujo de datos\TipoMovimiento.Connections[OleDbConnection]"
+                  refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Connections[OleDbConnection]"
                   connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -380,107 +380,107 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]"
                       name="IdTipoMovimiento"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoMovimiento]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoMovimiento]"
                       length="60"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]"
                       name="NombreTipoMovimiento"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Naturaleza]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Naturaleza]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Naturaleza]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Naturaleza]"
                       length="10"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Naturaleza]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Naturaleza]"
                       name="Naturaleza"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Signo]"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Signo]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]"
                       name="Signo"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoMovimiento]"
                       dataType="i4"
                       name="IdTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoMovimiento]"
                       dataType="wstr"
                       length="60"
                       name="NombreTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Naturaleza]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Naturaleza]"
                       dataType="wstr"
                       length="10"
                       name="Naturaleza" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Signo]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].ExternalColumns[Signo]"
                       dataType="i4"
                       name="Signo" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoMovimiento]"
                       name="IdTipoMovimiento" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[NombreTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[NombreTipoMovimiento]"
                       dataType="wstr"
                       length="60"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[NombreTipoMovimiento]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[NombreTipoMovimiento]"
                       name="NombreTipoMovimiento" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Naturaleza]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Naturaleza]"
                       dataType="wstr"
                       length="10"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Naturaleza]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Naturaleza]"
                       name="Naturaleza" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Signo]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Signo]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Signo]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[Signo]"
                       name="Signo" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -491,15 +491,15 @@
           </components>
           <paths>
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
-              endId="Package\Tarea Flujo de datos\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB]"
+              refId="Package\Cargar DimTipoMovimiento.Paths[Salida de columna derivada]"
+              endId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB]"
               name="Salida de columna derivada"
-              startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
+              startId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
-              endId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
+              refId="Package\Cargar DimTipoMovimiento.Paths[Salida de origen de OLE DB]"
+              endId="Package\Cargar DimTipoMovimiento\Columna derivada.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
-              startId="Package\Tarea Flujo de datos\TipoMovimiento.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -513,7 +513,7 @@
       DTS:From="Package\Borrar DimTipoMovimiento"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
-      DTS:To="Package\Tarea Flujo de datos" />
+      DTS:To="Package\Cargar DimTipoMovimiento" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -532,12 +532,12 @@
           Id="Package\Borrar DimTipoMovimiento"
           TopLeft="208.5,29.5" />
         <NodeLayout
-          Size="180,42"
-          Id="Package\Tarea Flujo de datos"
-          TopLeft="225,116" />
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\Cargar DimTipoMovimiento"
+          TopLeft="215.000000447035,116" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="314.25,71.5">
+          TopLeft="316.583333556851,71.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -561,48 +561,36 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Tarea Flujo de datos">
+    design-time-name="Package\Cargar DimTipoMovimiento">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168,42"
-          Id="Package\Tarea Flujo de datos\Columna derivada"
-          TopLeft="235,139" />
+          Id="Package\Cargar DimTipoMovimiento\Columna derivada"
+          TopLeft="226.875000363216,139" />
         <NodeLayout
           Size="176,42"
-          Id="Package\Tarea Flujo de datos\DimTipoMovimiento"
-          TopLeft="241,261" />
+          Id="Package\Cargar DimTipoMovimiento\DimTipoMovimiento"
+          TopLeft="220.375000922009,261" />
         <NodeLayout
-          Size="157,42"
-          Id="Package\Tarea Flujo de datos\TipoMovimiento"
+          Size="157.333333333334,42"
+          Id="Package\Cargar DimTipoMovimiento\TipoMovimiento"
           TopLeft="232,33" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
-          TopLeft="310.5,75">
+          Id="Package\Cargar DimTipoMovimiento.Paths[Salida de origen de OLE DB]"
+          TopLeft="310.770833514941,75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.5,64"
+              EndConnector="0,64"
               Start="0,0"
-              End="8.5,56.5">
+              End="0,56.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28"
-                    Point2="0,32"
-                    Point3="4,32" />
-                  <mssgle:LineSegment
-                    End="4.5,32" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.5,32"
-                    Point2="8.5,32"
-                    Point3="8.5,36" />
-                  <mssgle:LineSegment
-                    End="8.5,56.5" />
+                    End="0,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -612,31 +600,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
-          TopLeft="319,181">
+          Id="Package\Cargar DimTipoMovimiento.Paths[Salida de columna derivada]"
+          TopLeft="309.625000642613,181">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10,80"
+              EndConnector="0,80"
               Start="0,0"
-              End="10,72.5">
+              End="0,72.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36"
-                    Point2="0,40"
-                    Point3="4,40" />
-                  <mssgle:LineSegment
-                    End="6,40" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6,40"
-                    Point2="10,40"
-                    Point3="10,44" />
-                  <mssgle:LineSegment
-                    End="10,72.5" />
+                    End="0,72.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -649,7 +625,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\DimTipoMovimiento">
+    design-time-name="Package\Cargar DimTipoMovimiento\DimTipoMovimiento">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -662,7 +638,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\TipoMovimiento">
+    design-time-name="Package\Cargar DimTipoMovimiento\TipoMovimiento">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

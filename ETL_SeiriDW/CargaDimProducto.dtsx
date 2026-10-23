@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{306FF537-7EB2-4550-A107-6227D26BED01}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{01322A86-7AFC-413F-906E-75331722FCD8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -49,6 +49,138 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\CargaDimProducto\Categoria"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Categoria"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Categoria]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CargaDimProducto\Categoria.Connections[OleDbConnection]"
+                  connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCategoria]"
+                      lineageId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]"
+                      name="IdCategoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].Columns[NombreCategoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCategoria]"
+                      length="30"
+                      lineageId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].Columns[NombreCategoria]"
+                      name="NombreCategoria"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCategoria]"
+                      dataType="i4"
+                      name="IdCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoCategoria]"
+                      dataType="wstr"
+                      length="5"
+                      name="CodigoCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCategoria]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreCategoria" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CargaDimProducto\Categoria.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Categoria.Outputs[Salida de error de origen de OLE DB].Columns[IdCategoria]"
+                      dataType="i4"
+                      lineageId="Package\CargaDimProducto\Categoria.Outputs[Salida de error de origen de OLE DB].Columns[IdCategoria]"
+                      name="IdCategoria" />
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Categoria.Outputs[Salida de error de origen de OLE DB].Columns[NombreCategoria]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\CargaDimProducto\Categoria.Outputs[Salida de error de origen de OLE DB].Columns[NombreCategoria]"
+                      name="NombreCategoria" />
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Categoria.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CargaDimProducto\Categoria.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Categoria.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CargaDimProducto\Categoria.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\CargaDimProducto\Columna derivada"
               componentClassID="Microsoft.DerivedColumn"
@@ -1778,11 +1910,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\CargaDimProducto\Destino de DimProducto"
+              refId="Package\CargaDimProducto\DimProducto"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="Destino de DimProducto"
+              name="DimProducto"
               usesDispositions="true"
               version="4">
               <properties>
@@ -1793,7 +1925,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[DimProducto]</property>
+                  name="OpenRowset">[DimProducto]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -1835,7 +1967,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\CargaDimProducto\Destino de DimProducto.Connections[OleDbConnection]"
+                  refId="Package\CargaDimProducto\DimProducto.Connections[OleDbConnection]"
                   connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -1843,302 +1975,302 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[IdProducto]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[IdProducto]"
                       cachedDataType="i4"
                       cachedName="IdProducto"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdProducto]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[CodigoProducto]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[CodigoProducto]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="CodigoProducto"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoProducto]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoProducto]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Descripcion]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Descripcion]"
                       cachedDataType="wstr"
                       cachedLength="150"
                       cachedName="Descripcion"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripcion]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripcion]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Descripcion]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[TipoBase]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[TipoBase]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="TipoBase"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoBase]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoBase]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoBase]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Caracteristica]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Caracteristica]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Caracteristica"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Caracteristica]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Caracteristica]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Caracteristica]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Linea"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Linea]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Capacidad]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Capacidad]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Capacidad"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Capacidad]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Capacidad]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Capacidad]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Medida]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Medida]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Medida"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Medida]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Medida]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Medida]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Color]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Color]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Color"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Color]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[PrecioAlmacen]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
                       cachedPrecision="12"
                       cachedScale="4"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[PrecioVenta]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[PrecioVenta]"
                       cachedDataType="numeric"
                       cachedName="PrecioVenta"
                       cachedPrecision="12"
                       cachedScale="4"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioVenta]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioVenta]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioVenta]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockMinimo]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockMinimo]"
                       cachedDataType="numeric"
                       cachedName="StockMinimo"
                       cachedPrecision="12"
                       cachedScale="3"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockMinimo]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockMinimo]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[StockMinimo]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Estado]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Estado]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="Estado"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Estado]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreMaterial]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreMaterial]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreMaterial"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreMaterial]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreOrigen]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreOrigen]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreOrigen"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreOrigen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreOrigen]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreOrigen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[TipoOrigen]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="TipoOrigen"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoOrigen]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoOrigen]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[FechaLlegadaAlmacen]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[FechaLlegadaAlmacen]"
                       cachedDataType="dbDate"
                       cachedName="FechaLlegadaAlmacen"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaLlegadaAlmacen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoProducto]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoProducto]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="NombreTipoProducto"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoProducto]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreTipoProducto]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[MargenUnitario]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[MargenUnitario]"
                       cachedDataType="numeric"
                       cachedName="MargenUnitario"
                       cachedPrecision="12"
                       cachedScale="4"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[MargenUnitario]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[MargenUnitario]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[MargenUnitario]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[RangoPrecio]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[RangoPrecio]"
                       cachedDataType="wstr"
                       cachedLength="17"
                       cachedName="RangoPrecio"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[RangoPrecio]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[RangoPrecio]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[RangoPrecio]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockCorregido]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockCorregido]"
                       cachedDataType="numeric"
                       cachedName="StockCorregido"
                       cachedPrecision="12"
                       cachedScale="3"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[StockCorregido]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockPorActualizar]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockPorActualizar]"
                       cachedDataType="i4"
                       cachedName="StockPorActualizar"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[StockPorActualizar]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaCarga"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Categoria"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[TipoOrigen]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="TipoOrigen"
+                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoOrigen]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoOrigen]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
                       dataType="i4"
                       name="IdProducto" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoProducto]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoProducto]"
                       dataType="wstr"
                       length="20"
                       name="CodigoProducto" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripcion]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripcion]"
                       dataType="wstr"
                       length="150"
                       name="Descripcion" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoBase]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoBase]"
                       dataType="wstr"
                       length="40"
                       name="TipoBase" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Caracteristica]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Caracteristica]"
                       dataType="wstr"
                       length="40"
                       name="Caracteristica" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
                       dataType="wstr"
                       length="40"
                       name="Linea" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Capacidad]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Capacidad]"
                       dataType="wstr"
                       length="30"
                       name="Capacidad" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Medida]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Medida]"
                       dataType="wstr"
                       length="40"
                       name="Medida" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
                       dataType="wstr"
                       length="30"
                       name="Color" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
                       dataType="numeric"
                       name="PrecioAlmacen"
                       precision="12"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioVenta]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioVenta]"
                       dataType="numeric"
                       name="PrecioVenta"
                       precision="12"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockMinimo]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockMinimo]"
                       dataType="numeric"
                       name="StockMinimo"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
                       dataType="wstr"
                       length="15"
                       name="Estado" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
                       dataType="wstr"
                       length="40"
                       name="NombreMaterial" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreOrigen]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreOrigen]"
                       dataType="wstr"
                       length="40"
                       name="NombreOrigen" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoOrigen]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoOrigen]"
                       dataType="wstr"
                       length="30"
                       name="TipoOrigen" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
                       dataType="dbDate"
                       name="FechaLlegadaAlmacen" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoProducto]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoProducto]"
                       dataType="wstr"
                       length="30"
                       name="NombreTipoProducto" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[MargenUnitario]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[MargenUnitario]"
                       dataType="numeric"
                       name="MargenUnitario"
                       precision="12"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[RangoPrecio]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[RangoPrecio]"
                       dataType="wstr"
                       length="17"
                       name="RangoPrecio" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
                       dataType="numeric"
                       name="StockCorregido"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
                       dataType="i4"
                       name="StockPorActualizar" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       dataType="dbTimeStamp"
                       name="FechaCarga" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
                       dataType="wstr"
                       length="30"
                       name="Categoria" />
@@ -2147,22 +2279,154 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\CargaDimProducto\Destino de DimProducto.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Destino de DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Destino de DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CargaDimProducto\Material"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Material"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Material]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CargaDimProducto\Material.Connections[OleDbConnection]"
+                  connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMaterial]"
+                      lineageId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]"
+                      name="IdMaterial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].Columns[NombreMaterial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreMaterial]"
+                      length="40"
+                      lineageId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].Columns[NombreMaterial]"
+                      name="NombreMaterial"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMaterial]"
+                      dataType="i4"
+                      name="IdMaterial" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoMaterial]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodigoMaterial" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreMaterial]"
+                      dataType="wstr"
+                      length="40"
+                      name="NombreMaterial" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CargaDimProducto\Material.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Material.Outputs[Salida de error de origen de OLE DB].Columns[IdMaterial]"
+                      dataType="i4"
+                      lineageId="Package\CargaDimProducto\Material.Outputs[Salida de error de origen de OLE DB].Columns[IdMaterial]"
+                      name="IdMaterial" />
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Material.Outputs[Salida de error de origen de OLE DB].Columns[NombreMaterial]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\CargaDimProducto\Material.Outputs[Salida de error de origen de OLE DB].Columns[NombreMaterial]"
+                      name="NombreMaterial" />
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Material.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CargaDimProducto\Material.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Material.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CargaDimProducto\Material.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2197,7 +2461,7 @@
                       refId="Package\CargaDimProducto\Ordenar.Inputs[Entrada de ordenación].Columns[IdProducto]"
                       cachedDataType="i4"
                       cachedName="IdProducto"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdProducto]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdProducto]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2214,7 +2478,7 @@
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="CodigoProducto"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[CodigoProducto]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[CodigoProducto]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2231,7 +2495,7 @@
                       cachedDataType="wstr"
                       cachedLength="150"
                       cachedName="Descripcion"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Descripcion]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Descripcion]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2247,7 +2511,7 @@
                       refId="Package\CargaDimProducto\Ordenar.Inputs[Entrada de ordenación].Columns[IdCategoria]"
                       cachedDataType="i4"
                       cachedName="IdCategoria"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2263,7 +2527,7 @@
                       refId="Package\CargaDimProducto\Ordenar.Inputs[Entrada de ordenación].Columns[IdMaterial]"
                       cachedDataType="i4"
                       cachedName="IdMaterial"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2279,7 +2543,7 @@
                       refId="Package\CargaDimProducto\Ordenar.Inputs[Entrada de ordenación].Columns[IdOrigen]"
                       cachedDataType="i4"
                       cachedName="IdOrigen"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2295,7 +2559,7 @@
                       refId="Package\CargaDimProducto\Ordenar.Inputs[Entrada de ordenación].Columns[IdTipoProducto]"
                       cachedDataType="i4"
                       cachedName="IdTipoProducto"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2312,7 +2576,7 @@
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="TipoBase"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[TipoBase]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[TipoBase]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2329,7 +2593,7 @@
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Caracteristica"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Caracteristica]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Caracteristica]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2346,7 +2610,7 @@
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Linea"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Linea]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Linea]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2363,7 +2627,7 @@
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Capacidad"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Capacidad]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Capacidad]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2380,7 +2644,7 @@
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Medida"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Medida]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Medida]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2397,7 +2661,7 @@
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Color"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Color]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Color]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2415,7 +2679,7 @@
                       cachedName="PrecioAlmacen"
                       cachedPrecision="12"
                       cachedScale="4"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioAlmacen]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioAlmacen]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2433,7 +2697,7 @@
                       cachedName="PrecioVenta"
                       cachedPrecision="12"
                       cachedScale="4"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioVenta]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioVenta]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2451,7 +2715,7 @@
                       cachedName="StockMinimo"
                       cachedPrecision="12"
                       cachedScale="3"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[StockMinimo]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[StockMinimo]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2469,7 +2733,7 @@
                       cachedName="StockActual"
                       cachedPrecision="12"
                       cachedScale="3"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[StockActual]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[StockActual]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2486,7 +2750,7 @@
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="Estado"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Estado]">
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Estado]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2518,7 +2782,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdProducto]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdProducto]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2532,7 +2796,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[CodigoProducto]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[CodigoProducto]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2546,7 +2810,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Descripcion]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Descripcion]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2560,7 +2824,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2573,7 +2837,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2586,7 +2850,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2599,7 +2863,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2613,7 +2877,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[TipoBase]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[TipoBase]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2627,7 +2891,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Caracteristica]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Caracteristica]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2641,7 +2905,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Linea]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Linea]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2655,7 +2919,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Capacidad]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Capacidad]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2669,7 +2933,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Medida]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Medida]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2683,7 +2947,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Color]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Color]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2698,7 +2962,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioAlmacen]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioAlmacen]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2713,7 +2977,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioVenta]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioVenta]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2728,7 +2992,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[StockMinimo]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[StockMinimo]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2743,7 +3007,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[StockActual]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[StockActual]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2757,7 +3021,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Estado]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Estado]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2792,7 +3056,7 @@
                       refId="Package\CargaDimProducto\Ordenar 1.Inputs[Entrada de ordenación].Columns[IdCategoria]"
                       cachedDataType="i4"
                       cachedName="IdCategoria"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]">
+                      lineageId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2809,7 +3073,7 @@
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="NombreCategoria"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[NombreCategoria]">
+                      lineageId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].Columns[NombreCategoria]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2842,7 +3106,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2856,7 +3120,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[NombreCategoria]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB].Columns[NombreCategoria]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2891,7 +3155,7 @@
                       refId="Package\CargaDimProducto\Ordenar 2.Inputs[Entrada de ordenación].Columns[IdMaterial]"
                       cachedDataType="i4"
                       cachedName="IdMaterial"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]">
+                      lineageId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2908,7 +3172,7 @@
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreMaterial"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[NombreMaterial]">
+                      lineageId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].Columns[NombreMaterial]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2941,7 +3205,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2955,7 +3219,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[NombreMaterial]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB].Columns[NombreMaterial]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -4186,7 +4450,7 @@
                       refId="Package\CargaDimProducto\Ordenar 5.Inputs[Entrada de ordenación].Columns[IdOrigen]"
                       cachedDataType="i4"
                       cachedName="IdOrigen"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]">
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4203,7 +4467,7 @@
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreOrigen"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[NombreOrigen]">
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[NombreOrigen]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4220,7 +4484,7 @@
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="TipoOrigen"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]">
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4236,7 +4500,7 @@
                       refId="Package\CargaDimProducto\Ordenar 5.Inputs[Entrada de ordenación].Columns[FechaLlegadaAlmacen]"
                       cachedDataType="dbDate"
                       cachedName="FechaLlegadaAlmacen"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[FechaLlegadaAlmacen]">
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[FechaLlegadaAlmacen]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4269,7 +4533,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -4283,7 +4547,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[NombreOrigen]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[NombreOrigen]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -4297,7 +4561,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -4310,7 +4574,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[FechaLlegadaAlmacen]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[FechaLlegadaAlmacen]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5006,7 +5270,7 @@
                       refId="Package\CargaDimProducto\Ordenar 7.Inputs[Entrada de ordenación].Columns[IdTipoProducto]"
                       cachedDataType="i4"
                       cachedName="IdTipoProducto"
-                      lineageId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]">
+                      lineageId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5023,7 +5287,7 @@
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="NombreTipoProducto"
-                      lineageId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].Columns[NombreTipoProducto]">
+                      lineageId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].Columns[NombreTipoProducto]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5056,7 +5320,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5070,7 +5334,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].Columns[NombreTipoProducto]}</property>
+                          name="SortColumnId">#{Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].Columns[NombreTipoProducto]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5079,275 +5343,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\CargaDimProducto\Origen Categoria"
+              refId="Package\CargaDimProducto\Origen de Producto"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
-              name="Origen Categoria"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[Categoria]</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Comando SQL para ejecutar."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable que contiene el comando SQL para ejecutar."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Asignaciones entre los parámetros del comando SQL y las variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\CargaDimProducto\Origen Categoria.Connections[OleDbConnection]"
-                  connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
-                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB]"
-                  name="Salida de origen de OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCategoria]"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]"
-                      name="IdCategoria"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[NombreCategoria]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCategoria]"
-                      length="30"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].Columns[NombreCategoria]"
-                      name="NombreCategoria"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCategoria]"
-                      dataType="i4"
-                      name="IdCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      name="CodigoCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCategoria]"
-                      dataType="wstr"
-                      length="30"
-                      name="NombreCategoria" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB]"
-                  isErrorOut="true"
-                  name="Salida de error de origen de OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[IdCategoria]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[IdCategoria]"
-                      name="IdCategoria" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[NombreCategoria]"
-                      dataType="wstr"
-                      length="30"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[NombreCategoria]"
-                      name="NombreCategoria" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\CargaDimProducto\Origen Material"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
-              description="Origen de OLE DB"
-              name="Origen Material"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[Material]</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Comando SQL para ejecutar."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable que contiene el comando SQL para ejecutar."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Asignaciones entre los parámetros del comando SQL y las variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\CargaDimProducto\Origen Material.Connections[OleDbConnection]"
-                  connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
-                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB]"
-                  name="Salida de origen de OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMaterial]"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]"
-                      name="IdMaterial"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[NombreMaterial]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreMaterial]"
-                      length="40"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].Columns[NombreMaterial]"
-                      name="NombreMaterial"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMaterial]"
-                      dataType="i4"
-                      name="IdMaterial" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoMaterial]"
-                      dataType="wstr"
-                      length="10"
-                      name="CodigoMaterial" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreMaterial]"
-                      dataType="wstr"
-                      length="40"
-                      name="NombreMaterial" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB]"
-                  isErrorOut="true"
-                  name="Salida de error de origen de OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[IdMaterial]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[IdMaterial]"
-                      name="IdMaterial" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[NombreMaterial]"
-                      dataType="wstr"
-                      length="40"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[NombreMaterial]"
-                      name="NombreMaterial" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Material.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\CargaDimProducto\Origen ORIGEN"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
-              description="Origen de OLE DB"
-              name="Origen ORIGEN"
+              name="Origen de Producto"
               usesDispositions="true"
               version="7">
               <properties>
@@ -5392,7 +5392,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\CargaDimProducto\Origen ORIGEN.Connections[OleDbConnection]"
+                  refId="Package\CargaDimProducto\Origen de Producto.Connections[OleDbConnection]"
                   connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -5400,116 +5400,116 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[IdOrigen]"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdOrigen]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]"
                       name="IdOrigen"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[NombreOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[NombreOrigen]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreOrigen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreOrigen]"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[NombreOrigen]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[NombreOrigen]"
                       name="NombreOrigen"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoOrigen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoOrigen]"
                       length="30"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[TipoOrigen]"
                       name="TipoOrigen"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
                       name="FechaLlegadaAlmacen"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[IdOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdOrigen]"
                       dataType="i4"
                       name="IdOrigen" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoOrigen]"
                       dataType="wstr"
                       length="10"
                       name="CodigoOrigen" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreOrigen]"
                       dataType="wstr"
                       length="40"
                       name="NombreOrigen" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoOrigen]"
                       dataType="wstr"
                       length="30"
                       name="TipoOrigen" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaPedido]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaPedido]"
                       dataType="dbDate"
                       name="FechaPedido" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
                       dataType="dbDate"
                       name="FechaLlegadaAlmacen" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[IdOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdOrigen]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[IdOrigen]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdOrigen]"
                       name="IdOrigen" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[NombreOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[NombreOrigen]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[NombreOrigen]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[NombreOrigen]"
                       name="NombreOrigen" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[TipoOrigen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[TipoOrigen]"
                       dataType="wstr"
                       length="30"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[TipoOrigen]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[TipoOrigen]"
                       name="TipoOrigen" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
                       dataType="dbDate"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[FechaLlegadaAlmacen]"
                       name="FechaLlegadaAlmacen" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -5518,11 +5518,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\CargaDimProducto\Origen Producto"
+              refId="Package\CargaDimProducto\Producto"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
-              name="Origen Producto"
+              name="Producto"
               usesDispositions="true"
               version="7">
               <properties>
@@ -5567,7 +5567,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\CargaDimProducto\Origen Producto.Connections[OleDbConnection]"
+                  refId="Package\CargaDimProducto\Producto.Connections[OleDbConnection]"
                   connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -5575,410 +5575,410 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdProducto]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdProducto]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProducto]"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProducto]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdProducto]"
                       name="IdProducto"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[CodigoProducto]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[CodigoProducto]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoProducto]"
                       length="20"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[CodigoProducto]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[CodigoProducto]"
                       name="CodigoProducto"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Descripcion]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Descripcion]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Descripcion]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Descripcion]"
                       length="150"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Descripcion]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Descripcion]"
                       name="Descripcion"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCategoria]"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCategoria]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdCategoria]"
                       name="IdCategoria"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMaterial]"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMaterial]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdMaterial]"
                       name="IdMaterial"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdOrigen]"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdOrigen]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdOrigen]"
                       name="IdOrigen"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoProducto]"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoProducto]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]"
                       name="IdTipoProducto"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[TipoBase]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[TipoBase]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoBase]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoBase]"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[TipoBase]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[TipoBase]"
                       name="TipoBase"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Caracteristica]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Caracteristica]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Caracteristica]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Caracteristica]"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Caracteristica]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Caracteristica]"
                       name="Caracteristica"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Linea]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Linea]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Linea]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Linea]"
                       name="Linea"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Capacidad]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Capacidad]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Capacidad]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Capacidad]"
                       length="30"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Capacidad]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Capacidad]"
                       name="Capacidad"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Medida]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Medida]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Medida]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Medida]"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Medida]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Medida]"
                       name="Medida"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Color]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Color]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Color]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Color]"
                       length="30"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Color]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Color]"
                       name="Color"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioAlmacen]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioAlmacen]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioAlmacen]"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioAlmacen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioAlmacen]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioAlmacen]"
                       name="PrecioAlmacen"
                       precision="12"
                       scale="4"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioVenta]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioVenta]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioVenta]"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioVenta]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioVenta]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[PrecioVenta]"
                       name="PrecioVenta"
                       precision="12"
                       scale="4"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[StockMinimo]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[StockMinimo]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[StockMinimo]"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[StockMinimo]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[StockMinimo]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[StockMinimo]"
                       name="StockMinimo"
                       precision="12"
                       scale="3"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[StockActual]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[StockActual]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[StockActual]"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[StockActual]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[StockActual]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[StockActual]"
                       name="StockActual"
                       precision="12"
                       scale="3"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Estado]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Estado]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Estado]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Estado]"
                       length="15"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].Columns[Estado]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].Columns[Estado]"
                       name="Estado"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProducto]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProducto]"
                       dataType="i4"
                       name="IdProducto" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoProducto]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoProducto]"
                       dataType="wstr"
                       length="20"
                       name="CodigoProducto" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Descripcion]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Descripcion]"
                       dataType="wstr"
                       length="150"
                       name="Descripcion" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCategoria]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCategoria]"
                       dataType="i4"
                       name="IdCategoria" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMaterial]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMaterial]"
                       dataType="i4"
                       name="IdMaterial" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdOrigen]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdOrigen]"
                       dataType="i4"
                       name="IdOrigen" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoProducto]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoProducto]"
                       dataType="i4"
                       name="IdTipoProducto" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoBase]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoBase]"
                       dataType="wstr"
                       length="40"
                       name="TipoBase" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Caracteristica]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Caracteristica]"
                       dataType="wstr"
                       length="40"
                       name="Caracteristica" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
                       dataType="wstr"
                       length="40"
                       name="Linea" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Capacidad]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Capacidad]"
                       dataType="wstr"
                       length="30"
                       name="Capacidad" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Medida]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Medida]"
                       dataType="wstr"
                       length="40"
                       name="Medida" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Color]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Color]"
                       dataType="wstr"
                       length="30"
                       name="Color" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[UnidadMedida]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[UnidadMedida]"
                       dataType="wstr"
                       length="15"
                       name="UnidadMedida" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioAlmacen]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioAlmacen]"
                       dataType="numeric"
                       name="PrecioAlmacen"
                       precision="12"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioVenta]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioVenta]"
                       dataType="numeric"
                       name="PrecioVenta"
                       precision="12"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[StockMinimo]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[StockMinimo]"
                       dataType="numeric"
                       name="StockMinimo"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[StockActual]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[StockActual]"
                       dataType="numeric"
                       name="StockActual"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Estado]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB].ExternalColumns[Estado]"
                       dataType="wstr"
                       length="15"
                       name="Estado" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdProducto]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdProducto]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdProducto]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdProducto]"
                       name="IdProducto" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[CodigoProducto]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[CodigoProducto]"
                       dataType="wstr"
                       length="20"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[CodigoProducto]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[CodigoProducto]"
                       name="CodigoProducto" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Descripcion]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Descripcion]"
                       dataType="wstr"
                       length="150"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Descripcion]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Descripcion]"
                       name="Descripcion" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdCategoria]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdCategoria]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdCategoria]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdCategoria]"
                       name="IdCategoria" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdMaterial]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdMaterial]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdMaterial]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdMaterial]"
                       name="IdMaterial" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdOrigen]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdOrigen]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdOrigen]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdOrigen]"
                       name="IdOrigen" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoProducto]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoProducto]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoProducto]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoProducto]"
                       name="IdTipoProducto" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[TipoBase]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[TipoBase]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[TipoBase]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[TipoBase]"
                       name="TipoBase" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Caracteristica]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Caracteristica]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Caracteristica]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Caracteristica]"
                       name="Caracteristica" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
                       name="Linea" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Capacidad]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Capacidad]"
                       dataType="wstr"
                       length="30"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Capacidad]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Capacidad]"
                       name="Capacidad" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Medida]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Medida]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Medida]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Medida]"
                       name="Medida" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Color]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Color]"
                       dataType="wstr"
                       length="30"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Color]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Color]"
                       name="Color" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[PrecioAlmacen]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[PrecioAlmacen]"
                       dataType="numeric"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[PrecioAlmacen]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[PrecioAlmacen]"
                       name="PrecioAlmacen"
                       precision="12"
                       scale="4" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[PrecioVenta]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[PrecioVenta]"
                       dataType="numeric"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[PrecioVenta]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[PrecioVenta]"
                       name="PrecioVenta"
                       precision="12"
                       scale="4" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[StockMinimo]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[StockMinimo]"
                       dataType="numeric"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[StockMinimo]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[StockMinimo]"
                       name="StockMinimo"
                       precision="12"
                       scale="3" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[StockActual]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[StockActual]"
                       dataType="numeric"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[StockActual]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[StockActual]"
                       name="StockActual"
                       precision="12"
                       scale="3" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Estado]"
+                      refId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Estado]"
                       dataType="wstr"
                       length="15"
-                      lineageId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de error de origen de OLE DB].Columns[Estado]"
+                      lineageId="Package\CargaDimProducto\Producto.Outputs[Salida de error de origen de OLE DB].Columns[Estado]"
                       name="Estado" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -5986,11 +5986,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\CargaDimProducto\Origen TipoProducto"
+              refId="Package\CargaDimProducto\TipoProducto"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
-              name="Origen TipoProducto"
+              name="TipoProducto"
               usesDispositions="true"
               version="7">
               <properties>
@@ -6035,7 +6035,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\CargaDimProducto\Origen TipoProducto.Connections[OleDbConnection]"
+                  refId="Package\CargaDimProducto\TipoProducto.Connections[OleDbConnection]"
                   connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -6043,68 +6043,68 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]"
+                      refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoProducto]"
-                      lineageId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoProducto]"
+                      lineageId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].Columns[IdTipoProducto]"
                       name="IdTipoProducto"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].Columns[NombreTipoProducto]"
+                      refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].Columns[NombreTipoProducto]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoProducto]"
                       length="30"
-                      lineageId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].Columns[NombreTipoProducto]"
+                      lineageId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].Columns[NombreTipoProducto]"
                       name="NombreTipoProducto"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoProducto]"
+                      refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoProducto]"
                       dataType="i4"
                       name="IdTipoProducto" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoProducto]"
+                      refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreTipoProducto]"
                       dataType="wstr"
                       length="30"
                       name="NombreTipoProducto" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoProducto]"
+                      refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoProducto]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoProducto]"
+                      lineageId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoProducto]"
                       name="IdTipoProducto" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[NombreTipoProducto]"
+                      refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[NombreTipoProducto]"
                       dataType="wstr"
                       length="30"
-                      lineageId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[NombreTipoProducto]"
+                      lineageId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[NombreTipoProducto]"
                       name="NombreTipoProducto" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6542,7 +6542,7 @@
           <paths>
             <path
               refId="Package\CargaDimProducto.Paths[Salida de columna derivada]"
-              endId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB]"
               name="Salida de columna derivada"
               startId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
@@ -6609,27 +6609,27 @@
               refId="Package\CargaDimProducto.Paths[Salida de origen de OLE DB]"
               endId="Package\CargaDimProducto\Ordenar 5.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
-              startId="Package\CargaDimProducto\Origen ORIGEN.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\CargaDimProducto\Origen de Producto.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de origen de OLE DB1]"
               endId="Package\CargaDimProducto\Ordenar 2.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
-              startId="Package\CargaDimProducto\Origen Material.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\CargaDimProducto\Material.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de origen de OLE DB2]"
               endId="Package\CargaDimProducto\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
-              startId="Package\CargaDimProducto\Origen Producto.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\CargaDimProducto\Producto.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de origen de OLE DB3]"
               endId="Package\CargaDimProducto\Ordenar 7.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
-              startId="Package\CargaDimProducto\Origen TipoProducto.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\CargaDimProducto\TipoProducto.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de origen de OLE DB4]"
               endId="Package\CargaDimProducto\Ordenar 1.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
-              startId="Package\CargaDimProducto\Origen Categoria.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\CargaDimProducto\Categoria.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -6662,35 +6662,23 @@
           Id="Package\Borrar DimProducto"
           TopLeft="259.166652506425,66.7333328692781" />
         <NodeLayout
-          Size="167,42"
+          Size="166.666666666667,42"
           Id="Package\CargaDimProducto"
-          TopLeft="270.833318535653,149.933332290716" />
+          TopLeft="266.458318731231,149.933332290716" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="344.366652506425,108.333332869278">
+          TopLeft="346.979152285495,108.733332869278">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.0666660292282,41.5999994214376"
+              EndConnector="0,41.1999994214379"
               Start="0,0"
-              End="10.0666660292282,34.0999994214376">
+              End="0,33.6999994214379">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.7999997107188" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.7999997107188"
-                    Point2="0,20.7999997107188"
-                    Point3="4,20.7999997107188" />
-                  <mssgle:LineSegment
-                    End="6.0666660292282,20.7999997107188" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.0666660292282,20.7999997107188"
-                    Point2="10.0666660292282,20.7999997107188"
-                    Point3="10.0666660292282,24.7999997107188" />
-                  <mssgle:LineSegment
-                    End="10.0666660292282,34.0999994214376" />
+                    End="0,33.6999994214379" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6708,8 +6696,8 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="154,42"
-          Id="Package\CargaDimProducto\Origen Producto"
+          Size="122.666666666667,42.6666666666667"
+          Id="Package\CargaDimProducto\Producto"
           TopLeft="140.83332563854,44.1999996926387" />
         <NodeLayout
           Size="128,42"
@@ -6720,31 +6708,31 @@
           Id="Package\CargaDimProducto\Combinación de mezcla 2"
           TopLeft="614.466638164058,769.799997233749" />
         <NodeLayout
-          Size="174,42"
-          Id="Package\CargaDimProducto\Origen TipoProducto"
+          Size="142.666666666667,42.6666666666667"
+          Id="Package\CargaDimProducto\TipoProducto"
           TopLeft="759.499959158402,609.333331187831" />
         <NodeLayout
-          Size="191,42"
-          Id="Package\CargaDimProducto\Destino de DimProducto"
-          TopLeft="595.8999728178,957.999997287989" />
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\CargaDimProducto\DimProducto"
+          TopLeft="630.899971253178,955.947365731579" />
         <NodeLayout
-          Size="125,42"
+          Size="125.333333333334,42"
           Id="Package\CargaDimProducto\Ordenar 6"
           TopLeft="531.366640212967,684.999997450709" />
         <NodeLayout
-          Size="125,42"
+          Size="125.333333333334,42"
           Id="Package\CargaDimProducto\Ordenar 7"
           TopLeft="758.866627782916,690.599997739991" />
         <NodeLayout
-          Size="117,42"
+          Size="117.333333333334,42"
           Id="Package\CargaDimProducto\Ordenar"
           TopLeft="140.83332563854,143.866665666236" />
         <NodeLayout
-          Size="125,42"
+          Size="125.333333333334,42"
           Id="Package\CargaDimProducto\Ordenar 2"
           TopLeft="527.499971178672,342.33333095279" />
         <NodeLayout
-          Size="125,42"
+          Size="125.333333333334,42"
           Id="Package\CargaDimProducto\Ordenar 4"
           TopLeft="395.533312115737,523.066664002869" />
         <NodeLayout
@@ -6756,21 +6744,21 @@
           Id="Package\CargaDimProducto\Combinación de mezcla"
           TopLeft="365.833313345082,434.199996980627" />
         <NodeLayout
-          Size="150,42"
-          Id="Package\CargaDimProducto\Origen Material"
+          Size="117.333333333334,42.6666666666667"
+          Id="Package\CargaDimProducto\Material"
           TopLeft="535.833304056692,252.199998246233" />
         <NodeLayout
-          Size="154,42"
-          Id="Package\CargaDimProducto\Origen ORIGEN"
-          TopLeft="676.666629695232,436.033331169751" />
+          Size="172,42.6666666666667"
+          Id="Package\CargaDimProducto\Origen de Producto"
+          TopLeft="656.041630617241,412.770173530439" />
         <NodeLayout
-          Size="125,42"
+          Size="125.333333333334,42"
           Id="Package\CargaDimProducto\Ordenar 1"
           TopLeft="377.49997937431,151.666665611996" />
         <NodeLayout
-          Size="125,42"
+          Size="125.333333333334,42"
           Id="Package\CargaDimProducto\Ordenar 5"
-          TopLeft="657.199964485567,517.799997739991" />
+          TopLeft="679.699963479739,516.431576702384" />
         <NodeLayout
           Size="162,42"
           Id="Package\CargaDimProducto\Columna derivada"
@@ -6780,23 +6768,23 @@
           Id="Package\CargaDimProducto\Combinación de mezcla 1"
           TopLeft="487.499973364176,612.133332164155" />
         <NodeLayout
-          Size="158,42"
-          Id="Package\CargaDimProducto\Origen Categoria"
-          TopLeft="364.99998005728,51.9999996383985" />
+          Size="125.333333333334,42.6666666666667"
+          Id="Package\CargaDimProducto\Categoria"
+          TopLeft="383.74997921909,48.578947044382" />
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB4]"
-          TopLeft="441.849979715795,93.5999996383985">
+          TopLeft="443.291645963367,91.2456137110487">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.0666659735971"
+              EndConnector="0,60.4210519009473"
               Start="0,0"
-              End="0,50.5666659735971">
+              End="0,52.9210519009473">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.5666659735971" />
+                    End="0,52.9210519009473" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6807,30 +6795,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB3]"
-          TopLeft="846.699959158402,650.933331187831">
+          TopLeft="830.833292491735,651.999997854498">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-25.4333313754867,39.6666665521597"
+              EndConnector="-9.29999804215277,38.5999998854933"
               Start="0,0"
-              End="-25.4333313754867,32.1666665521597">
+              End="-9.29999804215277,31.0999998854933">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.8333332760798" />
+                    End="0,15.2999999427466" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.8333332760798"
-                    Point2="0,19.8333332760798"
-                    Point3="-4,19.8333332760798" />
+                    Point1="0,15.2999999427466"
+                    Point2="0,19.2999999427466"
+                    Point3="-4,19.2999999427466" />
                   <mssgle:LineSegment
-                    End="-21.4333313754867,19.8333332760798" />
+                    End="-5.29999804215277,19.2999999427466" />
                   <mssgle:CubicBezierSegment
-                    Point1="-21.4333313754867,19.8333332760798"
-                    Point2="-25.4333313754867,19.8333332760798"
-                    Point3="-25.4333313754867,23.8333332760798" />
+                    Point1="-5.29999804215277,19.2999999427466"
+                    Point2="-9.29999804215277,19.2999999427466"
+                    Point3="-9.29999804215277,23.2999999427466" />
                   <mssgle:LineSegment
-                    End="-25.4333313754867,32.1666665521597" />
+                    End="-9.29999804215277,31.0999998854933" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6841,30 +6829,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB2]"
-          TopLeft="218.03332563854,85.7999996926387">
+          TopLeft="200.83332563854,86.8666663593054">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-18.8,58.0666659735971"
+              EndConnector="0,56.9999993069306"
               Start="0,0"
-              End="-18.8,50.5666659735971">
+              End="0,49.4999993069306">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.0333329867986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.0333329867986"
-                    Point2="0,29.0333329867986"
-                    Point3="-4,29.0333329867986" />
-                  <mssgle:LineSegment
-                    End="-14.8,29.0333329867986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-14.8,29.0333329867986"
-                    Point2="-18.8,29.0333329867986"
-                    Point3="-18.8,33.0333329867986" />
-                  <mssgle:LineSegment
-                    End="-18.8,50.5666659735971" />
+                    End="0,49.4999993069306" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6875,30 +6851,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB1]"
-          TopLeft="610.633304056692,293.799998246233">
+          TopLeft="592.333304284349,294.8666649129">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-20.7333328780201,48.5333327065574"
+              EndConnector="0,47.4666660398904"
               Start="0,0"
-              End="-20.7333328780201,41.0333327065574">
+              End="0,39.9666660398904">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2666663532787" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2666663532787"
-                    Point2="0,24.2666663532787"
-                    Point3="-4,24.2666663532787" />
-                  <mssgle:LineSegment
-                    End="-16.7333328780201,24.2666663532787" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-16.7333328780201,24.2666663532787"
-                    Point2="-20.7333328780201,24.2666663532787"
-                    Point3="-20.7333328780201,28.2666663532787" />
-                  <mssgle:LineSegment
-                    End="-20.7333328780201,41.0333327065574" />
+                    End="0,39.9666660398904" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6909,30 +6873,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB]"
-          TopLeft="753.666629695232,478.033331169751">
+          TopLeft="742.204130381823,455.436840197106">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-33.9666652096651,39.76666657024"
+              EndConnector="0,60.9947365052787"
               Start="0,0"
-              End="-33.9666652096651,32.26666657024">
+              End="0,53.4947365052787">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.88333328512" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.88333328512"
-                    Point2="0,19.88333328512"
-                    Point3="-4,19.88333328512" />
-                  <mssgle:LineSegment
-                    End="-29.9666652096651,19.88333328512" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-29.9666652096651,19.88333328512"
-                    Point2="-33.9666652096651,19.88333328512"
-                    Point3="-33.9666652096651,23.88333328512" />
-                  <mssgle:LineSegment
-                    End="-33.9666652096651,32.26666657024" />
+                    End="0,53.4947365052787" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7181,30 +7133,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación]"
-          TopLeft="719.599964485567,559.399997739991">
+          TopLeft="742.366630146405,558.431576702384">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-101.699991121391,52.7333344241645"
+              EndConnector="-124.199990115563,53.7017554617706"
               Start="0,0"
-              End="-101.699991121391,45.2333344241645">
+              End="-124.199990115563,46.2017554617706">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.3858641030569" />
+                    End="0,27.9627682808535" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.3858641030569"
-                    Point2="0,31.3858641030569"
-                    Point3="-4,31.3858641030569" />
+                    Point1="0,27.9627682808535"
+                    Point2="0,31.9627682808535"
+                    Point3="-4,31.9627682808535" />
                   <mssgle:LineSegment
-                    End="-97.6999911213915,31.3858641030569" />
+                    End="-120.199990115563,31.9627682808535" />
                   <mssgle:CubicBezierSegment
-                    Point1="-97.6999911213915,31.3858641030569"
-                    Point2="-101.699991121391,31.3858641030569"
-                    Point3="-101.699991121391,35.3858641030569" />
+                    Point1="-120.199990115563,31.9627682808535"
+                    Point2="-124.199990115563,31.9627682808535"
+                    Point3="-124.199990115563,35.9627682808535" />
                   <mssgle:LineSegment
-                    End="-101.699991121391,45.2333344241645" />
+                    End="-124.199990115563,46.2017554617706" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7315,30 +7267,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de columna derivada]"
-          TopLeft="705.433304603068,903.266663984789">
+          TopLeft="703.399971261456,903.666663984789">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.9333317852683,54.7333333032"
+              EndConnector="0,52.2807017467901"
               Start="0,0"
-              End="-13.9333317852683,47.2333333032">
+              End="0,44.7807017467901">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.3666666516" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.3666666516"
-                    Point2="0,27.3666666516"
-                    Point3="-4,27.3666666516" />
-                  <mssgle:LineSegment
-                    End="-9.93333178526825,27.3666666516" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.93333178526825,27.3666666516"
-                    Point2="-13.9333317852683,27.3666666516"
-                    Point3="-13.9333317852683,31.3666666516" />
-                  <mssgle:LineSegment
-                    End="-13.9333317852683,47.2333333032" />
+                    End="0,44.7807017467901" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7351,7 +7291,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen Producto">
+    design-time-name="Package\CargaDimProducto\Producto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7364,7 +7304,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen TipoProducto">
+    design-time-name="Package\CargaDimProducto\TipoProducto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7377,7 +7317,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Destino de DimProducto">
+    design-time-name="Package\CargaDimProducto\DimProducto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7390,7 +7330,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen Material">
+    design-time-name="Package\CargaDimProducto\Material">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7403,7 +7343,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen ORIGEN">
+    design-time-name="Package\CargaDimProducto\Origen de Producto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7416,7 +7356,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen Categoria">
+    design-time-name="Package\CargaDimProducto\Categoria">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
