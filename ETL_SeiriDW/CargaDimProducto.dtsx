@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{3C205611-1650-41F9-8087-20312ECEA637}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{EF74D2D4-C6F4-4CB9-94D2-CBFD54DCE883}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -2197,7 +2197,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[DimProducto]</property>
+                  name="OpenRowset">[Destino de DimProducto]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -2240,8 +2240,8 @@
               <connections>
                 <connection
                   refId="Package\CargaDimProducto\Destino de DimProducto.Connections[OleDbConnection]"
-                  connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
+                  connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -2253,12 +2253,6 @@
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[IdMaterial]"
-                      cachedDataType="i4"
-                      cachedName="IdMaterial"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMaterial]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdMaterial]" />
                     <inputColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[IdProducto]"
                       cachedDataType="i4"
@@ -2322,13 +2316,6 @@
                       externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Color]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[UnidadMedida]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="UnidadMedida"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnidadMedida]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[UnidadMedida]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
@@ -2353,14 +2340,6 @@
                       externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockMinimo]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[StockMinimo]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockActual]"
-                      cachedDataType="numeric"
-                      cachedName="StockActual"
-                      cachedPrecision="12"
-                      cachedScale="3"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockActual]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[StockActual]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Estado]"
                       cachedDataType="wstr"
                       cachedLength="15"
@@ -2368,52 +2347,12 @@
                       externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Estado]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[IdCategoria]"
-                      cachedDataType="i4"
-                      cachedName="IdCategoria"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCategoria]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdCategoria]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[CodigoCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CodigoCategoria"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoCategoria]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoCategoria]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreCategoria]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="NombreCategoria"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCategoria]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[CodigoMaterial]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoMaterial"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoMaterial]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoMaterial]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreMaterial]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreMaterial"
                       externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreMaterial]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[IdOrigen]"
-                      cachedDataType="i4"
-                      cachedName="IdOrigen"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdOrigen]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdOrigen]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[CodigoOrigen]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CodigoOrigen"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoOrigen]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoOrigen]" />
                     <inputColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreOrigen]"
                       cachedDataType="wstr"
@@ -2429,24 +2368,11 @@
                       externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoOrigen]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoOrigen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[FechaPedido]"
-                      cachedDataType="dbDate"
-                      cachedName="FechaPedido"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaPedido]" />
-                    <inputColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[FechaLlegadaAlmacen]"
                       cachedDataType="dbDate"
                       cachedName="FechaLlegadaAlmacen"
                       externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaLlegadaAlmacen]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[IdTipoProducto]"
-                      cachedDataType="i4"
-                      cachedName="IdTipoProducto"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoProducto]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdTipoProducto]" />
                     <inputColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoProducto]"
                       cachedDataType="wstr"
@@ -2489,13 +2415,16 @@
                       cachedName="FechaCarga"
                       externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreCategoria"
+                      externalMetadataColumnId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMaterial]"
-                      dataType="i4"
-                      name="IdMaterial" />
                     <externalMetadataColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
                       dataType="i4"
@@ -2541,11 +2470,6 @@
                       length="30"
                       name="Color" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnidadMedida]"
-                      dataType="wstr"
-                      length="15"
-                      name="UnidadMedida" />
-                    <externalMetadataColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
                       dataType="numeric"
                       name="PrecioAlmacen"
@@ -2564,49 +2488,15 @@
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockActual]"
-                      dataType="numeric"
-                      name="StockActual"
-                      precision="12"
-                      scale="3" />
-                    <externalMetadataColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
                       dataType="wstr"
                       length="15"
                       name="Estado" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCategoria]"
-                      dataType="i4"
-                      name="IdCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoCategoria]"
-                      dataType="wstr"
-                      length="5"
-                      name="CodigoCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCategoria]"
-                      dataType="wstr"
-                      length="30"
-                      name="NombreCategoria" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoMaterial]"
-                      dataType="wstr"
-                      length="10"
-                      name="CodigoMaterial" />
-                    <externalMetadataColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
                       dataType="wstr"
                       length="40"
                       name="NombreMaterial" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdOrigen]"
-                      dataType="i4"
-                      name="IdOrigen" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoOrigen]"
-                      dataType="wstr"
-                      length="10"
-                      name="CodigoOrigen" />
                     <externalMetadataColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreOrigen]"
                       dataType="wstr"
@@ -2618,17 +2508,9 @@
                       length="30"
                       name="TipoOrigen" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
-                      dataType="dbDate"
-                      name="FechaPedido" />
-                    <externalMetadataColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
                       dataType="dbDate"
                       name="FechaLlegadaAlmacen" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoProducto]"
-                      dataType="i4"
-                      name="IdTipoProducto" />
                     <externalMetadataColumn
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoProducto]"
                       dataType="wstr"
@@ -2659,6 +2541,11 @@
                       refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       dataType="dbTimeStamp"
                       name="FechaCarga" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Destino de DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="30"
+                      name="Categoria" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -7855,44 +7742,44 @@
               startId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de ordenación7]"
-              endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
+              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación]" />
+              startId="Package\CargaDimProducto\Ordenar 7.Outputs[Salida de ordenación]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de ordenación6]"
-              endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación5]"
-              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación4]"
-              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación3]"
-              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación2]"
-              endId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 1.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación1]"
               endId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación]"
-              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada derecha de combinación de mezcla]"
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación5]"
+              endId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 7.Outputs[Salida de ordenación]" />
+              startId="Package\CargaDimProducto\Ordenar 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación4]"
+              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación3]"
+              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación2]"
+              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación1]"
+              endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación]"
+              endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de origen de OLE DB]"
               endId="Package\CargaDimProducto\Ordenar 5.Inputs[Entrada de ordenación]"
@@ -8073,108 +7960,6 @@
           TopLeft="527.499971178672,342.33333095279" />
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación5]"
-          TopLeft="388.233315530586,387.733331404792">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="42.1333311478297,46.4666655758354"
-              Start="0,0"
-              End="42.1333311478297,38.9666655758354">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.6466939116477" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.6466939116477"
-                    Point2="0,27.6466939116477"
-                    Point3="4,27.6466939116477" />
-                  <mssgle:LineSegment
-                    End="38.1333311478297,27.6466939116477" />
-                  <mssgle:CubicBezierSegment
-                    Point1="38.1333311478297,27.6466939116477"
-                    Point2="42.1333311478297,27.6466939116477"
-                    Point3="42.1333311478297,31.6466939116477" />
-                  <mssgle:LineSegment
-                    End="42.1333311478297,38.9666655758354" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación4]"
-          TopLeft="589.899971178672,383.93333095279">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-98.999991166923,50.2666660278373"
-              Start="0,0"
-              End="-98.999991166923,42.7666660278373">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.9076146826714" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.9076146826714"
-                    Point2="0,29.9076146826714"
-                    Point3="-4,29.9076146826714" />
-                  <mssgle:LineSegment
-                    End="-94.999991166923,29.9076146826714" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-94.999991166923,29.9076146826714"
-                    Point2="-98.999991166923,29.9076146826714"
-                    Point3="-98.999991166923,33.9076146826714" />
-                  <mssgle:LineSegment
-                    End="-98.999991166923,42.7666660278373" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación3]"
-          TopLeft="593.766640212967,726.599997450709">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="119.49999795109,43.1999997830392"
-              Start="0,0"
-              End="119.49999795109,35.6999997830392">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5999998915196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.5999998915196"
-                    Point2="0,21.5999998915196"
-                    Point3="4,21.5999998915196" />
-                  <mssgle:LineSegment
-                    End="115.49999795109,21.5999998915196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="115.49999795109,21.5999998915196"
-                    Point2="119.49999795109,21.5999998915196"
-                    Point3="119.49999795109,25.5999998915196" />
-                  <mssgle:LineSegment
-                    End="119.49999795109,35.6999997830392" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación2]"
           TopLeft="439.89997937431,193.266665611996">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8208,31 +7993,133 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación1]"
-          TopLeft="199.23332563854,185.466665666236">
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación4]"
+          TopLeft="593.766640212967,726.599997450709">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="110.633326822354,66.7333325799968"
+              EndConnector="119.49999795109,43.1999997830392"
               Start="0,0"
-              End="110.633326822354,59.2333325799968">
+              End="119.49999795109,35.6999997830392">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.6047821616068" />
+                    End="0,17.5999998915196" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.6047821616068"
-                    Point2="0,39.6047821616068"
-                    Point3="4,39.6047821616068" />
+                    Point1="0,17.5999998915196"
+                    Point2="0,21.5999998915196"
+                    Point3="4,21.5999998915196" />
                   <mssgle:LineSegment
-                    End="106.633326822354,39.6047821616068" />
+                    End="115.49999795109,21.5999998915196" />
                   <mssgle:CubicBezierSegment
-                    Point1="106.633326822354,39.6047821616068"
-                    Point2="110.633326822354,39.6047821616068"
-                    Point3="110.633326822354,43.6047821616068" />
+                    Point1="115.49999795109,21.5999998915196"
+                    Point2="119.49999795109,21.5999998915196"
+                    Point3="119.49999795109,25.5999998915196" />
                   <mssgle:LineSegment
-                    End="110.633326822354,59.2333325799968" />
+                    End="119.49999795109,35.6999997830392" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación3]"
+          TopLeft="589.899971178672,383.93333095279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-98.999991166923,50.2666660278373"
+              Start="0,0"
+              End="-98.999991166923,42.7666660278373">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9076146826714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9076146826714"
+                    Point2="0,29.9076146826714"
+                    Point3="-4,29.9076146826714" />
+                  <mssgle:LineSegment
+                    End="-94.999991166923,29.9076146826714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-94.999991166923,29.9076146826714"
+                    Point2="-98.999991166923,29.9076146826714"
+                    Point3="-98.999991166923,33.9076146826714" />
+                  <mssgle:LineSegment
+                    End="-98.999991166923,42.7666660278373" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación2]"
+          TopLeft="388.233315530586,387.733331404792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.1333311478297,46.4666655758354"
+              Start="0,0"
+              End="42.1333311478297,38.9666655758354">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6466939116477" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.6466939116477"
+                    Point2="0,27.6466939116477"
+                    Point3="4,27.6466939116477" />
+                  <mssgle:LineSegment
+                    End="38.1333311478297,27.6466939116477" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.1333311478297,27.6466939116477"
+                    Point2="42.1333311478297,27.6466939116477"
+                    Point3="42.1333311478297,31.6466939116477" />
+                  <mssgle:LineSegment
+                    End="42.1333311478297,38.9666655758354" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación1]"
+          TopLeft="457.933312115736,564.666664002869">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.366661248439,47.4666681612862"
+              Start="0,0"
+              End="128.366661248439,39.9666681612862">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7333340806431" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.7333340806431"
+                    Point2="0,23.7333340806431"
+                    Point3="4,23.7333340806431" />
+                  <mssgle:LineSegment
+                    End="124.366661248439,23.7333340806431" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.366661248439,23.7333340806431"
+                    Point2="128.366661248439,23.7333340806431"
+                    Point3="128.366661248439,27.7333340806431" />
+                  <mssgle:LineSegment
+                    End="128.366661248439,39.9666681612862" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8243,30 +8130,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación]"
-          TopLeft="821.266627782916,732.199997739991">
+          TopLeft="719.599964485567,559.399997739991">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-76.3999896188581,37.5999994937579"
+              EndConnector="-101.699991121391,52.7333344241645"
               Start="0,0"
-              End="-76.3999896188581,30.0999994937579">
+              End="-101.699991121391,45.2333344241645">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.3787948794173" />
+                    End="0,27.3858641030569" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.3787948794173"
-                    Point2="0,22.3787948794173"
-                    Point3="-4,22.3787948794173" />
+                    Point1="0,27.3858641030569"
+                    Point2="0,31.3858641030569"
+                    Point3="-4,31.3858641030569" />
                   <mssgle:LineSegment
-                    End="-72.3999896188581,22.3787948794173" />
+                    End="-97.6999911213915,31.3858641030569" />
                   <mssgle:CubicBezierSegment
-                    Point1="-72.3999896188581,22.3787948794173"
-                    Point2="-76.3999896188581,22.3787948794173"
-                    Point3="-76.3999896188581,26.3787948794173" />
+                    Point1="-97.6999911213915,31.3858641030569"
+                    Point2="-101.699991121391,31.3858641030569"
+                    Point3="-101.699991121391,35.3858641030569" />
                   <mssgle:LineSegment
-                    End="-76.3999896188581,30.0999994937579" />
+                    End="-101.699991121391,45.2333344241645" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8569,30 +8456,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación7]"
-          TopLeft="719.599964485567,559.399997739991">
+          TopLeft="821.266627782916,732.199997739991">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-101.699991121391,52.7333344241645"
+              EndConnector="-76.3999896188581,37.5999994937579"
               Start="0,0"
-              End="-101.699991121391,45.2333344241645">
+              End="-76.3999896188581,30.0999994937579">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.3858641030569" />
+                    End="0,18.3787948794173" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.3858641030569"
-                    Point2="0,31.3858641030569"
-                    Point3="-4,31.3858641030569" />
+                    Point1="0,18.3787948794173"
+                    Point2="0,22.3787948794173"
+                    Point3="-4,22.3787948794173" />
                   <mssgle:LineSegment
-                    End="-97.6999911213915,31.3858641030569" />
+                    End="-72.3999896188581,22.3787948794173" />
                   <mssgle:CubicBezierSegment
-                    Point1="-97.6999911213915,31.3858641030569"
-                    Point2="-101.699991121391,31.3858641030569"
-                    Point3="-101.699991121391,35.3858641030569" />
+                    Point1="-72.3999896188581,22.3787948794173"
+                    Point2="-76.3999896188581,22.3787948794173"
+                    Point3="-76.3999896188581,26.3787948794173" />
                   <mssgle:LineSegment
-                    End="-101.699991121391,45.2333344241645" />
+                    End="-76.3999896188581,30.0999994937579" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8603,30 +8490,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación6]"
-          TopLeft="457.933312115736,564.666664002869">
+          TopLeft="199.23332563854,185.466665666236">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="128.366661248439,47.4666681612862"
+              EndConnector="110.633326822354,66.7333325799968"
               Start="0,0"
-              End="128.366661248439,39.9666681612862">
+              End="110.633326822354,59.2333325799968">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7333340806431" />
+                    End="0,35.6047821616068" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.7333340806431"
-                    Point2="0,23.7333340806431"
-                    Point3="4,23.7333340806431" />
+                    Point1="0,35.6047821616068"
+                    Point2="0,39.6047821616068"
+                    Point3="4,39.6047821616068" />
                   <mssgle:LineSegment
-                    End="124.366661248439,23.7333340806431" />
+                    End="106.633326822354,39.6047821616068" />
                   <mssgle:CubicBezierSegment
-                    Point1="124.366661248439,23.7333340806431"
-                    Point2="128.366661248439,23.7333340806431"
-                    Point3="128.366661248439,27.7333340806431" />
+                    Point1="106.633326822354,39.6047821616068"
+                    Point2="110.633326822354,39.6047821616068"
+                    Point3="110.633326822354,43.6047821616068" />
                   <mssgle:LineSegment
-                    End="128.366661248439,39.9666681612862" />
+                    End="110.633326822354,59.2333325799968" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
