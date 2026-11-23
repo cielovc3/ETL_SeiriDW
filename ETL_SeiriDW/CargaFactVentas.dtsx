@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="100"
-  DTS:VersionGUID="{4450CEE9-4751-4D9E-BABC-C6DB97CC1049}">
+  DTS:VersionBuild="105"
+  DTS:VersionGUID="{73B30A3A-27F9-45F8-AD6A-05EE95D017A8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -209,6 +209,165 @@ where [refTable].[IdProducto] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Cargar FactVentas\Búsqueda 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[TipoComprobante]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[TipoComprobante]) [refTable]
+where [refTable].[IdTipoComprobante] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IdTipoComprobante" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NombreTipoComprobante" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Serie" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CodigoSunat" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar FactVentas\Búsqueda 1.Connections[OleDbConnection]"
+                  connectionManagerID="{1388B750-1C80-4E26-BED4-B1B075E4C26C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDB]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar FactVentas\Búsqueda 1.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\Búsqueda 1.Inputs[Entrada de búsqueda].Columns[IdTipoComprobante]"
+                      cachedDataType="i4"
+                      cachedName="IdTipoComprobante"
+                      lineageId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">IdTipoComprobante</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Cargar FactVentas\Búsqueda 1.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NombreTipoComprobante]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copiar columna"
+                      length="30"
+                      lineageId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NombreTipoComprobante]"
+                      name="NombreTipoComprobante"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">NombreTipoComprobante</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Cargar FactVentas\Búsqueda 1.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Cargar FactVentas\Búsqueda 1.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Cargar FactVentas\Columna derivada"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
@@ -247,6 +406,17 @@ where [refTable].[IdProducto] = ?</property>
                       cachedPrecision="12"
                       cachedScale="4"
                       lineageId="Package\Cargar FactVentas\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[PrecioAlmacen]" />
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\Columna derivada.Inputs[Entrada de columna derivada].Columns[Serie]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Serie"
+                      lineageId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Serie]" />
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\Columna derivada.Inputs[Entrada de columna derivada].Columns[NumeroComprobante]"
+                      cachedDataType="i4"
+                      cachedName="NumeroComprobante"
+                      lineageId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NumeroComprobante]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -375,6 +545,29 @@ where [refTable].[IdProducto] = ?</property>
                           name="FriendlyExpression">(DT_I4)(YEAR((DT_DBTIMESTAMP)FechaEmision) * 10000 + MONTH((DT_DBTIMESTAMP)FechaEmision) * 100 + DAY((DT_DBTIMESTAMP)FechaEmision))</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Columna derivada.Outputs[Salida de columna derivada].Columns[NumeroCompleto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="16"
+                      lineageId="Package\Cargar FactVentas\Columna derivada.Outputs[Salida de columna derivada].Columns[NumeroCompleto]"
+                      name="NumeroCompleto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Serie]} + "-" + (DT_WSTR,10)#{Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NumeroComprobante]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Serie + "-" + (DT_WSTR,10)NumeroComprobante</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -456,6 +649,22 @@ where [refTable].[IdProducto] = ?</property>
                       cachedDataType="i4"
                       cachedName="IdEstadoComprobante"
                       lineageId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[IdEstadoComprobante]" />
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[Serie]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Serie"
+                      lineageId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[Serie]" />
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[NumeroComprobante]"
+                      cachedDataType="i4"
+                      cachedName="NumeroComprobante"
+                      lineageId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[NumeroComprobante]" />
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdTipoComprobante]"
+                      cachedDataType="i4"
+                      cachedName="IdTipoComprobante"
+                      lineageId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[IdTipoComprobante]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -633,6 +842,46 @@ where [refTable].[IdProducto] = ?</property>
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
                           name="InputColumnID">#{Package\Cargar FactVentas\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[Subtotal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Serie]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Serie]"
+                      name="Serie">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Cargar FactVentas\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[Serie]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NumeroComprobante]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[NumeroComprobante]"
+                      name="NumeroComprobante">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Cargar FactVentas\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[NumeroComprobante]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdTipoComprobante]"
+                      name="IdTipoComprobante">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Cargar FactVentas\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdTipoComprobante]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1100,6 +1349,34 @@ where [refTable].[IdProducto] = ?</property>
                       cachedName="IdCliente"
                       externalMetadataColumnId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
                       lineageId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IdCliente]" />
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].Columns[FechaEmision]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaEmision"
+                      externalMetadataColumnId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaEmision]"
+                      lineageId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[FechaEmision]" />
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].Columns[PrecioAlmacen]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioAlmacen"
+                      cachedPrecision="12"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
+                      lineageId="Package\Cargar FactVentas\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[PrecioAlmacen]" />
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoComprobante]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreTipoComprobante"
+                      externalMetadataColumnId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoComprobante]"
+                      lineageId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NombreTipoComprobante]" />
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].Columns[NumeroCompleto]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="NumeroCompleto"
+                      externalMetadataColumnId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroCompleto]"
+                      lineageId="Package\Cargar FactVentas\Columna derivada.Outputs[Salida de columna derivada].Columns[NumeroCompleto]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1163,6 +1440,26 @@ where [refTable].[IdProducto] = ?</property>
                       refId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
                       dataType="i4"
                       name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaEmision]"
+                      dataType="dbDate"
+                      name="FechaEmision" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
+                      dataType="numeric"
+                      name="PrecioAlmacen"
+                      precision="12"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoComprobante]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreTipoComprobante" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar FactVentas\FactVentas.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumeroCompleto]"
+                      dataType="wstr"
+                      length="16"
+                      name="NumeroCompleto" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1278,6 +1575,55 @@ where [refTable].[IdProducto] = ?</property>
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\Ordenar.Inputs[Entrada de ordenación].Columns[Serie]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Serie"
+                      lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[Serie]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\Ordenar.Inputs[Entrada de ordenación].Columns[NumeroComprobante]"
+                      cachedDataType="i4"
+                      cachedName="NumeroComprobante"
+                      lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[NumeroComprobante]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar FactVentas\Ordenar.Inputs[Entrada de ordenación].Columns[IdTipoComprobante]"
+                      cachedDataType="i4"
+                      cachedName="IdTipoComprobante"
+                      lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[IdTipoComprobante]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1339,6 +1685,46 @@ where [refTable].[IdProducto] = ?</property>
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[IdEstadoComprobante]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[Serie]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[Serie]"
+                      name="Serie">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[Serie]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[NumeroComprobante]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[NumeroComprobante]"
+                      name="NumeroComprobante">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[NumeroComprobante]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[IdTipoComprobante]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactVentas\Ordenar.Outputs[Salida de ordenación].Columns[IdTipoComprobante]"
+                      name="IdTipoComprobante">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[IdTipoComprobante]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1668,6 +2054,34 @@ where [refTable].[IdProducto] = ?</property>
                       lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[IdEstadoComprobante]"
                       name="IdEstadoComprobante"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[Serie]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].ExternalColumns[Serie]"
+                      length="5"
+                      lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[Serie]"
+                      name="Serie"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[NumeroComprobante]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].ExternalColumns[NumeroComprobante]"
+                      lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[NumeroComprobante]"
+                      name="NumeroComprobante"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[IdTipoComprobante]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].ExternalColumns[IdTipoComprobante]"
+                      lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de origen de OLE DB].Columns[IdTipoComprobante]"
+                      name="IdTipoComprobante"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1749,6 +2163,22 @@ where [refTable].[IdProducto] = ?</property>
                       lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Ventas.Outputs[Salida de error de origen de OLE DB].Columns[Serie]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de error de origen de OLE DB].Columns[Serie]"
+                      name="Serie" />
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Ventas.Outputs[Salida de error de origen de OLE DB].Columns[NumeroComprobante]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de error de origen de OLE DB].Columns[NumeroComprobante]"
+                      name="NumeroComprobante" />
+                    <outputColumn
+                      refId="Package\Cargar FactVentas\Ventas.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoComprobante]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactVentas\Ventas.Outputs[Salida de error de origen de OLE DB].Columns[IdTipoComprobante]"
+                      name="IdTipoComprobante" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1768,9 +2198,14 @@ where [refTable].[IdProducto] = ?</property>
               startId="Package\Cargar FactVentas\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\Cargar FactVentas.Paths[Salida de entradas coincidentes de búsqueda]"
-              endId="Package\Cargar FactVentas\Columna derivada.Inputs[Entrada de columna derivada]"
+              endId="Package\Cargar FactVentas\Búsqueda 1.Inputs[Entrada de búsqueda]"
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\Cargar FactVentas\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Cargar FactVentas.Paths[Salida de entradas coincidentes de búsqueda1]"
+              endId="Package\Cargar FactVentas\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Cargar FactVentas\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
               refId="Package\Cargar FactVentas.Paths[Salida de ordenación]"
               endId="Package\Cargar FactVentas\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
@@ -1828,7 +2263,7 @@ where [refTable].[IdProducto] = ?</property>
           Id="Package\Borrar FactVenta"
           TopLeft="125,194" />
         <NodeLayout
-          Size="169.333333333334,42.6666666666667"
+          Size="169,43"
           Id="Package\Cargar FactVentas"
           TopLeft="122.125000530854,271" />
         <EdgeLayout
@@ -1862,17 +2297,17 @@ where [refTable].[IdProducto] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="113.333333333334,42.6666666666667"
-          Id="Package\Cargar FactVentas\Ventas"
-          TopLeft="102.874999245629,58.7368420752132" />
-        <NodeLayout
-          Size="134.666666666667,42"
-          Id="Package\Cargar FactVentas\FactVentas"
-          TopLeft="205.666666666666,658.61111111111" />
-        <NodeLayout
-          Size="146.666666666667,42.6666666666667"
+          Size="147,43"
           Id="Package\Cargar FactVentas\DetalleVentas"
           TopLeft="264,59" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Cargar FactVentas\FactVentas"
+          TopLeft="207.888888888888,727.499999999999" />
+        <NodeLayout
+          Size="113,43"
+          Id="Package\Cargar FactVentas\Ventas"
+          TopLeft="102.874999245629,58.7368420752132" />
         <NodeLayout
           Size="126,42"
           Id="Package\Cargar FactVentas\Ordenar 1"
@@ -1880,21 +2315,21 @@ where [refTable].[IdProducto] = ?</property>
         <NodeLayout
           Size="164,42"
           Id="Package\Cargar FactVentas\Columna derivada"
-          TopLeft="191.166666666667,569.75" />
+          TopLeft="190.055555555556,650.861111111111" />
         <NodeLayout
-          Size="117.333333333334,42"
+          Size="117,42"
           Id="Package\Cargar FactVentas\Ordenar"
           TopLeft="99.2499991618097,182.815789481197" />
         <NodeLayout
-          Size="158.666666666667,42"
+          Size="159,42"
           Id="Package\Cargar FactVentas\Conditional Split"
           TopLeft="188.888888888889,365.833333333333" />
         <NodeLayout
-          Size="129.333333333334,42"
+          Size="129,42"
           Id="Package\Cargar FactVentas\Búsqueda"
           TopLeft="207.5,460.416666666667" />
         <NodeLayout
-          Size="198.666666666667,42"
+          Size="199,42"
           Id="Package\Cargar FactVentas\Combinación de mezcla 1"
           TopLeft="165,276" />
         <EdgeLayout
@@ -1988,30 +2423,6 @@ where [refTable].[IdProducto] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Cargar FactVentas.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="272.583333333333,502.416666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,67.3333333333334"
-              Start="0,0"
-              End="0,59.8333333333334">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59.8333333333334" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-99.8190234375,23.8190104166667,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Cargar FactVentas.Paths[Salida de combinación de mezcla]"
           TopLeft="266.444444444444,318">
           <EdgeLayout.Curve>
@@ -2025,28 +2436,6 @@ where [refTable].[IdProducto] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,40.3333333333331" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cargar FactVentas.Paths[Salida de columna derivada]"
-          TopLeft="273.166666666666,611.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46.8611111111097"
-              Start="0,0"
-              End="0,39.3611111111097">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.3611111111097" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2099,6 +2488,80 @@ where [refTable].[IdProducto] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Cargar FactVentas\Búsqueda 1"
+          TopLeft="207.777777777778,556.666666666667" />
+        <EdgeLayout
+          Id="Package\Cargar FactVentas.Paths[Salida de columna derivada]"
+          TopLeft="273.722222222222,692.861111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.6388888888877"
+              Start="0,0"
+              End="0,27.1388888888877">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.1388888888877" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar FactVentas.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="274.388888888889,502.416666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.2499999999997"
+              Start="0,0"
+              End="0,46.7499999999997">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.7499999999997" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,17.2773437499999,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar FactVentas.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="274.416666666667,598.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.1944444444445"
+              Start="0,0"
+              End="0,44.6944444444445">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.6944444444445" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,16.2495659722222,199.638046875,12.1953125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2160,6 +2623,29 @@ where [refTable].[IdProducto] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar FactVentas\Búsqueda 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[TipoComprobante]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
