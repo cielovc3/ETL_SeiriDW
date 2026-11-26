@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{1EB75639-368D-4769-92F7-52CEACF24D2D}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{87406254-4BCD-4EC3-80E7-8CD5D9E353A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -528,11 +528,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="210,42"
+          Size="209.6,41.6"
           Id="Package\Borrar DimTipoMovimiento"
           TopLeft="208.5,29.5" />
         <NodeLayout
-          Size="209.333333333334,42.6666666666667"
+          Size="209.6,42.4"
           Id="Package\Cargar DimTipoMovimiento"
           TopLeft="215.000000447035,116" />
         <EdgeLayout
@@ -566,15 +566,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168,42"
+          Size="168,41.6"
           Id="Package\Cargar DimTipoMovimiento\Columna derivada"
           TopLeft="226.875000363216,139" />
         <NodeLayout
-          Size="176,42"
+          Size="176,41.6"
           Id="Package\Cargar DimTipoMovimiento\DimTipoMovimiento"
           TopLeft="220.375000922009,261" />
         <NodeLayout
-          Size="157.333333333334,42"
+          Size="157.6,41.6"
           Id="Package\Cargar DimTipoMovimiento\TipoMovimiento"
           TopLeft="232,33" />
         <EdgeLayout

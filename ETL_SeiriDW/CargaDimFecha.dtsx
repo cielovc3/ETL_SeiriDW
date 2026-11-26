@@ -12,8 +12,8 @@
   DTS:ObjectName="Ca"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{4164D529-551A-422F-8176-6CB05FC9246B}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{D8C0C114-D6A3-4FD3-96AB-CBE175B780DA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -911,7 +911,7 @@ FROM F;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\Cargar DimFecha"
           TopLeft="234,156" />
       </GraphLayout>
@@ -923,17 +923,21 @@ FROM F;</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="128,43"
-          Id="Package\Cargar DimFecha\DimFecha"
-          TopLeft="559,329" />
-        <NodeLayout
-          Size="168,42"
+          Size="168,41.6"
           Id="Package\Cargar DimFecha\Conexion a Fecha"
           TopLeft="234,67" />
         <NodeLayout
-          Size="187,42"
+          Size="187.2,41.6"
           Id="Package\Cargar DimFecha\Columna FechaCarga"
           TopLeft="221,160" />
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Cargar DimFecha\Búsqueda"
+          TopLeft="267,232" />
+        <NodeLayout
+          Size="128,43.2"
+          Id="Package\Cargar DimFecha\DimFecha"
+          TopLeft="559,329" />
         <EdgeLayout
           Id="Package\Cargar DimFecha.Paths[Salida de origen de OLE DB]"
           TopLeft="316.25,109">
@@ -948,44 +952,6 @@ FROM F;</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129,42"
-          Id="Package\Cargar DimFecha\Búsqueda"
-          TopLeft="267,232" />
-        <EdgeLayout
-          Id="Package\Cargar DimFecha.Paths[Salida de columna derivada]"
-          TopLeft="314.5,202">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17,30"
-              Start="0,0"
-              End="17,22.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11"
-                    Point2="0,15"
-                    Point3="4,15" />
-                  <mssgle:LineSegment
-                    End="13,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13,15"
-                    Point2="17,15"
-                    Point3="17,19" />
-                  <mssgle:LineSegment
-                    End="17,22.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1030,22 +996,43 @@ FROM F;</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar DimFecha.Paths[Salida de columna derivada]"
+          TopLeft="314.5,202">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,30"
+              Start="0,0"
+              End="17,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="13,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,15"
+                    Point2="17,15"
+                    Point3="17,19" />
+                  <mssgle:LineSegment
+                    End="17,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Cargar DimFecha\DimFecha">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Cargar DimFecha\Conexion a Fecha">
     <Properties>
@@ -1074,6 +1061,19 @@ FROM F;</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar DimFecha\DimFecha">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

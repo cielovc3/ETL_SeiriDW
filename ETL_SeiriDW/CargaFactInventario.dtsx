@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{186F0FCC-5537-489D-91EF-C2F66452A198}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{11364B4F-AC70-4C99-AAEC-C7AA8CD4843F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -717,6 +717,14 @@
                       refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
                       dataType="i4"
                       name="StockPorActualizar" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
+                      dataType="i4"
+                      name="Signo" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRegistro]"
+                      dataType="dbDate"
+                      name="FechaRegistro" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1577,11 +1585,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="176,42"
+          Size="176,41.6"
           Id="Package\Borrar FactInventario"
           TopLeft="309.999983062348,58.9333329235183" />
         <NodeLayout
-          Size="178.666666666667,42"
+          Size="178.4,41.6"
           Id="Package\Cargar FactInventario"
           TopLeft="314.99998278916,156.866665575836" />
         <EdgeLayout
@@ -1615,31 +1623,31 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="117.333333333334,42"
+          Size="117.6,41.6"
           Id="Package\Cargar FactInventario\Ordenar"
           TopLeft="248.333319764999,121.333332489597" />
         <NodeLayout
-          Size="146.666666666667,42.6666666666667"
+          Size="146.4,42.4"
           Id="Package\Cargar FactInventario\FactInventario"
           TopLeft="353.333314102558,381.333330681589" />
         <NodeLayout
-          Size="190,42"
+          Size="190.4,41.6"
           Id="Package\Cargar FactInventario\Combinación de mezcla"
           TopLeft="331.6666485452,205.399998571674" />
         <NodeLayout
-          Size="125.333333333334,42"
+          Size="125.6,41.6"
           Id="Package\Cargar FactInventario\Ordenar 1"
           TopLeft="509.99997213483,128.266665774716" />
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
+          Size="154.4,42.4"
           Id="Package\Cargar FactInventario\TipoMovimiento"
           TopLeft="501.74997323379,44.1999996926387" />
         <NodeLayout
-          Size="146.666666666667,42.6666666666667"
+          Size="146.4,42.4"
           Id="Package\Cargar FactInventario\MovInventario"
           TopLeft="228.12498769102,41.5999997107188" />
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\Cargar FactInventario\Columna derivada"
           TopLeft="350.833314164646,292.933331296312" />
         <EdgeLayout

@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{01322A86-7AFC-413F-906E-75331722FCD8}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{C46FE917-8DA1-49D9-A0BC-251C679426CC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -2274,6 +2274,17 @@
                       dataType="wstr"
                       length="30"
                       name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockActual]"
+                      dataType="numeric"
+                      name="StockActual"
+                      precision="12"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCategoria]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreCategoria" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6567,44 +6578,44 @@
               startId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de ordenación7]"
-              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada derecha de combinación de mezcla]"
+              endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 7.Outputs[Salida de ordenación]" />
+              startId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de ordenación6]"
-              endId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada izquierda de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación5]"
-              endId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 1.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación4]"
-              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación3]"
-              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación2]"
-              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación1]"
               endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación]"
-              endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación5]"
+              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación]" />
+              startId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación4]"
+              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación3]"
+              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación2]"
+              endId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación1]"
+              endId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación]"
+              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 7.Outputs[Salida de ordenación]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de origen de OLE DB]"
               endId="Package\CargaDimProducto\Ordenar 5.Inputs[Entrada de ordenación]"
@@ -6658,11 +6669,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Borrar DimProducto"
           TopLeft="259.166652506425,66.7333328692781" />
         <NodeLayout
-          Size="166.666666666667,42"
+          Size="166.4,41.6"
           Id="Package\CargaDimProducto"
           TopLeft="266.458318731231,149.933332290716" />
         <EdgeLayout
@@ -6696,79 +6707,79 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="122.666666666667,42.6666666666667"
+          Size="122.4,42.4"
           Id="Package\CargaDimProducto\Producto"
           TopLeft="140.83332563854,44.1999996926387" />
         <NodeLayout
-          Size="128,42"
-          Id="Package\CargaDimProducto\Ordenar 3"
-          TopLeft="325.833315530586,346.133331404792" />
-        <NodeLayout
-          Size="198,42"
-          Id="Package\CargaDimProducto\Combinación de mezcla 2"
-          TopLeft="614.466638164058,769.799997233749" />
-        <NodeLayout
-          Size="142.666666666667,42.6666666666667"
-          Id="Package\CargaDimProducto\TipoProducto"
-          TopLeft="759.499959158402,609.333331187831" />
-        <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\CargaDimProducto\DimProducto"
-          TopLeft="630.899971253178,955.947365731579" />
-        <NodeLayout
-          Size="125.333333333334,42"
+          Size="125.6,41.6"
           Id="Package\CargaDimProducto\Ordenar 6"
           TopLeft="531.366640212967,684.999997450709" />
         <NodeLayout
-          Size="125.333333333334,42"
-          Id="Package\CargaDimProducto\Ordenar 7"
-          TopLeft="758.866627782916,690.599997739991" />
-        <NodeLayout
-          Size="117.333333333334,42"
-          Id="Package\CargaDimProducto\Ordenar"
-          TopLeft="140.83332563854,143.866665666236" />
-        <NodeLayout
-          Size="125.333333333334,42"
-          Id="Package\CargaDimProducto\Ordenar 2"
-          TopLeft="527.499971178672,342.33333095279" />
-        <NodeLayout
-          Size="125.333333333334,42"
-          Id="Package\CargaDimProducto\Ordenar 4"
-          TopLeft="395.533312115737,523.066664002869" />
-        <NodeLayout
-          Size="146,42"
-          Id="Package\CargaDimProducto\Unir Categoria"
-          TopLeft="261.111096905338,253.311109357344" />
-        <NodeLayout
-          Size="190,42"
+          Size="190.4,41.6"
           Id="Package\CargaDimProducto\Combinación de mezcla"
           TopLeft="365.833313345082,434.199996980627" />
         <NodeLayout
-          Size="117.333333333334,42.6666666666667"
-          Id="Package\CargaDimProducto\Material"
-          TopLeft="535.833304056692,252.199998246233" />
+          Size="142.4,42.4"
+          Id="Package\CargaDimProducto\TipoProducto"
+          TopLeft="759.499959158402,609.333331187831" />
         <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\CargaDimProducto\Origen de Producto"
-          TopLeft="656.041630617241,412.770173530439" />
+          Size="125.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar 7"
+          TopLeft="758.866627782916,690.599997739991" />
         <NodeLayout
-          Size="125.333333333334,42"
-          Id="Package\CargaDimProducto\Ordenar 1"
-          TopLeft="377.49997937431,151.666665611996" />
+          Size="117.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar"
+          TopLeft="140.83332563854,143.866665666236" />
         <NodeLayout
-          Size="125.333333333334,42"
-          Id="Package\CargaDimProducto\Ordenar 5"
-          TopLeft="679.699963479739,516.431576702384" />
+          Size="125.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar 2"
+          TopLeft="527.499971178672,342.33333095279" />
         <NodeLayout
-          Size="162,42"
+          Size="125.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar 4"
+          TopLeft="395.533312115737,523.066664002869" />
+        <NodeLayout
+          Size="161.6,41.6"
           Id="Package\CargaDimProducto\Columna derivada"
           TopLeft="624.233304603068,861.666663984789" />
         <NodeLayout
-          Size="198,42"
+          Size="198.4,41.6"
           Id="Package\CargaDimProducto\Combinación de mezcla 1"
           TopLeft="487.499973364176,612.133332164155" />
         <NodeLayout
-          Size="125.333333333334,42.6666666666667"
+          Size="198.4,41.6"
+          Id="Package\CargaDimProducto\Combinación de mezcla 2"
+          TopLeft="614.466638164058,769.799997233749" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\CargaDimProducto\Unir Categoria"
+          TopLeft="261.111096905338,253.311109357344" />
+        <NodeLayout
+          Size="141.6,42.4"
+          Id="Package\CargaDimProducto\DimProducto"
+          TopLeft="630.899971253178,955.947365731579" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar 1"
+          TopLeft="377.49997937431,151.666665611996" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar 5"
+          TopLeft="679.699963479739,516.431576702384" />
+        <NodeLayout
+          Size="172,42.4"
+          Id="Package\CargaDimProducto\Origen de Producto"
+          TopLeft="656.041630617241,412.770173530439" />
+        <NodeLayout
+          Size="117.6,42.4"
+          Id="Package\CargaDimProducto\Material"
+          TopLeft="535.833304056692,252.199998246233" />
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\CargaDimProducto\Ordenar 3"
+          TopLeft="325.833315530586,346.133331404792" />
+        <NodeLayout
+          Size="125.6,42.4"
           Id="Package\CargaDimProducto\Categoria"
           TopLeft="383.74997921909,48.578947044382" />
         <EdgeLayout
@@ -6895,30 +6906,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación7]"
-          TopLeft="821.266627782916,732.199997739991">
+          TopLeft="742.366630146405,558.431576702384">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-76.3999896188581,37.5999994937579"
+              EndConnector="-124.199990115563,53.7017554617706"
               Start="0,0"
-              End="-76.3999896188581,30.0999994937579">
+              End="-124.199990115563,46.2017554617706">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.3787948794173" />
+                    End="0,27.9627682808535" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.3787948794173"
-                    Point2="0,22.3787948794173"
-                    Point3="-4,22.3787948794173" />
+                    Point1="0,27.9627682808535"
+                    Point2="0,31.9627682808535"
+                    Point3="-4,31.9627682808535" />
                   <mssgle:LineSegment
-                    End="-72.3999896188581,22.3787948794173" />
+                    End="-120.199990115563,31.9627682808535" />
                   <mssgle:CubicBezierSegment
-                    Point1="-72.3999896188581,22.3787948794173"
-                    Point2="-76.3999896188581,22.3787948794173"
-                    Point3="-76.3999896188581,26.3787948794173" />
+                    Point1="-120.199990115563,31.9627682808535"
+                    Point2="-124.199990115563,31.9627682808535"
+                    Point3="-124.199990115563,35.9627682808535" />
                   <mssgle:LineSegment
-                    End="-76.3999896188581,30.0999994937579" />
+                    End="-124.199990115563,46.2017554617706" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6929,176 +6940,6 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación6]"
-          TopLeft="199.33332563854,185.866665666236">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="111.777771266798,67.4444436911081"
-              Start="0,0"
-              End="111.777771266798,59.9444436911081">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.0280031662674" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.0280031662674"
-                    Point2="0,40.0280031662674"
-                    Point3="4,40.0280031662674" />
-                  <mssgle:LineSegment
-                    End="107.777771266798,40.0280031662674" />
-                  <mssgle:CubicBezierSegment
-                    Point1="107.777771266798,40.0280031662674"
-                    Point2="111.777771266798,40.0280031662674"
-                    Point3="111.777771266798,44.0280031662674" />
-                  <mssgle:LineSegment
-                    End="111.777771266798,59.9444436911081" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación5]"
-          TopLeft="439.99997937431,193.666665611996">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-82.8888824689719,59.6444437453482"
-              Start="0,0"
-              End="-82.8888824689719,52.1444437453482">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.3987349057757" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.3987349057757"
-                    Point2="0,35.3987349057757"
-                    Point3="-4,35.3987349057757" />
-                  <mssgle:LineSegment
-                    End="-78.8888824689719,35.3987349057757" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-78.8888824689719,35.3987349057757"
-                    Point2="-82.8888824689719,35.3987349057757"
-                    Point3="-82.8888824689719,39.3987349057757" />
-                  <mssgle:LineSegment
-                    End="-82.8888824689719,52.1444437453482" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación4]"
-          TopLeft="593.766640212967,726.599997450709">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="119.49999795109,43.1999997830392"
-              Start="0,0"
-              End="119.49999795109,35.6999997830392">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5999998915196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.5999998915196"
-                    Point2="0,21.5999998915196"
-                    Point3="4,21.5999998915196" />
-                  <mssgle:LineSegment
-                    End="115.49999795109,21.5999998915196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="115.49999795109,21.5999998915196"
-                    Point2="119.49999795109,21.5999998915196"
-                    Point3="119.49999795109,25.5999998915196" />
-                  <mssgle:LineSegment
-                    End="119.49999795109,35.6999997830392" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación3]"
-          TopLeft="589.899971178672,383.93333095279">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-98.999991166923,50.2666660278373"
-              Start="0,0"
-              End="-98.999991166923,42.7666660278373">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.9076146826714" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.9076146826714"
-                    Point2="0,29.9076146826714"
-                    Point3="-4,29.9076146826714" />
-                  <mssgle:LineSegment
-                    End="-94.999991166923,29.9076146826714" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-94.999991166923,29.9076146826714"
-                    Point2="-98.999991166923,29.9076146826714"
-                    Point3="-98.999991166923,33.9076146826714" />
-                  <mssgle:LineSegment
-                    End="-98.999991166923,42.7666660278373" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación2]"
-          TopLeft="389.833315530586,388.133331404792">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="40.6666644811627,46.066665575835"
-              Start="0,0"
-              End="40.6666644811627,38.566665575835">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.4091851547244" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.4091851547244"
-                    Point2="0,27.4091851547244"
-                    Point3="4,27.4091851547244" />
-                  <mssgle:LineSegment
-                    End="36.6666644811627,27.4091851547244" />
-                  <mssgle:CubicBezierSegment
-                    Point1="36.6666644811627,27.4091851547244"
-                    Point2="40.6666644811627,27.4091851547244"
-                    Point3="40.6666644811627,31.4091851547244" />
-                  <mssgle:LineSegment
-                    End="40.6666644811627,38.566665575835" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación1]"
           TopLeft="457.933312115736,564.666664002869">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7132,31 +6973,201 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\CargaDimProducto.Paths[Salida de ordenación]"
-          TopLeft="742.366630146405,558.431576702384">
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación5]"
+          TopLeft="389.833315530586,388.133331404792">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-124.199990115563,53.7017554617706"
+              EndConnector="40.6666644811627,46.066665575835"
               Start="0,0"
-              End="-124.199990115563,46.2017554617706">
+              End="40.6666644811627,38.566665575835">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.9627682808535" />
+                    End="0,23.4091851547244" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.9627682808535"
-                    Point2="0,31.9627682808535"
-                    Point3="-4,31.9627682808535" />
+                    Point1="0,23.4091851547244"
+                    Point2="0,27.4091851547244"
+                    Point3="4,27.4091851547244" />
                   <mssgle:LineSegment
-                    End="-120.199990115563,31.9627682808535" />
+                    End="36.6666644811627,27.4091851547244" />
                   <mssgle:CubicBezierSegment
-                    Point1="-120.199990115563,31.9627682808535"
-                    Point2="-124.199990115563,31.9627682808535"
-                    Point3="-124.199990115563,35.9627682808535" />
+                    Point1="36.6666644811627,27.4091851547244"
+                    Point2="40.6666644811627,27.4091851547244"
+                    Point3="40.6666644811627,31.4091851547244" />
                   <mssgle:LineSegment
-                    End="-124.199990115563,46.2017554617706" />
+                    End="40.6666644811627,38.566665575835" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación4]"
+          TopLeft="589.899971178672,383.93333095279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-98.999991166923,50.2666660278373"
+              Start="0,0"
+              End="-98.999991166923,42.7666660278373">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9076146826714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9076146826714"
+                    Point2="0,29.9076146826714"
+                    Point3="-4,29.9076146826714" />
+                  <mssgle:LineSegment
+                    End="-94.999991166923,29.9076146826714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-94.999991166923,29.9076146826714"
+                    Point2="-98.999991166923,29.9076146826714"
+                    Point3="-98.999991166923,33.9076146826714" />
+                  <mssgle:LineSegment
+                    End="-98.999991166923,42.7666660278373" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación3]"
+          TopLeft="593.766640212967,726.599997450709">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="119.49999795109,43.1999997830392"
+              Start="0,0"
+              End="119.49999795109,35.6999997830392">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5999998915196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5999998915196"
+                    Point2="0,21.5999998915196"
+                    Point3="4,21.5999998915196" />
+                  <mssgle:LineSegment
+                    End="115.49999795109,21.5999998915196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="115.49999795109,21.5999998915196"
+                    Point2="119.49999795109,21.5999998915196"
+                    Point3="119.49999795109,25.5999998915196" />
+                  <mssgle:LineSegment
+                    End="119.49999795109,35.6999997830392" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación2]"
+          TopLeft="439.99997937431,193.666665611996">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-82.8888824689719,59.6444437453482"
+              Start="0,0"
+              End="-82.8888824689719,52.1444437453482">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.3987349057757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.3987349057757"
+                    Point2="0,35.3987349057757"
+                    Point3="-4,35.3987349057757" />
+                  <mssgle:LineSegment
+                    End="-78.8888824689719,35.3987349057757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-78.8888824689719,35.3987349057757"
+                    Point2="-82.8888824689719,35.3987349057757"
+                    Point3="-82.8888824689719,39.3987349057757" />
+                  <mssgle:LineSegment
+                    End="-82.8888824689719,52.1444437453482" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación1]"
+          TopLeft="199.33332563854,185.866665666236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.777771266798,67.4444436911081"
+              Start="0,0"
+              End="111.777771266798,59.9444436911081">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.0280031662674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.0280031662674"
+                    Point2="0,40.0280031662674"
+                    Point3="4,40.0280031662674" />
+                  <mssgle:LineSegment
+                    End="107.777771266798,40.0280031662674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.777771266798,40.0280031662674"
+                    Point2="111.777771266798,40.0280031662674"
+                    Point3="111.777771266798,44.0280031662674" />
+                  <mssgle:LineSegment
+                    End="111.777771266798,59.9444436911081" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de ordenación]"
+          TopLeft="821.266627782916,732.199997739991">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-76.3999896188581,37.5999994937579"
+              Start="0,0"
+              End="-76.3999896188581,30.0999994937579">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.3787948794173" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.3787948794173"
+                    Point2="0,22.3787948794173"
+                    Point3="-4,22.3787948794173" />
+                  <mssgle:LineSegment
+                    End="-72.3999896188581,22.3787948794173" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-72.3999896188581,22.3787948794173"
+                    Point2="-76.3999896188581,22.3787948794173"
+                    Point3="-76.3999896188581,26.3787948794173" />
+                  <mssgle:LineSegment
+                    End="-76.3999896188581,30.0999994937579" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7330,7 +7341,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Material">
+    design-time-name="Package\CargaDimProducto\Origen de Producto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7343,7 +7354,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Origen de Producto">
+    design-time-name="Package\CargaDimProducto\Material">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{A25ED20D-9A9D-47C4-8264-4090319D02EE}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{676E5FB9-30C4-49F2-8DF7-D7B722C42868}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -2784,11 +2784,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\Borrar DimCliente"
           TopLeft="246,37" />
         <NodeLayout
-          Size="168,42.6666666666667"
+          Size="168,42.4"
           Id="Package\Cargar DimCliente"
           TopLeft="245,144" />
         <EdgeLayout
@@ -2822,63 +2822,63 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="128,42"
+          Size="128,41.6"
           Id="Package\Cargar DimCliente\Ordenar 5"
           TopLeft="303.75,482.5" />
         <NodeLayout
-          Size="128,42"
+          Size="128,41.6"
           Id="Package\Cargar DimCliente\Ordenar 1"
           TopLeft="173,130" />
         <NodeLayout
-          Size="149.333333333334,42"
+          Size="149.6,41.6"
           Id="Package\Cargar DimCliente\Departamento"
           TopLeft="534.5,406.5" />
         <NodeLayout
-          Size="124,42"
+          Size="124,41.6"
           Id="Package\Cargar DimCliente\Provincia"
           TopLeft="371,223.75" />
         <NodeLayout
-          Size="168,42"
+          Size="168,41.6"
           Id="Package\Cargar DimCliente\Columna derivada"
           TopLeft="406.666666666667,651.666666666667" />
         <NodeLayout
-          Size="133.333333333334,42"
+          Size="133.6,41.6"
           Id="Package\Cargar DimCliente\DimCliente"
           TopLeft="427.638888888889,732.361111111111" />
         <NodeLayout
-          Size="128,42"
+          Size="128,41.6"
           Id="Package\Cargar DimCliente\Ordenar 3"
           TopLeft="369,309" />
         <NodeLayout
-          Size="128,42"
+          Size="128,41.6"
           Id="Package\Cargar DimCliente\Ordenar 2"
           TopLeft="140,314" />
         <NodeLayout
-          Size="113.333333333334,42"
+          Size="113.6,41.6"
           Id="Package\Cargar DimCliente\Distrito"
           TopLeft="172,42.5" />
         <NodeLayout
-          Size="196,42"
+          Size="196,41.6"
           Id="Package\Cargar DimCliente\Combinación de mezcla"
           TopLeft="78,234" />
         <NodeLayout
-          Size="128,42"
+          Size="128,41.6"
           Id="Package\Cargar DimCliente\Ordenar 6"
           TopLeft="556.25,487.5" />
         <NodeLayout
-          Size="205.333333333334,42"
+          Size="205.6,41.6"
           Id="Package\Cargar DimCliente\Combinación de mezcla 1"
           TopLeft="245,401.25" />
         <NodeLayout
-          Size="118.666666666667,42"
+          Size="118.4,41.6"
           Id="Package\Cargar DimCliente\Ordenar"
           TopLeft="21,134" />
         <NodeLayout
-          Size="113.333333333334,42"
+          Size="113.6,41.6"
           Id="Package\Cargar DimCliente\Cliente"
           TopLeft="25,44" />
         <NodeLayout
-          Size="205.333333333334,42"
+          Size="205.6,41.6"
           Id="Package\Cargar DimCliente\Combinación de mezcla 2"
           TopLeft="385,578.75" />
         <EdgeLayout

@@ -12,8 +12,8 @@
   DTS:ObjectName="CargaDimAlmacen"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{01439613-6CA8-424D-82DB-8CA800340126}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{A7BD2B8F-6638-4F59-BF1F-786D8F228EFC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -457,11 +457,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\Borrar DimAlmacen"
           TopLeft="205,46" />
         <NodeLayout
-          Size="178,42"
+          Size="177.6,41.6"
           Id="Package\Cargar DimAlmacen"
           TopLeft="205,145" />
         <EdgeLayout
@@ -495,17 +495,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="141,42"
-          Id="Package\Cargar DimAlmacen\DimAlmacen"
-          TopLeft="256,246" />
-        <NodeLayout
-          Size="168,42"
+          Size="168,41.6"
           Id="Package\Cargar DimAlmacen\Columna derivada"
           TopLeft="237,144" />
         <NodeLayout
-          Size="122,42"
+          Size="121.6,41.6"
           Id="Package\Cargar DimAlmacen\Almacen"
           TopLeft="261,46" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Cargar DimAlmacen\DimAlmacen"
+          TopLeft="256,246" />
         <EdgeLayout
           Id="Package\Cargar DimAlmacen.Paths[Salida de origen de OLE DB]"
           TopLeft="321.5,88">
@@ -554,7 +554,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar DimAlmacen\DimAlmacen">
+    design-time-name="Package\Cargar DimAlmacen\Almacen">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -567,7 +567,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar DimAlmacen\Almacen">
+    design-time-name="Package\Cargar DimAlmacen\DimAlmacen">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
