@@ -12,29 +12,12 @@
   DTS:ObjectName="CargaDimAlmacen"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{A7BD2B8F-6638-4F59-BF1F-786D8F228EFC}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{FECCFFE1-4149-4778-B8AE-759031609A11}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Borrar DimAlmacen"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{A9771901-59BD-4762-9856-0F07F1181626}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Borrar DimAlmacen"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}"
-          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.DimAlmacen') IS NOT NULL TRUNCATE TABLE dbo.DimAlmacen" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Cargar DimAlmacen"
       DTS:CreationName="Microsoft.Pipeline"
@@ -271,11 +254,333 @@
               </outputs>
             </component>
             <component
-              refId="Package\Cargar DimAlmacen\DimAlmacen"
+              refId="Package\Cargar DimAlmacen\Comando de OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+              name="Comando de OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimAlmacen] SET [NombreAlmacen] = ?,[TipoAlmacen] = ? WHERE [IdAlmacen] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar DimAlmacen\Comando de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+                  errorOrTruncationOperation="Ejecución de comando"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[IdAlmacen]"
+                      cachedDataType="i4"
+                      cachedName="IdAlmacen"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Cargar DimAlmacen\Almacen.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]" />
+                    <inputColumn
+                      refId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[NombreAlmacen]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="NombreAlmacen"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Cargar DimAlmacen\Almacen.Outputs[Salida de origen de OLE DB].Columns[NombreAlmacen]" />
+                    <inputColumn
+                      refId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[TipoAlmacen]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="TipoAlmacen"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Cargar DimAlmacen\Almacen.Outputs[Salida de origen de OLE DB].Columns[TipoAlmacen]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="40"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar DimAlmacen\Comando de OLE DB.Outputs[Salida de comando de OLE DB]"
+                  exclusionGroup="1"
+                  name="Salida de comando de OLE DB"
+                  synchronousInputId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimAlmacen\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de comando de OLE DB"
+                  synchronousInputId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar DimAlmacen\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar DimAlmacen\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar DimAlmacen\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar DimAlmacen\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar DimAlmacen\Dimensión de variación lenta"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimensión de variación lenta;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;3"
+              description="Actualiza una dimensión del almacenamiento de datos de SQL Server Analysis Services. Actualiza los registros de dimensión existentes e inserta los registros de dimensión que faltan. Por ejemplo, se actualiza la tabla DimProduct de la base de datos OLAP AdventureWorksDW con datos procedentes de la tabla Products de la base de datos OLTP AdventureWorks."
+              name="Dimensión de variación lenta"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SELECT utilizada para crear un conjunto de filas de esquema."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [FechaCarga], [IdAlmacen], [NombreAlmacen], [TipoAlmacen] FROM [dbo].[DimAlmacen]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la cláusula WHERE de la instrucción SELECT que selecciona la fila actual de entre filas con claves empresariales idénticas."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las actualizaciones de atributos históricos se dirigen a la salida de transformación para actualizaciones de atributos variables."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se produce un error de transformación cuando las columnas con atributos fijos contienen cambios."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre de columna para el miembro deducido."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se detectan las actualizaciones de miembros deducidos."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se produce un error de transformación cuando se produce un error de búsqueda de un registro existente."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica que todas las filas de la entrada sean nuevas o que la transformación detecte el tipo de cambio."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Connections[LookupConnection]"
+                  connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
+                  description="Define la conexión que se debe usar para búsquedas en la tabla de dimensiones"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]"
+                  name="Entrada de dimensión de variación lenta">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[FechaCarga]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaCarga"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaCarga]"
+                      lineageId="Package\Cargar DimAlmacen\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[IdAlmacen]"
+                      cachedDataType="i4"
+                      cachedName="IdAlmacen"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[IdAlmacen]"
+                      lineageId="Package\Cargar DimAlmacen\Almacen.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[NombreAlmacen]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="NombreAlmacen"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreAlmacen]"
+                      lineageId="Package\Cargar DimAlmacen\Almacen.Outputs[Salida de origen de OLE DB].Columns[NombreAlmacen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[TipoAlmacen]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="TipoAlmacen"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[TipoAlmacen]"
+                      lineageId="Package\Cargar DimAlmacen\Almacen.Outputs[Salida de origen de OLE DB].Columns[TipoAlmacen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaCarga]"
+                      dataType="dbTimeStamp"
+                      name="FechaCarga" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[IdAlmacen]"
+                      dataType="i4"
+                      name="IdAlmacen" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreAlmacen]"
+                      dataType="wstr"
+                      length="40"
+                      name="NombreAlmacen" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[TipoAlmacen]"
+                      dataType="wstr"
+                      length="30"
+                      name="TipoAlmacen" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Outputs[Salida sin cambios]"
+                  description="Filas sin cambios"
+                  exclusionGroup="1"
+                  name="Salida sin cambios"
+                  synchronousInputId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Outputs[Nueva salida]"
+                  description="Nuevas filas"
+                  exclusionGroup="1"
+                  name="Nueva salida"
+                  synchronousInputId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Outputs[Salida de atributo fijo]"
+                  description="Filas con cambios en columnas etiquetadas FixedAttribute"
+                  exclusionGroup="1"
+                  name="Salida de atributo fijo"
+                  synchronousInputId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Outputs[Salida de actualizaciones de atributos variables]"
+                  description="Estas filas contienen información nueva para cambios de columnas ChangingAttribute (tipo 1)"
+                  exclusionGroup="1"
+                  name="Salida de actualizaciones de atributos variables"
+                  synchronousInputId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Outputs[Salida de inserciones de atributos históricos]"
+                  description="Los cambios de HistoricalAttribute (tipo 2) crean estas nuevas filas"
+                  exclusionGroup="2"
+                  name="Salida de inserciones de atributos históricos"
+                  synchronousInputId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Outputs[Salida de actualizaciones de miembros deducidos]"
+                  description="Información para actualizar fila de dimensión inicial sin rellenar"
+                  exclusionGroup="1"
+                  name="Salida de actualizaciones de miembros deducidos"
+                  synchronousInputId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar DimAlmacen\Insertar destino"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="DimAlmacen"
+              name="Insertar destino"
               usesDispositions="true"
               version="4">
               <properties>
@@ -286,7 +591,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[DimAlmacen]</property>
+                  name="OpenRowset">[dbo].[DimAlmacen]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -308,7 +613,7 @@
                   dataType="System.Int32"
                   description="Especifica el modo utilizado para obtener acceso a la base de datos."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.Boolean"
                   description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
@@ -320,7 +625,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
@@ -328,7 +633,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Cargar DimAlmacen\DimAlmacen.Connections[OleDbConnection]"
+                  refId="Package\Cargar DimAlmacen\Insertar destino.Connections[OleDbConnection]"
                   connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -336,57 +641,57 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].Columns[IdAlmacen]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[IdAlmacen]"
                       cachedDataType="i4"
                       cachedName="IdAlmacen"
-                      externalMetadataColumnId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdAlmacen]"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdAlmacen]"
                       lineageId="Package\Cargar DimAlmacen\Almacen.Outputs[Salida de origen de OLE DB].Columns[IdAlmacen]" />
                     <inputColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].Columns[NombreAlmacen]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[NombreAlmacen]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreAlmacen"
-                      externalMetadataColumnId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreAlmacen]"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreAlmacen]"
                       lineageId="Package\Cargar DimAlmacen\Almacen.Outputs[Salida de origen de OLE DB].Columns[NombreAlmacen]" />
                     <inputColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].Columns[TipoAlmacen]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[TipoAlmacen]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="TipoAlmacen"
-                      externalMetadataColumnId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAlmacen]"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAlmacen]"
                       lineageId="Package\Cargar DimAlmacen\Almacen.Outputs[Salida de origen de OLE DB].Columns[TipoAlmacen]" />
                     <inputColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaCarga"
-                      externalMetadataColumnId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      externalMetadataColumnId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       lineageId="Package\Cargar DimAlmacen\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdAlmacen]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdAlmacen]"
                       dataType="i4"
                       name="IdAlmacen" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreAlmacen]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreAlmacen]"
                       dataType="wstr"
                       length="40"
                       name="NombreAlmacen" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAlmacen]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAlmacen]"
                       dataType="wstr"
                       length="30"
                       name="TipoAlmacen" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       dataType="dbTimeStamp"
                       name="FechaCarga" />
                   </externalMetadataColumns>
@@ -394,22 +699,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Cargar DimAlmacen\DimAlmacen.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Cargar DimAlmacen\Insertar destino.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Cargar DimAlmacen\DimAlmacen.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Cargar DimAlmacen\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Cargar DimAlmacen\DimAlmacen.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Cargar DimAlmacen\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Cargar DimAlmacen\DimAlmacen.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar DimAlmacen\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -420,8 +725,18 @@
           </components>
           <paths>
             <path
+              refId="Package\Cargar DimAlmacen.Paths[Nueva salida]"
+              endId="Package\Cargar DimAlmacen\Insertar destino.Inputs[Entrada de destino de OLE DB]"
+              name="Nueva salida"
+              startId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Outputs[Nueva salida]" />
+            <path
+              refId="Package\Cargar DimAlmacen.Paths[Salida de actualizaciones de atributos variables]"
+              endId="Package\Cargar DimAlmacen\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+              name="Salida de actualizaciones de atributos variables"
+              startId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Outputs[Salida de actualizaciones de atributos variables]" />
+            <path
               refId="Package\Cargar DimAlmacen.Paths[Salida de columna derivada]"
-              endId="Package\Cargar DimAlmacen\DimAlmacen.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\Cargar DimAlmacen\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]"
               name="Salida de columna derivada"
               startId="Package\Cargar DimAlmacen\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
@@ -434,16 +749,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción]"
-      DTS:CreationName=""
-      DTS:DTSID="{A4328FEC-5EDA-40D7-BD16-45FEE88977B7}"
-      DTS:From="Package\Borrar DimAlmacen"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción"
-      DTS:To="Package\Cargar DimAlmacen" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -455,37 +760,11 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\Borrar DimAlmacen"
-          TopLeft="205,46" />
-        <NodeLayout
-          Size="177.6,41.6"
+          Size="178,42"
           Id="Package\Cargar DimAlmacen"
           TopLeft="205,145" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="293.25,88">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57"
-              Start="0,0"
-              End="0,49.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -493,44 +772,18 @@
     design-time-name="Package\Cargar DimAlmacen">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="168,41.6"
+          Size="168,42"
           Id="Package\Cargar DimAlmacen\Columna derivada"
-          TopLeft="237,144" />
+          TopLeft="230,107.5" />
         <NodeLayout
-          Size="121.6,41.6"
+          Size="122,42"
           Id="Package\Cargar DimAlmacen\Almacen"
-          TopLeft="261,46" />
-        <NodeLayout
-          Size="140.8,41.6"
-          Id="Package\Cargar DimAlmacen\DimAlmacen"
-          TopLeft="256,246" />
+          TopLeft="253,5.5" />
         <EdgeLayout
           Id="Package\Cargar DimAlmacen.Paths[Salida de origen de OLE DB]"
-          TopLeft="321.5,88">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56"
-              Start="0,0"
-              End="0,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cargar DimAlmacen.Paths[Salida de columna derivada]"
-          TopLeft="323.75,186">
+          TopLeft="314,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -550,6 +803,112 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Cargar DimAlmacen\Dimensión de variación lenta"
+          TopLeft="204,209.5" />
+        <EdgeLayout
+          Id="Package\Cargar DimAlmacen.Paths[Salida de columna derivada]"
+          TopLeft="314,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Cargar DimAlmacen\Insertar destino"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\Cargar DimAlmacen.Paths[Nueva salida]"
+          TopLeft="278.666666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-195.666666666667,60"
+              Start="0,0"
+              End="-195.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2599277978339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2599277978339"
+                    Point2="0,24.2599277978339"
+                    Point3="-4,24.2599277978339" />
+                  <mssgle:LineSegment
+                    End="-191.666666666667,24.2599277978339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191.666666666667,24.2599277978339"
+                    Point2="-195.666666666667,24.2599277978339"
+                    Point3="-195.666666666667,28.2599277978339" />
+                  <mssgle:LineSegment
+                    End="-195.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-126.121692708333,29.2599277978339,56.57671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Cargar DimAlmacen\Comando de OLE DB"
+          TopLeft="221.5,311.5" />
+        <EdgeLayout
+          Id="Package\Cargar DimAlmacen.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="349.333333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.3333333333333,60"
+              Start="0,0"
+              End="-35.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2599277978339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2599277978339"
+                    Point2="0,24.2599277978339"
+                    Point3="-4,24.2599277978339" />
+                  <mssgle:LineSegment
+                    End="-31.3333333333333,24.2599277978339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.3333333333333,24.2599277978339"
+                    Point2="-35.3333333333333,24.2599277978339"
+                    Point3="-35.3333333333333,28.2599277978339" />
+                  <mssgle:LineSegment
+                    End="-35.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.919908854167,29.2599277978339,208.506484375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -567,7 +926,62 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar DimAlmacen\DimAlmacen">
+    design-time-name="Package\Cargar DimAlmacen\Dimensión de variación lenta">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimAlmacen]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columna derivada.Salidas[Salida de columna derivada].Columnas[FechaCarga]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FechaCarga&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Almacen.Salidas[Salida de origen de OLE DB].Columnas[IdAlmacen]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IdAlmacen&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Almacen.Salidas[Salida de origen de OLE DB].Columnas[NombreAlmacen]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreAlmacen&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Almacen.Salidas[Salida de origen de OLE DB].Columnas[TipoAlmacen]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;TipoAlmacen&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insertar destino&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar DimAlmacen\Insertar destino">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

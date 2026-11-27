@@ -12,29 +12,12 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{87406254-4BCD-4EC3-80E7-8CD5D9E353A9}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{2E3E2EC9-FCF2-490E-A45E-8C64828153D5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Borrar DimTipoMovimiento"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{A88D4004-F430-444D-922A-4B8683656AF1}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Borrar DimTipoMovimiento"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}"
-          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.DimTipoMovimiento') IS NOT NULL TRUNCATE TABLE dbo.DimTipoMovimiento;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Cargar DimTipoMovimiento"
       DTS:CreationName="Microsoft.Pipeline"
@@ -154,11 +137,405 @@
               </outputs>
             </component>
             <component
-              refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento"
+              refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+              name="Comando de OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimTipoMovimiento] SET [Grupo] = ?,[Naturaleza] = ?,[NombreTipoMovimiento] = ?,[Signo] = ? WHERE [IdTipoMovimiento] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+                  errorOrTruncationOperation="Ejecución de comando"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Grupo]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="Grupo"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[Grupo]" />
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[IdTipoMovimiento]"
+                      cachedDataType="i4"
+                      cachedName="IdTipoMovimiento"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]" />
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Naturaleza]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Naturaleza"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Naturaleza]" />
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[NombreTipoMovimiento]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="NombreTipoMovimiento"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]" />
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Signo]"
+                      cachedDataType="i4"
+                      cachedName="Signo"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="18"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="60"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Outputs[Salida de comando de OLE DB]"
+                  exclusionGroup="1"
+                  name="Salida de comando de OLE DB"
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de comando de OLE DB"
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimensión de variación lenta;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;3"
+              description="Actualiza una dimensión del almacenamiento de datos de SQL Server Analysis Services. Actualiza los registros de dimensión existentes e inserta los registros de dimensión que faltan. Por ejemplo, se actualiza la tabla DimProduct de la base de datos OLAP AdventureWorksDW con datos procedentes de la tabla Products de la base de datos OLTP AdventureWorks."
+              name="Dimensión de variación lenta"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SELECT utilizada para crear un conjunto de filas de esquema."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [FechaCarga], [Grupo], [IdTipoMovimiento], [Naturaleza], [NombreTipoMovimiento], [Signo] FROM [dbo].[DimTipoMovimiento]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la cláusula WHERE de la instrucción SELECT que selecciona la fila actual de entre filas con claves empresariales idénticas."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las actualizaciones de atributos históricos se dirigen a la salida de transformación para actualizaciones de atributos variables."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se produce un error de transformación cuando las columnas con atributos fijos contienen cambios."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre de columna para el miembro deducido."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se detectan las actualizaciones de miembros deducidos."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se produce un error de transformación cuando se produce un error de búsqueda de un registro existente."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica que todas las filas de la entrada sean nuevas o que la transformación detecte el tipo de cambio."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Connections[LookupConnection]"
+                  connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
+                  description="Define la conexión que se debe usar para búsquedas en la tabla de dimensiones"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]"
+                  name="Entrada de dimensión de variación lenta">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[FechaCarga]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaCarga"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaCarga]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Grupo]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="Grupo"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Grupo]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[Grupo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[IdTipoMovimiento]"
+                      cachedDataType="i4"
+                      cachedName="IdTipoMovimiento"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[IdTipoMovimiento]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Naturaleza]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Naturaleza"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Naturaleza]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Naturaleza]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[NombreTipoMovimiento]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="NombreTipoMovimiento"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreTipoMovimiento]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Signo]"
+                      cachedDataType="i4"
+                      cachedName="Signo"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Signo]"
+                      lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaCarga]"
+                      dataType="dbTimeStamp"
+                      name="FechaCarga" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Grupo]"
+                      dataType="wstr"
+                      length="18"
+                      name="Grupo" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[IdTipoMovimiento]"
+                      dataType="i4"
+                      name="IdTipoMovimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Naturaleza]"
+                      dataType="wstr"
+                      length="10"
+                      name="Naturaleza" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreTipoMovimiento]"
+                      dataType="wstr"
+                      length="60"
+                      name="NombreTipoMovimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Signo]"
+                      dataType="i4"
+                      name="Signo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Outputs[Salida sin cambios]"
+                  description="Filas sin cambios"
+                  exclusionGroup="1"
+                  name="Salida sin cambios"
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Outputs[Nueva salida]"
+                  description="Nuevas filas"
+                  exclusionGroup="1"
+                  name="Nueva salida"
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Outputs[Salida de atributo fijo]"
+                  description="Filas con cambios en columnas etiquetadas FixedAttribute"
+                  exclusionGroup="1"
+                  name="Salida de atributo fijo"
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Outputs[Salida de actualizaciones de atributos variables]"
+                  description="Estas filas contienen información nueva para cambios de columnas ChangingAttribute (tipo 1)"
+                  exclusionGroup="1"
+                  name="Salida de actualizaciones de atributos variables"
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Outputs[Salida de inserciones de atributos históricos]"
+                  description="Los cambios de HistoricalAttribute (tipo 2) crean estas nuevas filas"
+                  exclusionGroup="2"
+                  name="Salida de inserciones de atributos históricos"
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Outputs[Salida de actualizaciones de miembros deducidos]"
+                  description="Información para actualizar fila de dimensión inicial sin rellenar"
+                  exclusionGroup="1"
+                  name="Salida de actualizaciones de miembros deducidos"
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar DimTipoMovimiento\Insertar destino"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="DimTipoMovimiento"
+              name="Insertar destino"
               usesDispositions="true"
               version="4">
               <properties>
@@ -169,7 +546,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[DimTipoMovimiento]</property>
+                  name="OpenRowset">[dbo].[DimTipoMovimiento]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -191,7 +568,7 @@
                   dataType="System.Int32"
                   description="Especifica el modo utilizado para obtener acceso a la base de datos."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.Boolean"
                   description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
@@ -203,7 +580,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
@@ -211,7 +588,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Connections[OleDbConnection]"
+                  refId="Package\Cargar DimTipoMovimiento\Insertar destino.Connections[OleDbConnection]"
                   connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -219,79 +596,79 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[IdTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[IdTipoMovimiento]"
                       cachedDataType="i4"
                       cachedName="IdTipoMovimiento"
-                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
                       lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[IdTipoMovimiento]" />
                     <inputColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoMovimiento]"
                       cachedDataType="wstr"
                       cachedLength="60"
                       cachedName="NombreTipoMovimiento"
-                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoMovimiento]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoMovimiento]"
                       lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[NombreTipoMovimiento]" />
                     <inputColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[Naturaleza]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Naturaleza]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Naturaleza"
-                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Naturaleza]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Naturaleza]"
                       lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Naturaleza]" />
                     <inputColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[Signo]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Signo]"
                       cachedDataType="i4"
                       cachedName="Signo"
-                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
                       lineageId="Package\Cargar DimTipoMovimiento\TipoMovimiento.Outputs[Salida de origen de OLE DB].Columns[Signo]" />
                     <inputColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[Grupo]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Grupo]"
                       cachedDataType="wstr"
                       cachedLength="18"
                       cachedName="Grupo"
-                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
                       lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[Grupo]" />
                     <inputColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaCarga"
-                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      externalMetadataColumnId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       lineageId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoMovimiento]"
                       dataType="i4"
                       name="IdTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoMovimiento]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoMovimiento]"
                       dataType="wstr"
                       length="60"
                       name="NombreTipoMovimiento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Naturaleza]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Naturaleza]"
                       dataType="wstr"
                       length="10"
                       name="Naturaleza" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
                       dataType="i4"
                       name="Signo" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Grupo]"
                       dataType="wstr"
                       length="18"
                       name="Grupo" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       dataType="dbTimeStamp"
                       name="FechaCarga" />
                   </externalMetadataColumns>
@@ -299,22 +676,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Cargar DimTipoMovimiento\Insertar destino.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Cargar DimTipoMovimiento\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar DimTipoMovimiento\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -491,8 +868,18 @@
           </components>
           <paths>
             <path
+              refId="Package\Cargar DimTipoMovimiento.Paths[Nueva salida]"
+              endId="Package\Cargar DimTipoMovimiento\Insertar destino.Inputs[Entrada de destino de OLE DB]"
+              name="Nueva salida"
+              startId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Outputs[Nueva salida]" />
+            <path
+              refId="Package\Cargar DimTipoMovimiento.Paths[Salida de actualizaciones de atributos variables]"
+              endId="Package\Cargar DimTipoMovimiento\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+              name="Salida de actualizaciones de atributos variables"
+              startId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Outputs[Salida de actualizaciones de atributos variables]" />
+            <path
               refId="Package\Cargar DimTipoMovimiento.Paths[Salida de columna derivada]"
-              endId="Package\Cargar DimTipoMovimiento\DimTipoMovimiento.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]"
               name="Salida de columna derivada"
               startId="Package\Cargar DimTipoMovimiento\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
@@ -505,16 +892,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción]"
-      DTS:CreationName=""
-      DTS:DTSID="{E3E17914-5731-474C-992F-D7AC9FA8890B}"
-      DTS:From="Package\Borrar DimTipoMovimiento"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción"
-      DTS:To="Package\Cargar DimTipoMovimiento" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -526,37 +903,11 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\Borrar DimTipoMovimiento"
-          TopLeft="208.5,29.5" />
-        <NodeLayout
-          Size="209.6,42.4"
+          Size="210,42"
           Id="Package\Cargar DimTipoMovimiento"
           TopLeft="215.000000447035,116" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="316.583333556851,71.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.5"
-              Start="0,0"
-              End="0,37">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -564,33 +915,29 @@
     design-time-name="Package\Cargar DimTipoMovimiento">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="168,41.6"
+          Size="168,42"
           Id="Package\Cargar DimTipoMovimiento\Columna derivada"
-          TopLeft="226.875000363216,139" />
+          TopLeft="230,107.5" />
         <NodeLayout
-          Size="176,41.6"
-          Id="Package\Cargar DimTipoMovimiento\DimTipoMovimiento"
-          TopLeft="220.375000922009,261" />
-        <NodeLayout
-          Size="157.6,41.6"
+          Size="158,42"
           Id="Package\Cargar DimTipoMovimiento\TipoMovimiento"
-          TopLeft="232,33" />
+          TopLeft="235,5.5" />
         <EdgeLayout
           Id="Package\Cargar DimTipoMovimiento.Paths[Salida de origen de OLE DB]"
-          TopLeft="310.770833514941,75">
+          TopLeft="314,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,64"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,56.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -599,33 +946,117 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta"
+          TopLeft="204,209.5" />
         <EdgeLayout
           Id="Package\Cargar DimTipoMovimiento.Paths[Salida de columna derivada]"
-          TopLeft="309.625000642613,181">
+          TopLeft="314,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,80"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,72.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,72.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Cargar DimTipoMovimiento\Insertar destino"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\Cargar DimTipoMovimiento.Paths[Nueva salida]"
+          TopLeft="278.666666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-195.666666666667,60"
+              Start="0,0"
+              End="-195.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2599277978339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2599277978339"
+                    Point2="0,24.2599277978339"
+                    Point3="-4,24.2599277978339" />
+                  <mssgle:LineSegment
+                    End="-191.666666666667,24.2599277978339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191.666666666667,24.2599277978339"
+                    Point2="-195.666666666667,24.2599277978339"
+                    Point3="-195.666666666667,28.2599277978339" />
+                  <mssgle:LineSegment
+                    End="-195.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-126.121692708333,29.2599277978339,56.57671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Cargar DimTipoMovimiento\Comando de OLE DB"
+          TopLeft="221.5,311.5" />
+        <EdgeLayout
+          Id="Package\Cargar DimTipoMovimiento.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="349.333333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.3333333333333,60"
+              Start="0,0"
+              End="-35.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2599277978339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2599277978339"
+                    Point2="0,24.2599277978339"
+                    Point3="-4,24.2599277978339" />
+                  <mssgle:LineSegment
+                    End="-31.3333333333333,24.2599277978339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.3333333333333,24.2599277978339"
+                    Point2="-35.3333333333333,24.2599277978339"
+                    Point3="-35.3333333333333,28.2599277978339" />
+                  <mssgle:LineSegment
+                    End="-35.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.919908854167,29.2599277978339,208.506484375,9.7490234375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar DimTipoMovimiento\DimTipoMovimiento">
+    design-time-name="Package\Cargar DimTipoMovimiento\TipoMovimiento">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -638,15 +1069,69 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar DimTipoMovimiento\TipoMovimiento">
+    design-time-name="Package\Cargar DimTipoMovimiento\Dimensión de variación lenta">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
+        <Name>SCDMetadata</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimTipoMovimiento]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columna derivada.Salidas[Salida de columna derivada].Columnas[FechaCarga]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FechaCarga&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columna derivada.Salidas[Salida de columna derivada].Columnas[Grupo]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Grupo&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;TipoMovimiento.Salidas[Salida de origen de OLE DB].Columnas[IdTipoMovimiento]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IdTipoMovimiento&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;TipoMovimiento.Salidas[Salida de origen de OLE DB].Columnas[Naturaleza]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Naturaleza&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;TipoMovimiento.Salidas[Salida de origen de OLE DB].Columnas[NombreTipoMovimiento]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreTipoMovimiento&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;TipoMovimiento.Salidas[Salida de origen de OLE DB].Columnas[Signo]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Signo&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insertar destino&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

@@ -12,29 +12,12 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{676E5FB9-30C4-49F2-8DF7-D7B722C42868}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{CAC2B12D-7944-45A3-B75D-821F012DB3EB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Borrar DimCliente"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{6433D422-D337-44EE-9F58-CBACBEAEAB14}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Borrar DimCliente"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}"
-          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.DimCliente') IS NOT NULL TRUNCATE TABLE dbo.DimCliente;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Cargar DimCliente"
       DTS:CreationName="Microsoft.Pipeline"
@@ -49,6 +32,148 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Cargar DimCliente\Búsqueda"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimCliente]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimCliente]) [refTable]
+where [refTable].[IdCliente] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IdCliente" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CodigoCliente" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TipoDocumento" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaRegistro" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NombreDistrito" dataType="DT_WSTR" length="40" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NombreProvincia" dataType="DT_WSTR" length="40" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NombreDepartamento" dataType="DT_WSTR" length="40" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Zona" dataType="DT_WSTR" length="18" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TipoCliente" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaCarga" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdCliente]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar DimCliente\Búsqueda.Connections[OleDbConnection]"
+                  connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar DimCliente\Búsqueda.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar DimCliente\Búsqueda.Inputs[Entrada de búsqueda].Columns[IdCliente]"
+                      cachedDataType="i4"
+                      cachedName="IdCliente"
+                      lineageId="Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdCliente]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">IdCliente</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar DimCliente\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Cargar DimCliente\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimCliente\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Cargar DimCliente\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar DimCliente\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Cargar DimCliente\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar DimCliente\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar DimCliente\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar DimCliente\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar DimCliente\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Cargar DimCliente\Cliente"
               componentClassID="Microsoft.OLEDBSource"
@@ -1106,11 +1231,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Cargar DimCliente\DimCliente"
+              refId="Package\Cargar DimCliente\Destino de OLE DB"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="DimCliente"
+              name="Destino de OLE DB"
               usesDispositions="true"
               version="4">
               <properties>
@@ -1121,7 +1246,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[DimCliente]</property>
+                  name="OpenRowset">[dbo].[DimCliente]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -1163,7 +1288,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Cargar DimCliente\DimCliente.Connections[OleDbConnection]"
+                  refId="Package\Cargar DimCliente\Destino de OLE DB.Connections[OleDbConnection]"
                   connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -1171,127 +1296,127 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[IdCliente]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IdCliente]"
                       cachedDataType="i4"
                       cachedName="IdCliente"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
                       lineageId="Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdCliente]" />
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[CodigoCliente]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CodigoCliente]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="CodigoCliente"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoCliente]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoCliente]"
                       lineageId="Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoCliente]" />
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[TipoDocumento]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TipoDocumento]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="TipoDocumento"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoDocumento]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoDocumento]"
                       lineageId="Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoDocumento]" />
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[FechaRegistro]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaRegistro]"
                       cachedDataType="dbDate"
                       cachedName="FechaRegistro"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRegistro]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRegistro]"
                       lineageId="Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaRegistro]" />
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[NombreDistrito]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NombreDistrito]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreDistrito"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDistrito]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDistrito]"
                       lineageId="Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreDistrito]" />
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[NombreProvincia]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NombreProvincia]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreProvincia"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreProvincia]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreProvincia]"
                       lineageId="Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreProvincia]" />
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[NombreDepartamento]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NombreDepartamento]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreDepartamento"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDepartamento]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDepartamento]"
                       lineageId="Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreDepartamento]" />
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[Zona]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Zona]"
                       cachedDataType="wstr"
                       cachedLength="18"
                       cachedName="Zona"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[Zona]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Zona]"
                       lineageId="Package\Cargar DimCliente\Columna derivada.Outputs[Salida de columna derivada].Columns[Zona]" />
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[TipoCliente]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TipoCliente]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="TipoCliente"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoCliente]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoCliente]"
                       lineageId="Package\Cargar DimCliente\Columna derivada.Outputs[Salida de columna derivada].Columns[TipoCliente]" />
                     <inputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaCarga"
-                      externalMetadataColumnId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      externalMetadataColumnId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       lineageId="Package\Cargar DimCliente\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
                       dataType="i4"
                       name="IdCliente" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoCliente]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoCliente]"
                       dataType="wstr"
                       length="15"
                       name="CodigoCliente" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoDocumento]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoDocumento]"
                       dataType="wstr"
                       length="20"
                       name="TipoDocumento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRegistro]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRegistro]"
                       dataType="dbDate"
                       name="FechaRegistro" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDistrito]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDistrito]"
                       dataType="wstr"
                       length="40"
                       name="NombreDistrito" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreProvincia]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreProvincia]"
                       dataType="wstr"
                       length="40"
                       name="NombreProvincia" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDepartamento]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreDepartamento]"
                       dataType="wstr"
                       length="40"
                       name="NombreDepartamento" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[Zona]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Zona]"
                       dataType="wstr"
                       length="18"
                       name="Zona" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoCliente]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoCliente]"
                       dataType="wstr"
                       length="15"
                       name="TipoCliente" />
                     <externalMetadataColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       dataType="dbTimeStamp"
                       name="FechaCarga" />
                   </externalMetadataColumns>
@@ -1299,22 +1424,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Cargar DimCliente\DimCliente.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Cargar DimCliente\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Cargar DimCliente\DimCliente.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Cargar DimCliente\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Cargar DimCliente\DimCliente.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Cargar DimCliente\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Cargar DimCliente\DimCliente.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Cargar DimCliente\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2688,7 +2813,7 @@
           <paths>
             <path
               refId="Package\Cargar DimCliente.Paths[Salida de columna derivada]"
-              endId="Package\Cargar DimCliente\DimCliente.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\Cargar DimCliente\Búsqueda.Inputs[Entrada de búsqueda]"
               name="Salida de columna derivada"
               startId="Package\Cargar DimCliente\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
@@ -2706,6 +2831,11 @@
               endId="Package\Cargar DimCliente\Columna derivada.Inputs[Entrada de columna derivada]"
               name="Salida de combinación de mezcla"
               startId="Package\Cargar DimCliente\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\Cargar DimCliente.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Cargar DimCliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Cargar DimCliente\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\Cargar DimCliente.Paths[Salida de ordenación]"
               endId="Package\Cargar DimCliente\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
@@ -2761,16 +2891,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción]"
-      DTS:CreationName=""
-      DTS:DTSID="{6A7C4A9E-397C-46BC-B62F-1C5B7AA9B7DF}"
-      DTS:From="Package\Borrar DimCliente"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción"
-      DTS:To="Package\Cargar DimCliente" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -2782,37 +2902,11 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\Borrar DimCliente"
-          TopLeft="246,37" />
-        <NodeLayout
-          Size="168,42.4"
+          Size="168,42"
           Id="Package\Cargar DimCliente"
           TopLeft="245,144" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="329,79">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65"
-              Start="0,0"
-              End="0,57.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2820,93 +2914,89 @@
     design-time-name="Package\Cargar DimCliente">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\Cargar DimCliente\Ordenar 5"
-          TopLeft="303.75,482.5" />
+          TopLeft="255.5,515.5" />
         <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\Cargar DimCliente\Ordenar 1"
-          TopLeft="173,130" />
+          TopLeft="71.5,107.5" />
         <NodeLayout
-          Size="149.6,41.6"
+          Size="150,42"
           Id="Package\Cargar DimCliente\Departamento"
-          TopLeft="534.5,406.5" />
+          TopLeft="5.50000000000006,413.5" />
         <NodeLayout
-          Size="124,41.6"
+          Size="124,42"
           Id="Package\Cargar DimCliente\Provincia"
-          TopLeft="371,223.75" />
+          TopLeft="36.5,209.5" />
         <NodeLayout
-          Size="168,41.6"
+          Size="168,42"
           Id="Package\Cargar DimCliente\Columna derivada"
-          TopLeft="406.666666666667,651.666666666667" />
+          TopLeft="235.5,719.5" />
         <NodeLayout
-          Size="133.6,41.6"
-          Id="Package\Cargar DimCliente\DimCliente"
-          TopLeft="427.638888888889,732.361111111111" />
-        <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\Cargar DimCliente\Ordenar 3"
-          TopLeft="369,309" />
+          TopLeft="66.5,311.5" />
         <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\Cargar DimCliente\Ordenar 2"
-          TopLeft="140,314" />
+          TopLeft="255.5,311.5" />
         <NodeLayout
-          Size="113.6,41.6"
+          Size="114,42"
           Id="Package\Cargar DimCliente\Distrito"
-          TopLeft="172,42.5" />
+          TopLeft="78.5,5.5" />
         <NodeLayout
-          Size="196,41.6"
+          Size="196,42"
           Id="Package\Cargar DimCliente\Combinación de mezcla"
-          TopLeft="78,234" />
+          TopLeft="221.5,209.5" />
         <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\Cargar DimCliente\Ordenar 6"
-          TopLeft="556.25,487.5" />
+          TopLeft="66.5000000000001,515.5" />
         <NodeLayout
-          Size="205.6,41.6"
+          Size="206,42"
           Id="Package\Cargar DimCliente\Combinación de mezcla 1"
-          TopLeft="245,401.25" />
+          TopLeft="216.5,413.5" />
         <NodeLayout
-          Size="118.4,41.6"
+          Size="118,42"
           Id="Package\Cargar DimCliente\Ordenar"
-          TopLeft="21,134" />
+          TopLeft="260.5,107.5" />
         <NodeLayout
-          Size="113.6,41.6"
+          Size="114,42"
           Id="Package\Cargar DimCliente\Cliente"
-          TopLeft="25,44" />
+          TopLeft="262.5,5.5" />
         <NodeLayout
-          Size="205.6,41.6"
+          Size="206,42"
           Id="Package\Cargar DimCliente\Combinación de mezcla 2"
-          TopLeft="385,578.75" />
+          TopLeft="216.5,617.5" />
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de origen de OLE DB3]"
-          TopLeft="609,448.5">
+          TopLeft="80.5000000000001,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.2499999999999,39"
+              EndConnector="50,60"
               Start="0,0"
-              End="11.2499999999999,31.5">
+              End="50,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.5" />
+                    End="0,26" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="4,19.5" />
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
                   <mssgle:LineSegment
-                    End="7.24999999999989,19.5" />
+                    End="46,30" />
                   <mssgle:CubicBezierSegment
-                    Point1="7.24999999999989,19.5"
-                    Point2="11.2499999999999,19.5"
-                    Point3="11.2499999999999,23.5" />
+                    Point1="46,30"
+                    Point2="50,30"
+                    Point3="50,34" />
                   <mssgle:LineSegment
-                    End="11.2499999999999,31.5" />
+                    End="50,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2917,18 +3007,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de origen de OLE DB2]"
-          TopLeft="433,265.75">
+          TopLeft="98.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.25"
+              EndConnector="32,60"
               Start="0,0"
-              End="0,35.75">
+              End="32,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.75" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="28,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28,30"
+                    Point2="32,30"
+                    Point3="32,34" />
+                  <mssgle:LineSegment
+                    End="32,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2939,30 +3041,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de origen de OLE DB1]"
-          TopLeft="228.5,84.5">
+          TopLeft="135.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.5,45.5"
+              EndConnector="0,60"
               Start="0,0"
-              End="8.5,38">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.75"
-                    Point2="0,22.75"
-                    Point3="4,22.75" />
-                  <mssgle:LineSegment
-                    End="4.5,22.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.5,22.75"
-                    Point2="8.5,22.75"
-                    Point3="8.5,26.75" />
-                  <mssgle:LineSegment
-                    End="8.5,38" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2973,18 +3063,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de origen de OLE DB]"
-          TopLeft="81,86">
+          TopLeft="319.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,40.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2995,30 +3085,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de ordenación5]"
-          TopLeft="620.25,529.5">
+          TopLeft="130.5,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-99.9166666666667,49.25"
+              EndConnector="156,60"
               Start="0,0"
-              End="-99.9166666666667,41.75">
+              End="156,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.3211519845111" />
+                    End="0,31.7225433526012" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.3211519845111"
-                    Point2="0,29.3211519845111"
-                    Point3="-4,29.3211519845111" />
+                    Point1="0,31.7225433526012"
+                    Point2="0,35.7225433526012"
+                    Point3="4,35.7225433526012" />
                   <mssgle:LineSegment
-                    End="-95.9166666666667,29.3211519845111" />
+                    End="152,35.7225433526012" />
                   <mssgle:CubicBezierSegment
-                    Point1="-95.9166666666667,29.3211519845111"
-                    Point2="-99.9166666666667,29.3211519845111"
-                    Point3="-99.9166666666667,33.3211519845111" />
+                    Point1="152,35.7225433526012"
+                    Point2="156,35.7225433526012"
+                    Point3="156,39.7225433526012" />
                   <mssgle:LineSegment
-                    End="-99.9166666666667,41.75" />
+                    End="156,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3029,30 +3119,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de ordenación4]"
-          TopLeft="367.75,524.5">
+          TopLeft="319.5,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="119.75,54.25"
+              EndConnector="33,60"
               Start="0,0"
-              End="119.75,46.75">
+              End="33,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.125" />
+                    End="0,31.7225433526012" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.125"
-                    Point2="0,27.125"
-                    Point3="4,27.125" />
+                    Point1="0,31.7225433526012"
+                    Point2="0,35.7225433526012"
+                    Point3="4,35.7225433526012" />
                   <mssgle:LineSegment
-                    End="115.75,27.125" />
+                    End="29,35.7225433526012" />
                   <mssgle:CubicBezierSegment
-                    Point1="115.75,27.125"
-                    Point2="119.75,27.125"
-                    Point3="119.75,31.125" />
+                    Point1="29,35.7225433526012"
+                    Point2="33,35.7225433526012"
+                    Point3="33,39.7225433526012" />
                   <mssgle:LineSegment
-                    End="119.75,46.75" />
+                    End="33,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3063,30 +3153,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de ordenación3]"
-          TopLeft="433,351">
+          TopLeft="130.5,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-52.6666666666667,50.25"
+              EndConnector="156,60"
               Start="0,0"
-              End="-52.6666666666667,42.75">
+              End="156,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.9165053242982" />
+                    End="0,31.7225433526012" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.9165053242982"
-                    Point2="0,29.9165053242982"
-                    Point3="-4,29.9165053242982" />
+                    Point1="0,31.7225433526012"
+                    Point2="0,35.7225433526012"
+                    Point3="4,35.7225433526012" />
                   <mssgle:LineSegment
-                    End="-48.6666666666667,29.9165053242982" />
+                    End="152,35.7225433526012" />
                   <mssgle:CubicBezierSegment
-                    Point1="-48.6666666666667,29.9165053242982"
-                    Point2="-52.6666666666667,29.9165053242982"
-                    Point3="-52.6666666666667,33.9165053242982" />
+                    Point1="152,35.7225433526012"
+                    Point2="156,35.7225433526012"
+                    Point3="156,39.7225433526012" />
                   <mssgle:LineSegment
-                    End="-52.6666666666667,42.75" />
+                    End="156,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3097,30 +3187,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de ordenación2]"
-          TopLeft="204,356">
+          TopLeft="319.5,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="143.5,45.25"
+              EndConnector="33,60"
               Start="0,0"
-              End="143.5,37.75">
+              End="33,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.625" />
+                    End="0,31.7225433526012" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.625"
-                    Point2="0,22.625"
-                    Point3="4,22.625" />
+                    Point1="0,31.7225433526012"
+                    Point2="0,35.7225433526012"
+                    Point3="4,35.7225433526012" />
                   <mssgle:LineSegment
-                    End="139.5,22.625" />
+                    End="29,35.7225433526012" />
                   <mssgle:CubicBezierSegment
-                    Point1="139.5,22.625"
-                    Point2="143.5,22.625"
-                    Point3="143.5,26.625" />
+                    Point1="29,35.7225433526012"
+                    Point2="33,35.7225433526012"
+                    Point3="33,39.7225433526012" />
                   <mssgle:LineSegment
-                    End="143.5,37.75" />
+                    End="33,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3131,30 +3221,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de ordenación1]"
-          TopLeft="237,172">
+          TopLeft="135.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-29.6666666666667,62"
+              EndConnector="152.666666666667,60"
               Start="0,0"
-              End="-29.6666666666667,54.5">
+              End="152.666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.8987854251012" />
+                    End="0,31.7085020242915" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,32.8987854251012"
-                    Point2="0,36.8987854251012"
-                    Point3="-4,36.8987854251012" />
+                    Point1="0,31.7085020242915"
+                    Point2="0,35.7085020242915"
+                    Point3="4,35.7085020242915" />
                   <mssgle:LineSegment
-                    End="-25.6666666666667,36.8987854251012" />
+                    End="148.666666666667,35.7085020242915" />
                   <mssgle:CubicBezierSegment
-                    Point1="-25.6666666666667,36.8987854251012"
-                    Point2="-29.6666666666667,36.8987854251012"
-                    Point3="-29.6666666666667,40.8987854251012" />
+                    Point1="148.666666666667,35.7085020242915"
+                    Point2="152.666666666667,35.7085020242915"
+                    Point3="152.666666666667,39.7085020242915" />
                   <mssgle:LineSegment
-                    End="-29.6666666666667,54.5" />
+                    End="152.666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3165,30 +3255,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de ordenación]"
-          TopLeft="80.5,176">
+          TopLeft="319.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="95.5,58"
+              EndConnector="31.3333333333333,60"
               Start="0,0"
-              End="95.5,50.5">
+              End="31.3333333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25" />
+                    End="0,31.7085020242915" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25"
-                    Point2="0,29"
-                    Point3="4,29" />
+                    Point1="0,31.7085020242915"
+                    Point2="0,35.7085020242915"
+                    Point3="4,35.7085020242915" />
                   <mssgle:LineSegment
-                    End="91.5,29" />
+                    End="27.3333333333333,35.7085020242915" />
                   <mssgle:CubicBezierSegment
-                    Point1="91.5,29"
-                    Point2="95.5,29"
-                    Point3="95.5,33" />
+                    Point1="27.3333333333333,35.7085020242915"
+                    Point2="31.3333333333333,35.7085020242915"
+                    Point3="31.3333333333333,39.7085020242915" />
                   <mssgle:LineSegment
-                    End="95.5,50.5" />
+                    End="31.3333333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3199,18 +3289,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de combinación de mezcla2]"
-          TopLeft="489.083333333333,620.75">
+          TopLeft="319.5,659.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.9166666666666"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,23.4166666666666">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.4166666666666" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3221,30 +3311,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de combinación de mezcla1]"
-          TopLeft="347.5,443.25">
+          TopLeft="319.5,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20.25,39.25"
+              EndConnector="0,60"
               Start="0,0"
-              End="20.25,31.75">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.625" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.625"
-                    Point2="0,19.625"
-                    Point3="4,19.625" />
-                  <mssgle:LineSegment
-                    End="16.25,19.625" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.25,19.625"
-                    Point2="20.25,19.625"
-                    Point3="20.25,23.625" />
-                  <mssgle:LineSegment
-                    End="20.25,31.75" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3255,30 +3333,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de combinación de mezcla]"
-          TopLeft="176,276">
+          TopLeft="319.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="28,38"
+              EndConnector="0,60"
               Start="0,0"
-              End="28,30.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="4,19" />
-                  <mssgle:LineSegment
-                    End="24,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24,19"
-                    Point2="28,19"
-                    Point3="28,23" />
-                  <mssgle:LineSegment
-                    End="28,30.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3287,26 +3353,82 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Cargar DimCliente\Búsqueda"
+          TopLeft="282,787" />
         <EdgeLayout
           Id="Package\Cargar DimCliente.Paths[Salida de columna derivada]"
-          TopLeft="492.402777777778,693.666666666667">
+          TopLeft="319.5,761.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38.6944444444445"
+              EndConnector="26.9999999999999,25.5"
               Start="0,0"
-              End="0,31.1944444444445">
+              End="26.9999999999999,18">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.1944444444445" />
+                    End="0,8.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.75"
+                    Point2="0,12.75"
+                    Point3="4,12.75" />
+                  <mssgle:LineSegment
+                    End="22.9999999999999,12.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.9999999999999,12.75"
+                    Point2="26.9999999999999,12.75"
+                    Point3="26.9999999999999,16.75" />
+                  <mssgle:LineSegment
+                    End="26.9999999999999,18" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Cargar DimCliente\Destino de OLE DB"
+          TopLeft="245,894" />
+        <EdgeLayout
+          Id="Package\Cargar DimCliente.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="346.5,829">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14,65"
+              Start="0,0"
+              End="-14,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="-4,32.5" />
+                  <mssgle:LineSegment
+                    End="-10,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10,32.5"
+                    Point2="-14,32.5"
+                    Point3="-14,36.5" />
+                  <mssgle:LineSegment
+                    End="-14,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.8890234375,37.5,213.778046875,12.1953125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3339,19 +3461,6 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar DimCliente\DimCliente">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Cargar DimCliente\Distrito">
     <Properties>
       <Property>
@@ -3366,6 +3475,42 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Cargar DimCliente\Cliente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar DimCliente\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCliente]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar DimCliente\Destino de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
