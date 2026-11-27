@@ -12,29 +12,12 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{11364B4F-AC70-4C99-AAEC-C7AA8CD4843F}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{896B3403-BE48-4CCC-99DE-8E2C96324829}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Borrar FactInventario"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{9F1125FC-052D-4E25-9CF9-A0CAAC94044C}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Borrar FactInventario"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}"
-          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.FactInventario') IS NOT NULL&#xA;    TRUNCATE TABLE dbo.FactInventario;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Cargar FactInventario"
       DTS:CreationName="Microsoft.Pipeline"
@@ -49,6 +32,151 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Cargar FactInventario\Búsqueda"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[FactInventario]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[FactInventario]) [refTable]
+where [refTable].[IdMovimiento] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IdMovimiento" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IdAlmacen" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IdProducto" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Cantidad" dataType="DT_NUMERIC" length="0" precision="12" scale="3" codePage="0"/&gt;&lt;referenceColumn name="StockResultante" dataType="DT_NUMERIC" length="0" precision="12" scale="3" codePage="0"/&gt;&lt;referenceColumn name="IdVenta" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IdTipoMovimiento" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Signo" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaRegistro" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IdFecha" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CantidadConSigno" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="StockCorregido" dataType="DT_NUMERIC" length="0" precision="12" scale="3" codePage="0"/&gt;&lt;referenceColumn name="StockPorActualizar" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EsQuiebreStock" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaCarga" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMovimiento]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar FactInventario\Búsqueda.Connections[OleDbConnection]"
+                  connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar FactInventario\Búsqueda.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\Búsqueda.Inputs[Entrada de búsqueda].Columns[IdMovimiento]"
+                      cachedDataType="i4"
+                      cachedName="IdMovimiento"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMovimiento]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">IdMovimiento</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">IdMovimiento</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar FactInventario\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="RedirectRow"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Cargar FactInventario\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar FactInventario\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Cargar FactInventario\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar FactInventario\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Cargar FactInventario\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactInventario\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar FactInventario\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar FactInventario\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Cargar FactInventario\Columna derivada"
               componentClassID="Microsoft.DerivedColumn"
@@ -654,6 +782,18 @@
                       cachedName="StockPorActualizar"
                       externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
                       lineageId="Package\Cargar FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[StockPorActualizar]" />
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[Signo]"
+                      cachedDataType="i4"
+                      cachedName="Signo"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[Signo]"
+                      lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Signo]" />
+                    <inputColumn
+                      refId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].Columns[FechaRegistro]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaRegistro"
+                      externalMetadataColumnId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRegistro]"
+                      lineageId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaRegistro]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1529,7 +1669,7 @@
           <paths>
             <path
               refId="Package\Cargar FactInventario.Paths[Salida de columna derivada]"
-              endId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\Cargar FactInventario\Búsqueda.Inputs[Entrada de búsqueda]"
               name="Salida de columna derivada"
               startId="Package\Cargar FactInventario\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
@@ -1537,6 +1677,11 @@
               endId="Package\Cargar FactInventario\Columna derivada.Inputs[Entrada de columna derivada]"
               name="Salida de combinación de mezcla"
               startId="Package\Cargar FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\Cargar FactInventario.Paths[Salida de error de búsqueda]"
+              endId="Package\Cargar FactInventario\FactInventario.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de error de búsqueda"
+              startId="Package\Cargar FactInventario\Búsqueda.Outputs[Salida de error de búsqueda]" />
             <path
               refId="Package\Cargar FactInventario.Paths[Salida de ordenación]"
               endId="Package\Cargar FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
@@ -1562,16 +1707,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción]"
-      DTS:CreationName=""
-      DTS:DTSID="{048D6B17-F56E-4D0F-B799-F87B70861AFE}"
-      DTS:From="Package\Borrar FactInventario"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción"
-      DTS:To="Package\Cargar FactInventario" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -1583,37 +1718,11 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Borrar FactInventario"
-          TopLeft="309.999983062348,58.9333329235183" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="178.4,41.6"
           Id="Package\Cargar FactInventario"
-          TopLeft="314.99998278916,156.866665575836" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="401.299982925754,100.533332923518">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56.3333326523172"
-              Start="0,0"
-              End="0,48.8333326523172">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.8333326523172" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="318.333315940368,190.666665340795" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1621,15 +1730,11 @@
     design-time-name="Package\Cargar FactInventario">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="117.6,41.6"
-          Id="Package\Cargar FactInventario\Ordenar"
-          TopLeft="248.333319764999,121.333332489597" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="146.4,42.4"
           Id="Package\Cargar FactInventario\FactInventario"
-          TopLeft="353.333314102558,381.333330681589" />
+          TopLeft="354.16664739036,453.399996908307" />
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\Cargar FactInventario\Combinación de mezcla"
@@ -1650,84 +1755,10 @@
           Size="161.6,41.6"
           Id="Package\Cargar FactInventario\Columna derivada"
           TopLeft="350.833314164646,292.933331296312" />
-        <EdgeLayout
-          Id="Package\Cargar FactInventario.Paths[Salida de ordenación]"
-          TopLeft="306.733319764999,162.933332489597">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="119.733328780201,42.4666660820775"
-              Start="0,0"
-              End="119.733328780201,34.9666660820775">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.2333330410388" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.2333330410388"
-                    Point2="0,21.2333330410388"
-                    Point3="4,21.2333330410388" />
-                  <mssgle:LineSegment
-                    End="115.733328780201,21.2333330410388" />
-                  <mssgle:CubicBezierSegment
-                    Point1="115.733328780201,21.2333330410388"
-                    Point2="119.733328780201,21.2333330410388"
-                    Point3="119.733328780201,25.2333330410388" />
-                  <mssgle:LineSegment
-                    End="119.733328780201,34.9666660820775" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cargar FactInventario.Paths[Salida de combinación de mezcla]"
-          TopLeft="429.249981354923,246.999998571674">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.9333327246375"
-              Start="0,0"
-              End="0,38.4333327246375">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.4333327246375" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cargar FactInventario.Paths[Salida de columna derivada]"
-          TopLeft="429.249980800269,334.933331296312">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46.399999385277"
-              Start="0,0"
-              End="0,38.899999385277">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.899999385277" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="117.6,41.6"
+          Id="Package\Cargar FactInventario\Ordenar"
+          TopLeft="248.333319764999,121.333332489597" />
         <EdgeLayout
           Id="Package\Cargar FactInventario.Paths[Salida de origen de OLE DB1]"
           TopLeft="304.229153728009,84.2666663773855">
@@ -1806,6 +1837,112 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar FactInventario.Paths[Salida de ordenación]"
+          TopLeft="306.733319764999,162.933332489597">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="119.733328780201,42.4666660820775"
+              Start="0,0"
+              End="119.733328780201,34.9666660820775">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2333330410388" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2333330410388"
+                    Point2="0,21.2333330410388"
+                    Point3="4,21.2333330410388" />
+                  <mssgle:LineSegment
+                    End="115.733328780201,21.2333330410388" />
+                  <mssgle:CubicBezierSegment
+                    Point1="115.733328780201,21.2333330410388"
+                    Point2="119.733328780201,21.2333330410388"
+                    Point3="119.733328780201,25.2333330410388" />
+                  <mssgle:LineSegment
+                    End="119.733328780201,34.9666660820775" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar FactInventario.Paths[Salida de combinación de mezcla]"
+          TopLeft="429.249981354923,246.999998571674">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.9333327246375"
+              Start="0,0"
+              End="0,38.4333327246375">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.4333327246375" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Cargar FactInventario\Búsqueda"
+          TopLeft="371.666646359696,373.93333084431" />
+        <EdgeLayout
+          Id="Package\Cargar FactInventario.Paths[Salida de error de búsqueda]"
+          TopLeft="430.916646875028,415.53333084431">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.8666660639975"
+              Start="0,0"
+              End="0,30.3666660639975">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3666660639975" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-62.7440234375,9.08567678199873,125.488046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar FactInventario.Paths[Salida de columna derivada]"
+          TopLeft="433.049980262171,334.533331296312">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.3999995479977"
+              Start="0,0"
+              End="0,31.8999995479977">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8999995479977" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1845,6 +1982,29 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar FactInventario\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[FactInventario]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

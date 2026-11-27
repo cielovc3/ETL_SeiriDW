@@ -12,29 +12,12 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{C46FE917-8DA1-49D9-A0BC-251C679426CC}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{D0535DDA-7855-4D06-A06F-6006A9C18708}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Borrar DimProducto"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{BC751DF1-5D44-4C40-9177-3AB4C6B1F44C}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Borrar DimProducto"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}"
-          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.DimProducto') IS NOT NULL TRUNCATE TABLE dbo.DimProducto;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\CargaDimProducto"
       DTS:CreationName="Microsoft.Pipeline"
@@ -536,6 +519,565 @@
                       refId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CargaDimProducto\Comando de OLE DB 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+              name="Comando de OLE DB 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimProducto] SET [Capacidad] = ?,[Caracteristica] = ?,[Categoria] = ?,[CodigoProducto] = ?,[Color] = ?,[Descripcion] = ?,[Estado] = ?,[FechaLlegadaAlmacen] = ?,[Linea] = ?,[MargenUnitario] = ?,[Medida] = ?,[NombreCategoria] = ?,[NombreMaterial] = ?,[NombreOrigen] = ?,[NombreTipoProducto] = ?,[PrecioAlmacen] = ?,[PrecioVenta] = ?,[RangoPrecio] = ?,[StockActual] = ?,[StockCorregido] = ?,[StockMinimo] = ?,[StockPorActualizar] = ?,[TipoBase] = ?,[TipoOrigen] = ? WHERE [IdProducto] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CargaDimProducto\Comando de OLE DB 1.Connections[OleDbConnection]"
+                  connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB]"
+                  errorOrTruncationOperation="Ejecución de comando"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[Capacidad]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Capacidad"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Capacidad]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[Caracteristica]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Caracteristica"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Caracteristica]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[Categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Categoria"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[CodigoProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CodigoProducto"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoProducto]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[Color]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Color"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Color]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Descripcion"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Estado"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_6]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Estado]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[FechaLlegadaAlmacen]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaLlegadaAlmacen"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_7]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaLlegadaAlmacen]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[IdProducto]"
+                      cachedDataType="i4"
+                      cachedName="IdProducto"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_24]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdProducto]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[Linea]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Linea"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_8]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Linea]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[MargenUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="MargenUnitario"
+                      cachedPrecision="12"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_9]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[MargenUnitario]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[Medida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Medida"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_10]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Medida]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[NombreCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreCategoria"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_11]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[NombreMaterial]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="NombreMaterial"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_12]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreMaterial]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[NombreOrigen]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="NombreOrigen"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_13]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreOrigen]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[NombreTipoProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreTipoProducto"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_14]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreTipoProducto]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[PrecioAlmacen]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioAlmacen"
+                      cachedPrecision="12"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_15]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[PrecioVenta]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioVenta"
+                      cachedPrecision="12"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_16]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioVenta]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[RangoPrecio]"
+                      cachedDataType="wstr"
+                      cachedLength="17"
+                      cachedName="RangoPrecio"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_17]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[RangoPrecio]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[StockActual]"
+                      cachedDataType="numeric"
+                      cachedName="StockActual"
+                      cachedPrecision="12"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_18]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[StockActual]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[StockCorregido]"
+                      cachedDataType="numeric"
+                      cachedName="StockCorregido"
+                      cachedPrecision="12"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_19]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[StockCorregido]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[StockMinimo]"
+                      cachedDataType="numeric"
+                      cachedName="StockMinimo"
+                      cachedPrecision="12"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_20]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[StockMinimo]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[StockPorActualizar]"
+                      cachedDataType="i4"
+                      cachedName="StockPorActualizar"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_21]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[StockPorActualizar]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[TipoBase]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="TipoBase"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_22]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoBase]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[TipoOrigen]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="TipoOrigen"
+                      externalMetadataColumnId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_23]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoOrigen]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="40"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="20"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="150"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_7]"
+                      dataType="dbDate"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_8]"
+                      dataType="wstr"
+                      length="40"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_9]"
+                      dataType="numeric"
+                      name="Param_9"
+                      precision="12"
+                      scale="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_10]"
+                      dataType="wstr"
+                      length="40"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_11]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_12]"
+                      dataType="wstr"
+                      length="40"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_13]"
+                      dataType="wstr"
+                      length="40"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_14]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_15]"
+                      dataType="numeric"
+                      name="Param_15"
+                      precision="12"
+                      scale="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_16]"
+                      dataType="numeric"
+                      name="Param_16"
+                      precision="12"
+                      scale="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_17]"
+                      dataType="wstr"
+                      length="17"
+                      name="Param_17">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_18]"
+                      dataType="numeric"
+                      name="Param_18"
+                      precision="12"
+                      scale="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_19]"
+                      dataType="numeric"
+                      name="Param_19"
+                      precision="12"
+                      scale="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_20]"
+                      dataType="numeric"
+                      name="Param_20"
+                      precision="12"
+                      scale="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_21]"
+                      dataType="i4"
+                      name="Param_21">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_22]"
+                      dataType="wstr"
+                      length="40"
+                      name="Param_22">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_23]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_23">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_24]"
+                      dataType="i4"
+                      name="Param_24">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CargaDimProducto\Comando de OLE DB 1.Outputs[Salida de comando de OLE DB]"
+                  exclusionGroup="1"
+                  name="Salida de comando de OLE DB"
+                  synchronousInputId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CargaDimProducto\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de comando de OLE DB"
+                  synchronousInputId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CargaDimProducto\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CargaDimProducto\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CargaDimProducto\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1910,11 +2452,626 @@
               </outputs>
             </component>
             <component
-              refId="Package\CargaDimProducto\DimProducto"
+              refId="Package\CargaDimProducto\Dimensión de variación lenta"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimensión de variación lenta;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;3"
+              description="Actualiza una dimensión del almacenamiento de datos de SQL Server Analysis Services. Actualiza los registros de dimensión existentes e inserta los registros de dimensión que faltan. Por ejemplo, se actualiza la tabla DimProduct de la base de datos OLAP AdventureWorksDW con datos procedentes de la tabla Products de la base de datos OLTP AdventureWorks."
+              name="Dimensión de variación lenta"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SELECT utilizada para crear un conjunto de filas de esquema."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Capacidad], [Caracteristica], [Categoria], [CodigoProducto], [Color], [Descripcion], [Estado], [FechaCarga], [FechaLlegadaAlmacen], [IdProducto], [Linea], [MargenUnitario], [Medida], [NombreCategoria], [NombreMaterial], [NombreOrigen], [NombreTipoProducto], [PrecioAlmacen], [PrecioVenta], [RangoPrecio], [StockActual], [StockCorregido], [StockMinimo], [StockPorActualizar], [TipoBase], [TipoOrigen] FROM [dbo].[DimProducto]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la cláusula WHERE de la instrucción SELECT que selecciona la fila actual de entre filas con claves empresariales idénticas."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las actualizaciones de atributos históricos se dirigen a la salida de transformación para actualizaciones de atributos variables."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se produce un error de transformación cuando las columnas con atributos fijos contienen cambios."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre de columna para el miembro deducido."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se detectan las actualizaciones de miembros deducidos."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se produce un error de transformación cuando se produce un error de búsqueda de un registro existente."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica que todas las filas de la entrada sean nuevas o que la transformación detecte el tipo de cambio."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CargaDimProducto\Dimensión de variación lenta.Connections[LookupConnection]"
+                  connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
+                  description="Define la conexión que se debe usar para búsquedas en la tabla de dimensiones"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]"
+                  name="Entrada de dimensión de variación lenta">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Capacidad]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Capacidad"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Capacidad]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Capacidad]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Caracteristica]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Caracteristica"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Caracteristica]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Caracteristica]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Categoria"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Categoria]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[Categoria]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[CodigoProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CodigoProducto"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[CodigoProducto]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Color]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Color"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Color]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Color]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Descripcion"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Descripcion]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Estado"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Estado]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Estado]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[FechaCarga]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaCarga"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaCarga]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[FechaLlegadaAlmacen]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaLlegadaAlmacen"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaLlegadaAlmacen]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaLlegadaAlmacen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[IdProducto]"
+                      cachedDataType="i4"
+                      cachedName="IdProducto"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[IdProducto]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Linea]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Linea"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Linea]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Linea]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[MargenUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="MargenUnitario"
+                      cachedPrecision="12"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[MargenUnitario]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[MargenUnitario]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Medida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Medida"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Medida]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Medida]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[NombreCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreCategoria"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreCategoria]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[NombreMaterial]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="NombreMaterial"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreMaterial]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreMaterial]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[NombreOrigen]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="NombreOrigen"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreOrigen]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreOrigen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[NombreTipoProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreTipoProducto"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreTipoProducto]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreTipoProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[PrecioAlmacen]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioAlmacen"
+                      cachedPrecision="12"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[PrecioAlmacen]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[PrecioVenta]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioVenta"
+                      cachedPrecision="12"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[PrecioVenta]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioVenta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[RangoPrecio]"
+                      cachedDataType="wstr"
+                      cachedLength="17"
+                      cachedName="RangoPrecio"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[RangoPrecio]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[RangoPrecio]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[StockActual]"
+                      cachedDataType="numeric"
+                      cachedName="StockActual"
+                      cachedPrecision="12"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[StockActual]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[StockActual]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[StockCorregido]"
+                      cachedDataType="numeric"
+                      cachedName="StockCorregido"
+                      cachedPrecision="12"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[StockCorregido]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[StockCorregido]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[StockMinimo]"
+                      cachedDataType="numeric"
+                      cachedName="StockMinimo"
+                      cachedPrecision="12"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[StockMinimo]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[StockMinimo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[StockPorActualizar]"
+                      cachedDataType="i4"
+                      cachedName="StockPorActualizar"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[StockPorActualizar]"
+                      lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[StockPorActualizar]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[TipoBase]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="TipoBase"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[TipoBase]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoBase]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[TipoOrigen]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="TipoOrigen"
+                      externalMetadataColumnId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[TipoOrigen]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoOrigen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Capacidad]"
+                      dataType="wstr"
+                      length="30"
+                      name="Capacidad" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Caracteristica]"
+                      dataType="wstr"
+                      length="40"
+                      name="Caracteristica" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="30"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[CodigoProducto]"
+                      dataType="wstr"
+                      length="20"
+                      name="CodigoProducto" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Color]"
+                      dataType="wstr"
+                      length="30"
+                      name="Color" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="150"
+                      name="Descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="15"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaCarga]"
+                      dataType="dbTimeStamp"
+                      name="FechaCarga" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaLlegadaAlmacen]"
+                      dataType="dbDate"
+                      name="FechaLlegadaAlmacen" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[IdProducto]"
+                      dataType="i4"
+                      name="IdProducto" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Linea]"
+                      dataType="wstr"
+                      length="40"
+                      name="Linea" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[MargenUnitario]"
+                      dataType="numeric"
+                      name="MargenUnitario"
+                      precision="12"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Medida]"
+                      dataType="wstr"
+                      length="40"
+                      name="Medida" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreCategoria]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreMaterial]"
+                      dataType="wstr"
+                      length="40"
+                      name="NombreMaterial" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreOrigen]"
+                      dataType="wstr"
+                      length="40"
+                      name="NombreOrigen" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreTipoProducto]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreTipoProducto" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[PrecioAlmacen]"
+                      dataType="numeric"
+                      name="PrecioAlmacen"
+                      precision="12"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[PrecioVenta]"
+                      dataType="numeric"
+                      name="PrecioVenta"
+                      precision="12"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[RangoPrecio]"
+                      dataType="wstr"
+                      length="17"
+                      name="RangoPrecio" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[StockActual]"
+                      dataType="numeric"
+                      name="StockActual"
+                      precision="12"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[StockCorregido]"
+                      dataType="numeric"
+                      name="StockCorregido"
+                      precision="12"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[StockMinimo]"
+                      dataType="numeric"
+                      name="StockMinimo"
+                      precision="12"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[StockPorActualizar]"
+                      dataType="i4"
+                      name="StockPorActualizar" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[TipoBase]"
+                      dataType="wstr"
+                      length="40"
+                      name="TipoBase" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[TipoOrigen]"
+                      dataType="wstr"
+                      length="30"
+                      name="TipoOrigen" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CargaDimProducto\Dimensión de variación lenta.Outputs[Salida sin cambios]"
+                  description="Filas sin cambios"
+                  exclusionGroup="1"
+                  name="Salida sin cambios"
+                  synchronousInputId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CargaDimProducto\Dimensión de variación lenta.Outputs[Nueva salida]"
+                  description="Nuevas filas"
+                  exclusionGroup="1"
+                  name="Nueva salida"
+                  synchronousInputId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CargaDimProducto\Dimensión de variación lenta.Outputs[Salida de atributo fijo]"
+                  description="Filas con cambios en columnas etiquetadas FixedAttribute"
+                  exclusionGroup="1"
+                  name="Salida de atributo fijo"
+                  synchronousInputId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CargaDimProducto\Dimensión de variación lenta.Outputs[Salida de actualizaciones de atributos variables]"
+                  description="Estas filas contienen información nueva para cambios de columnas ChangingAttribute (tipo 1)"
+                  exclusionGroup="1"
+                  name="Salida de actualizaciones de atributos variables"
+                  synchronousInputId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CargaDimProducto\Dimensión de variación lenta.Outputs[Salida de inserciones de atributos históricos]"
+                  description="Los cambios de HistoricalAttribute (tipo 2) crean estas nuevas filas"
+                  exclusionGroup="2"
+                  name="Salida de inserciones de atributos históricos"
+                  synchronousInputId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CargaDimProducto\Dimensión de variación lenta.Outputs[Salida de actualizaciones de miembros deducidos]"
+                  description="Información para actualizar fila de dimensión inicial sin rellenar"
+                  exclusionGroup="1"
+                  name="Salida de actualizaciones de miembros deducidos"
+                  synchronousInputId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CargaDimProducto\Insertar destino"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="DimProducto"
+              name="Insertar destino"
               usesDispositions="true"
               version="4">
               <properties>
@@ -1925,7 +3082,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[DimProducto]</property>
+                  name="OpenRowset">[dbo].[DimProducto]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -1947,7 +3104,7 @@
                   dataType="System.Int32"
                   description="Especifica el modo utilizado para obtener acceso a la base de datos."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.Boolean"
                   description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
@@ -1959,7 +3116,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
@@ -1967,7 +3124,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\CargaDimProducto\DimProducto.Connections[OleDbConnection]"
+                  refId="Package\CargaDimProducto\Insertar destino.Connections[OleDbConnection]"
                   connectionManagerID="{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.SeiriDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -1975,337 +3132,352 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[IdProducto]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[IdProducto]"
                       cachedDataType="i4"
                       cachedName="IdProducto"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[IdProducto]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[CodigoProducto]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[CodigoProducto]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="CodigoProducto"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoProducto]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[CodigoProducto]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Descripcion]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Descripcion]"
                       cachedDataType="wstr"
                       cachedLength="150"
                       cachedName="Descripcion"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripcion]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripcion]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Descripcion]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[TipoBase]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[TipoBase]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="TipoBase"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoBase]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoBase]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoBase]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Caracteristica]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Caracteristica]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Caracteristica"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Caracteristica]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Caracteristica]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Caracteristica]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Linea"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Linea]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Capacidad]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Capacidad]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Capacidad"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Capacidad]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Capacidad]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Capacidad]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Medida]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Medida]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Medida"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Medida]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Medida]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Medida]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Color]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Color]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Color"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Color]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[PrecioAlmacen]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[PrecioAlmacen]"
                       cachedDataType="numeric"
                       cachedName="PrecioAlmacen"
                       cachedPrecision="12"
                       cachedScale="4"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioAlmacen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[PrecioVenta]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[PrecioVenta]"
                       cachedDataType="numeric"
                       cachedName="PrecioVenta"
                       cachedPrecision="12"
                       cachedScale="4"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioVenta]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioVenta]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[PrecioVenta]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockMinimo]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[StockMinimo]"
                       cachedDataType="numeric"
                       cachedName="StockMinimo"
                       cachedPrecision="12"
                       cachedScale="3"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockMinimo]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockMinimo]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[StockMinimo]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Estado]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[StockActual]"
+                      cachedDataType="numeric"
+                      cachedName="StockActual"
+                      cachedPrecision="12"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockActual]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[StockActual]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Estado]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="Estado"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[Estado]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreMaterial]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[NombreCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreCategoria"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCategoria]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[NombreMaterial]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreMaterial"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreMaterial]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreOrigen]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[NombreOrigen]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreOrigen"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreOrigen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreOrigen]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreOrigen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[FechaLlegadaAlmacen]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[TipoOrigen]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="TipoOrigen"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoOrigen]"
+                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoOrigen]" />
+                    <inputColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[FechaLlegadaAlmacen]"
                       cachedDataType="dbDate"
                       cachedName="FechaLlegadaAlmacen"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[FechaLlegadaAlmacen]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoProducto]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[NombreTipoProducto]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="NombreTipoProducto"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoProducto]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoProducto]"
                       lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[NombreTipoProducto]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[MargenUnitario]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[MargenUnitario]"
                       cachedDataType="numeric"
                       cachedName="MargenUnitario"
                       cachedPrecision="12"
                       cachedScale="4"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[MargenUnitario]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[MargenUnitario]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[MargenUnitario]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[RangoPrecio]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[RangoPrecio]"
                       cachedDataType="wstr"
                       cachedLength="17"
                       cachedName="RangoPrecio"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[RangoPrecio]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[RangoPrecio]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[RangoPrecio]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockCorregido]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[StockCorregido]"
                       cachedDataType="numeric"
                       cachedName="StockCorregido"
                       cachedPrecision="12"
                       cachedScale="3"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[StockCorregido]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[StockPorActualizar]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[StockPorActualizar]"
                       cachedDataType="i4"
                       cachedName="StockPorActualizar"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[StockPorActualizar]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[FechaCarga]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaCarga"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[FechaCarga]" />
                     <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Categoria"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      externalMetadataColumnId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
                       lineageId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada].Columns[Categoria]" />
-                    <inputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].Columns[TipoOrigen]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="TipoOrigen"
-                      externalMetadataColumnId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoOrigen]"
-                      lineageId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla].Columns[TipoOrigen]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProducto]"
                       dataType="i4"
                       name="IdProducto" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoProducto]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoProducto]"
                       dataType="wstr"
                       length="20"
                       name="CodigoProducto" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripcion]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripcion]"
                       dataType="wstr"
                       length="150"
                       name="Descripcion" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoBase]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoBase]"
                       dataType="wstr"
                       length="40"
                       name="TipoBase" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Caracteristica]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Caracteristica]"
                       dataType="wstr"
                       length="40"
                       name="Caracteristica" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
                       dataType="wstr"
                       length="40"
                       name="Linea" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Capacidad]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Capacidad]"
                       dataType="wstr"
                       length="30"
                       name="Capacidad" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Medida]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Medida]"
                       dataType="wstr"
                       length="40"
                       name="Medida" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
                       dataType="wstr"
                       length="30"
                       name="Color" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioAlmacen]"
                       dataType="numeric"
                       name="PrecioAlmacen"
                       precision="12"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioVenta]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioVenta]"
                       dataType="numeric"
                       name="PrecioVenta"
                       precision="12"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockMinimo]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockMinimo]"
                       dataType="numeric"
                       name="StockMinimo"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
-                      dataType="wstr"
-                      length="15"
-                      name="Estado" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
-                      dataType="wstr"
-                      length="40"
-                      name="NombreMaterial" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreOrigen]"
-                      dataType="wstr"
-                      length="40"
-                      name="NombreOrigen" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoOrigen]"
-                      dataType="wstr"
-                      length="30"
-                      name="TipoOrigen" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
-                      dataType="dbDate"
-                      name="FechaLlegadaAlmacen" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoProducto]"
-                      dataType="wstr"
-                      length="30"
-                      name="NombreTipoProducto" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[MargenUnitario]"
-                      dataType="numeric"
-                      name="MargenUnitario"
-                      precision="12"
-                      scale="4" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[RangoPrecio]"
-                      dataType="wstr"
-                      length="17"
-                      name="RangoPrecio" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
-                      dataType="numeric"
-                      name="StockCorregido"
-                      precision="12"
-                      scale="3" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
-                      dataType="i4"
-                      name="StockPorActualizar" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
-                      dataType="dbTimeStamp"
-                      name="FechaCarga" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
-                      dataType="wstr"
-                      length="30"
-                      name="Categoria" />
-                    <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockActual]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockActual]"
                       dataType="numeric"
                       name="StockActual"
                       precision="12"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCategoria]"
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="15"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCategoria]"
                       dataType="wstr"
                       length="30"
                       name="NombreCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreMaterial]"
+                      dataType="wstr"
+                      length="40"
+                      name="NombreMaterial" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreOrigen]"
+                      dataType="wstr"
+                      length="40"
+                      name="NombreOrigen" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoOrigen]"
+                      dataType="wstr"
+                      length="30"
+                      name="TipoOrigen" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaLlegadaAlmacen]"
+                      dataType="dbDate"
+                      name="FechaLlegadaAlmacen" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreTipoProducto]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreTipoProducto" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[MargenUnitario]"
+                      dataType="numeric"
+                      name="MargenUnitario"
+                      precision="12"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[RangoPrecio]"
+                      dataType="wstr"
+                      length="17"
+                      name="RangoPrecio" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockCorregido]"
+                      dataType="numeric"
+                      name="StockCorregido"
+                      precision="12"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[StockPorActualizar]"
+                      dataType="i4"
+                      name="StockPorActualizar" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaCarga]"
+                      dataType="dbTimeStamp"
+                      name="FechaCarga" />
+                    <externalMetadataColumn
+                      refId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="30"
+                      name="Categoria" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\CargaDimProducto\Insertar destino.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\CargaDimProducto\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\CargaDimProducto\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\CargaDimProducto\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\CargaDimProducto\DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\CargaDimProducto\Insertar destino.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6552,20 +7724,20 @@
           </components>
           <paths>
             <path
+              refId="Package\CargaDimProducto.Paths[Nueva salida]"
+              endId="Package\CargaDimProducto\Insertar destino.Inputs[Entrada de destino de OLE DB]"
+              name="Nueva salida"
+              startId="Package\CargaDimProducto\Dimensión de variación lenta.Outputs[Nueva salida]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de actualizaciones de atributos variables]"
+              endId="Package\CargaDimProducto\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB]"
+              name="Salida de actualizaciones de atributos variables"
+              startId="Package\CargaDimProducto\Dimensión de variación lenta.Outputs[Salida de actualizaciones de atributos variables]" />
+            <path
               refId="Package\CargaDimProducto.Paths[Salida de columna derivada]"
-              endId="Package\CargaDimProducto\DimProducto.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\CargaDimProducto\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]"
               name="Salida de columna derivada"
               startId="Package\CargaDimProducto\Columna derivada.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de combinación de mezcla]"
-              endId="Package\CargaDimProducto\Ordenar 3.Inputs[Entrada de ordenación]"
-              name="Salida de combinación de mezcla"
-              startId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla]" />
-            <path
-              refId="Package\CargaDimProducto.Paths[Salida de combinación de mezcla1]"
-              endId="Package\CargaDimProducto\Columna derivada.Inputs[Entrada de columna derivada]"
-              name="Salida de combinación de mezcla"
-              startId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de combinación de mezcla2]"
               endId="Package\CargaDimProducto\Ordenar 4.Inputs[Entrada de ordenación]"
@@ -6573,49 +7745,59 @@
               startId="Package\CargaDimProducto\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de combinación de mezcla3]"
+              endId="Package\CargaDimProducto\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de combinación de mezcla"
+              startId="Package\CargaDimProducto\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de combinación de mezcla1]"
               endId="Package\CargaDimProducto\Ordenar 6.Inputs[Entrada de ordenación]"
               name="Salida de combinación de mezcla"
               startId="Package\CargaDimProducto\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]" />
             <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación7]"
-              endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación]" />
+              refId="Package\CargaDimProducto.Paths[Salida de combinación de mezcla]"
+              endId="Package\CargaDimProducto\Ordenar 3.Inputs[Entrada de ordenación]"
+              name="Salida de combinación de mezcla"
+              startId="Package\CargaDimProducto\Unir Categoria.Outputs[Salida de combinación de mezcla]" />
             <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación6]"
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación7]"
               endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\CargaDimProducto\Ordenar 4.Outputs[Salida de ordenación]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de ordenación5]"
-              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              endId="Package\CargaDimProducto\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación]" />
+              startId="Package\CargaDimProducto\Ordenar 5.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación4]"
-              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación6]"
+              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación]" />
+              startId="Package\CargaDimProducto\Ordenar 7.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación3]"
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación2]"
               endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\CargaDimProducto\Ordenar 6.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación2]"
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación1]"
               endId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\CargaDimProducto\Ordenar 1.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación1]"
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación]"
               endId="Package\CargaDimProducto\Unir Categoria.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\CargaDimProducto\Ordenar.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\CargaDimProducto.Paths[Salida de ordenación]"
-              endId="Package\CargaDimProducto\Combinación de mezcla 2.Inputs[Entrada derecha de combinación de mezcla]"
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación3]"
+              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
-              startId="Package\CargaDimProducto\Ordenar 7.Outputs[Salida de ordenación]" />
+              startId="Package\CargaDimProducto\Ordenar 2.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\CargaDimProducto.Paths[Salida de ordenación4]"
+              endId="Package\CargaDimProducto\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\CargaDimProducto\Ordenar 3.Outputs[Salida de ordenación]" />
             <path
               refId="Package\CargaDimProducto.Paths[Salida de origen de OLE DB]"
               endId="Package\CargaDimProducto\Ordenar 5.Inputs[Entrada de ordenación]"
@@ -6646,16 +7828,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción]"
-      DTS:CreationName=""
-      DTS:DTSID="{E3497B44-ECF9-4DB7-8AF8-C54ADA0D9CFD}"
-      DTS:From="Package\Borrar DimProducto"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción"
-      DTS:To="Package\CargaDimProducto" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -6667,37 +7839,11 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="169.6,41.6"
-          Id="Package\Borrar DimProducto"
-          TopLeft="259.166652506425,66.7333328692781" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="166.4,41.6"
           Id="Package\CargaDimProducto"
           TopLeft="266.458318731231,149.933332290716" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="346.979152285495,108.733332869278">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.1999994214379"
-              Start="0,0"
-              End="0,33.6999994214379">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.6999994214379" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -6705,97 +7851,97 @@
     design-time-name="Package\CargaDimProducto">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="122.4,42.4"
-          Id="Package\CargaDimProducto\Producto"
-          TopLeft="140.83332563854,44.1999996926387" />
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\CargaDimProducto\Ordenar 6"
-          TopLeft="531.366640212967,684.999997450709" />
-        <NodeLayout
-          Size="190.4,41.6"
-          Id="Package\CargaDimProducto\Combinación de mezcla"
-          TopLeft="365.833313345082,434.199996980627" />
-        <NodeLayout
-          Size="142.4,42.4"
-          Id="Package\CargaDimProducto\TipoProducto"
-          TopLeft="759.499959158402,609.333331187831" />
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\CargaDimProducto\Ordenar 7"
-          TopLeft="758.866627782916,690.599997739991" />
-        <NodeLayout
-          Size="117.6,41.6"
-          Id="Package\CargaDimProducto\Ordenar"
-          TopLeft="140.83332563854,143.866665666236" />
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\CargaDimProducto\Ordenar 2"
-          TopLeft="527.499971178672,342.33333095279" />
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="125.6,41.6"
           Id="Package\CargaDimProducto\Ordenar 4"
-          TopLeft="395.533312115737,523.066664002869" />
+          TopLeft="441.9,515.9" />
         <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\CargaDimProducto\Columna derivada"
-          TopLeft="624.233304603068,861.666663984789" />
-        <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\CargaDimProducto\Combinación de mezcla 1"
-          TopLeft="487.499973364176,612.133332164155" />
-        <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\CargaDimProducto\Combinación de mezcla 2"
-          TopLeft="614.466638164058,769.799997233749" />
+          Size="190.4,41.6"
+          Id="Package\CargaDimProducto\Combinación de mezcla"
+          TopLeft="409.5,413.9" />
         <NodeLayout
           Size="145.6,41.6"
           Id="Package\CargaDimProducto\Unir Categoria"
-          TopLeft="261.111096905338,253.311109357344" />
+          TopLeft="431.9,209.9" />
         <NodeLayout
-          Size="141.6,42.4"
-          Id="Package\CargaDimProducto\DimProducto"
-          TopLeft="630.899971253178,955.947365731579" />
+          Size="161.6,41.6"
+          Id="Package\CargaDimProducto\Columna derivada"
+          TopLeft="423.9,923.1" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar 7"
+          TopLeft="255.9,719.9" />
         <NodeLayout
           Size="125.6,41.6"
           Id="Package\CargaDimProducto\Ordenar 1"
-          TopLeft="377.49997937431,151.666665611996" />
+          TopLeft="441.9,107.9" />
         <NodeLayout
           Size="125.6,41.6"
           Id="Package\CargaDimProducto\Ordenar 5"
-          TopLeft="679.699963479739,516.431576702384" />
+          TopLeft="255.9,515.9" />
         <NodeLayout
           Size="172,42.4"
           Id="Package\CargaDimProducto\Origen de Producto"
-          TopLeft="656.041630617241,412.770173530439" />
+          TopLeft="176.7,413.5" />
         <NodeLayout
           Size="117.6,42.4"
           Id="Package\CargaDimProducto\Material"
-          TopLeft="535.833304056692,252.199998246233" />
+          TopLeft="253.9,209.5" />
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\CargaDimProducto\Combinación de mezcla 2"
+          TopLeft="405.5,821.5" />
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\CargaDimProducto\Combinación de mezcla 1"
+          TopLeft="405.5,617.9" />
+        <NodeLayout
+          Size="122.4,42.4"
+          Id="Package\CargaDimProducto\Producto"
+          TopLeft="258.5,5.50000000000005" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar 6"
+          TopLeft="441.9,719.9" />
         <NodeLayout
           Size="128,41.6"
           Id="Package\CargaDimProducto\Ordenar 3"
-          TopLeft="325.833315530586,346.133331404792" />
+          TopLeft="440.7,311.9" />
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\CargaDimProducto\Dimensión de variación lenta"
+          TopLeft="398.7,1024.7" />
+        <NodeLayout
+          Size="142.4,42.4"
+          Id="Package\CargaDimProducto\TipoProducto"
+          TopLeft="202.5,617.5" />
         <NodeLayout
           Size="125.6,42.4"
           Id="Package\CargaDimProducto\Categoria"
-          TopLeft="383.74997921909,48.578947044382" />
+          TopLeft="441.9,5.50000000000005" />
+        <NodeLayout
+          Size="117.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar"
+          TopLeft="263.9,107.9" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\CargaDimProducto\Ordenar 2"
+          TopLeft="254.9,311.9" />
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB4]"
-          TopLeft="443.291645963367,91.2456137110487">
+          TopLeft="504.7,47.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.4210519009473"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,52.9210519009473">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.9210519009473" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6806,30 +7952,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB3]"
-          TopLeft="830.833292491735,651.999997854498">
+          TopLeft="273.7,659.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.29999804215277,38.5999998854933"
+              EndConnector="45,60.0000000000001"
               Start="0,0"
-              End="-9.29999804215277,31.0999998854933">
+              End="45,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.2999999427466" />
+                    End="0,26.0000000000001" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.2999999427466"
-                    Point2="0,19.2999999427466"
-                    Point3="-4,19.2999999427466" />
+                    Point1="0,26.0000000000001"
+                    Point2="0,30.0000000000001"
+                    Point3="4,30.0000000000001" />
                   <mssgle:LineSegment
-                    End="-5.29999804215277,19.2999999427466" />
+                    End="41,30.0000000000001" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.29999804215277,19.2999999427466"
-                    Point2="-9.29999804215277,19.2999999427466"
-                    Point3="-9.29999804215277,23.2999999427466" />
+                    Point1="41,30.0000000000001"
+                    Point2="45,30.0000000000001"
+                    Point3="45,34.0000000000001" />
                   <mssgle:LineSegment
-                    End="-9.29999804215277,31.0999998854933" />
+                    End="45,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6840,18 +7986,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB2]"
-          TopLeft="200.83332563854,86.8666663593054">
+          TopLeft="321.2,47.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56.9999993069306"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,49.4999993069306">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.4999993069306" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6862,18 +8008,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB1]"
-          TopLeft="592.333304284349,294.8666649129">
+          TopLeft="315.2,251.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47.4666660398904"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,39.9666660398904">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.9666660398904" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6884,18 +8030,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de origen de OLE DB]"
-          TopLeft="742.204130381823,455.436840197106">
+          TopLeft="262.7,455.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.9947365052787"
+              EndConnector="56.0000000000001,60.0000000000001"
               Start="0,0"
-              End="0,53.4947365052787">
+              End="56.0000000000001,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.4947365052787" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="52.0000000000001,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.0000000000001,30"
+                    Point2="56.0000000000001,30"
+                    Point3="56.0000000000001,34" />
+                  <mssgle:LineSegment
+                    End="56.0000000000001,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6906,30 +8064,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación7]"
-          TopLeft="742.366630146405,558.431576702384">
+          TopLeft="504.7,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-124.199990115563,53.7017554617706"
+              EndConnector="31.7333333333333,60.4"
               Start="0,0"
-              End="-124.199990115563,46.2017554617706">
+              End="31.7333333333333,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.9627682808535" />
+                    End="0,31.95008" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.9627682808535"
-                    Point2="0,31.9627682808535"
-                    Point3="-4,31.9627682808535" />
+                    Point1="0,31.95008"
+                    Point2="0,35.95008"
+                    Point3="4,35.95008" />
                   <mssgle:LineSegment
-                    End="-120.199990115563,31.9627682808535" />
+                    End="27.7333333333333,35.95008" />
                   <mssgle:CubicBezierSegment
-                    Point1="-120.199990115563,31.9627682808535"
-                    Point2="-124.199990115563,31.9627682808535"
-                    Point3="-124.199990115563,35.9627682808535" />
+                    Point1="27.7333333333333,35.95008"
+                    Point2="31.7333333333333,35.95008"
+                    Point3="31.7333333333333,39.95008" />
                   <mssgle:LineSegment
-                    End="-124.199990115563,46.2017554617706" />
+                    End="31.7333333333333,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6940,30 +8098,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación6]"
-          TopLeft="457.933312115736,564.666664002869">
+          TopLeft="318.7,761.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="128.366661248439,47.4666681612862"
+              EndConnector="154.266666666667,59.9999999999999"
               Start="0,0"
-              End="128.366661248439,39.9666681612862">
+              End="154.266666666667,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7333340806431" />
+                    End="0,31.7119999999999" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.7333340806431"
-                    Point2="0,23.7333340806431"
-                    Point3="4,23.7333340806431" />
+                    Point1="0,31.7119999999999"
+                    Point2="0,35.7119999999999"
+                    Point3="4,35.7119999999999" />
                   <mssgle:LineSegment
-                    End="124.366661248439,23.7333340806431" />
+                    End="150.266666666667,35.7119999999999" />
                   <mssgle:CubicBezierSegment
-                    Point1="124.366661248439,23.7333340806431"
-                    Point2="128.366661248439,23.7333340806431"
-                    Point3="128.366661248439,27.7333340806431" />
+                    Point1="150.266666666667,35.7119999999999"
+                    Point2="154.266666666667,35.7119999999999"
+                    Point3="154.266666666667,39.7119999999999" />
                   <mssgle:LineSegment
-                    End="128.366661248439,39.9666681612862" />
+                    End="154.266666666667,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6974,30 +8132,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación5]"
-          TopLeft="389.833315530586,388.133331404792">
+          TopLeft="318.7,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="40.6666644811627,46.066665575835"
+              EndConnector="154.266666666667,60.4"
               Start="0,0"
-              End="40.6666644811627,38.566665575835">
+              End="154.266666666667,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.4091851547244" />
+                    End="0,31.95008" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.4091851547244"
-                    Point2="0,27.4091851547244"
-                    Point3="4,27.4091851547244" />
+                    Point1="0,31.95008"
+                    Point2="0,35.95008"
+                    Point3="4,35.95008" />
                   <mssgle:LineSegment
-                    End="36.6666644811627,27.4091851547244" />
+                    End="150.266666666667,35.95008" />
                   <mssgle:CubicBezierSegment
-                    Point1="36.6666644811627,27.4091851547244"
-                    Point2="40.6666644811627,27.4091851547244"
-                    Point3="40.6666644811627,31.4091851547244" />
+                    Point1="150.266666666667,35.95008"
+                    Point2="154.266666666667,35.95008"
+                    Point3="154.266666666667,39.95008" />
                   <mssgle:LineSegment
-                    End="40.6666644811627,38.566665575835" />
+                    End="154.266666666667,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7008,30 +8166,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación4]"
-          TopLeft="589.899971178672,383.93333095279">
+          TopLeft="504.7,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-98.999991166923,50.2666660278373"
+              EndConnector="30.4,60.4"
               Start="0,0"
-              End="-98.999991166923,42.7666660278373">
+              End="30.4,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.9076146826714" />
+                    End="0,31.938" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.9076146826714"
-                    Point2="0,29.9076146826714"
-                    Point3="-4,29.9076146826714" />
+                    Point1="0,31.938"
+                    Point2="0,35.938"
+                    Point3="4,35.938" />
                   <mssgle:LineSegment
-                    End="-94.999991166923,29.9076146826714" />
+                    End="26.4,35.938" />
                   <mssgle:CubicBezierSegment
-                    Point1="-94.999991166923,29.9076146826714"
-                    Point2="-98.999991166923,29.9076146826714"
-                    Point3="-98.999991166923,33.9076146826714" />
+                    Point1="26.4,35.938"
+                    Point2="30.4,35.938"
+                    Point3="30.4,39.938" />
                   <mssgle:LineSegment
-                    End="-98.999991166923,42.7666660278373" />
+                    End="30.4,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7042,30 +8200,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación3]"
-          TopLeft="593.766640212967,726.599997450709">
+          TopLeft="317.7,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="119.49999795109,43.1999997830392"
+              EndConnector="156.6,60.4"
               Start="0,0"
-              End="119.49999795109,35.6999997830392">
+              End="156.6,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.5999998915196" />
+                    End="0,31.938" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.5999998915196"
-                    Point2="0,21.5999998915196"
-                    Point3="4,21.5999998915196" />
+                    Point1="0,31.938"
+                    Point2="0,35.938"
+                    Point3="4,35.938" />
                   <mssgle:LineSegment
-                    End="115.49999795109,21.5999998915196" />
+                    End="152.6,35.938" />
                   <mssgle:CubicBezierSegment
-                    Point1="115.49999795109,21.5999998915196"
-                    Point2="119.49999795109,21.5999998915196"
-                    Point3="119.49999795109,25.5999998915196" />
+                    Point1="152.6,35.938"
+                    Point2="156.6,35.938"
+                    Point3="156.6,39.938" />
                   <mssgle:LineSegment
-                    End="119.49999795109,35.6999997830392" />
+                    End="156.6,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7076,30 +8234,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación2]"
-          TopLeft="439.99997937431,193.666665611996">
+          TopLeft="504.7,761.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-82.8888824689719,59.6444437453482"
+              EndConnector="31.7333333333333,59.9999999999999"
               Start="0,0"
-              End="-82.8888824689719,52.1444437453482">
+              End="31.7333333333333,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.3987349057757" />
+                    End="0,31.7119999999999" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.3987349057757"
-                    Point2="0,35.3987349057757"
-                    Point3="-4,35.3987349057757" />
+                    Point1="0,31.7119999999999"
+                    Point2="0,35.7119999999999"
+                    Point3="4,35.7119999999999" />
                   <mssgle:LineSegment
-                    End="-78.8888824689719,35.3987349057757" />
+                    End="27.7333333333333,35.7119999999999" />
                   <mssgle:CubicBezierSegment
-                    Point1="-78.8888824689719,35.3987349057757"
-                    Point2="-82.8888824689719,35.3987349057757"
-                    Point3="-82.8888824689719,39.3987349057757" />
+                    Point1="27.7333333333333,35.7119999999999"
+                    Point2="31.7333333333333,35.7119999999999"
+                    Point3="31.7333333333333,39.7119999999999" />
                   <mssgle:LineSegment
-                    End="-82.8888824689719,52.1444437453482" />
+                    End="31.7333333333333,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7110,30 +8268,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación1]"
-          TopLeft="199.33332563854,185.866665666236">
+          TopLeft="504.7,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="111.777771266798,67.4444436911081"
+              EndConnector="22.9333333333334,60.4"
               Start="0,0"
-              End="111.777771266798,59.9444436911081">
+              End="22.9333333333334,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.0280031662674" />
+                    End="0,31.8460869565217" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,36.0280031662674"
-                    Point2="0,40.0280031662674"
-                    Point3="4,40.0280031662674" />
+                    Point1="0,31.8460869565217"
+                    Point2="0,35.8460869565217"
+                    Point3="4,35.8460869565217" />
                   <mssgle:LineSegment
-                    End="107.777771266798,40.0280031662674" />
+                    End="18.9333333333334,35.8460869565217" />
                   <mssgle:CubicBezierSegment
-                    Point1="107.777771266798,40.0280031662674"
-                    Point2="111.777771266798,40.0280031662674"
-                    Point3="111.777771266798,44.0280031662674" />
+                    Point1="18.9333333333334,35.8460869565217"
+                    Point2="22.9333333333334,35.8460869565217"
+                    Point3="22.9333333333334,39.8460869565217" />
                   <mssgle:LineSegment
-                    End="111.777771266798,59.9444436911081" />
+                    End="22.9333333333334,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7144,30 +8302,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de ordenación]"
-          TopLeft="821.266627782916,732.199997739991">
+          TopLeft="322.7,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-76.3999896188581,37.5999994937579"
+              EndConnector="159.066666666667,60.4"
               Start="0,0"
-              End="-76.3999896188581,30.0999994937579">
+              End="159.066666666667,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.3787948794173" />
+                    End="0,31.8460869565217" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.3787948794173"
-                    Point2="0,22.3787948794173"
-                    Point3="-4,22.3787948794173" />
+                    Point1="0,31.8460869565217"
+                    Point2="0,35.8460869565217"
+                    Point3="4,35.8460869565217" />
                   <mssgle:LineSegment
-                    End="-72.3999896188581,22.3787948794173" />
+                    End="155.066666666667,35.8460869565217" />
                   <mssgle:CubicBezierSegment
-                    Point1="-72.3999896188581,22.3787948794173"
-                    Point2="-76.3999896188581,22.3787948794173"
-                    Point3="-76.3999896188581,26.3787948794173" />
+                    Point1="155.066666666667,35.8460869565217"
+                    Point2="159.066666666667,35.8460869565217"
+                    Point3="159.066666666667,39.8460869565217" />
                   <mssgle:LineSegment
-                    End="-76.3999896188581,30.0999994937579" />
+                    End="159.066666666667,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7178,18 +8336,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de combinación de mezcla3]"
-          TopLeft="590.033306788572,653.733332164155">
+          TopLeft="504.7,863.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.2666652865543"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,23.7666652865543">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.7666652865543" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7200,18 +8358,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de combinación de mezcla2]"
-          TopLeft="459.283312730409,475.799996980627">
+          TopLeft="504.7,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47.2666670222414"
+              EndConnector="0,60.4"
               Start="0,0"
-              End="0,39.7666670222414">
+              End="0,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.7666670222414" />
+                    End="0,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7222,18 +8380,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de combinación de mezcla1]"
-          TopLeft="709.349971383563,811.399997233749">
+          TopLeft="504.7,659.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50.2666667510401"
+              EndConnector="0,60.4"
               Start="0,0"
-              End="0,42.7666667510401">
+              End="0,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.7666667510401" />
+                    End="0,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7244,30 +8402,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de combinación de mezcla]"
-          TopLeft="334.111096905338,295.311109357344">
+          TopLeft="504.7,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="55.7222186252479,50.8222220474478"
+              EndConnector="0,60.4"
               Start="0,0"
-              End="55.7222186252479,43.3222220474478">
+              End="0,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.4111110237239" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.4111110237239"
-                    Point2="0,25.4111110237239"
-                    Point3="4,25.4111110237239" />
-                  <mssgle:LineSegment
-                    End="51.7222186252479,25.4111110237239" />
-                  <mssgle:CubicBezierSegment
-                    Point1="51.7222186252479,25.4111110237239"
-                    Point2="55.7222186252479,25.4111110237239"
-                    Point3="55.7222186252479,29.4111110237239" />
-                  <mssgle:LineSegment
-                    End="55.7222186252479,43.3222220474478" />
+                    End="0,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7278,18 +8424,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CargaDimProducto.Paths[Salida de columna derivada]"
-          TopLeft="703.399971261456,903.666663984789">
+          TopLeft="504.7,964.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.2807017467901"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,44.7807017467901">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.7807017467901" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7298,48 +8444,89 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\CargaDimProducto\Insertar destino"
+          TopLeft="204.5,1126.3" />
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Nueva salida]"
+          TopLeft="453.7,1066.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-174,60"
+              Start="0,0"
+              End="-174,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.4968944099379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.4968944099379"
+                    Point2="0,20.4968944099379"
+                    Point3="-4,20.4968944099379" />
+                  <mssgle:LineSegment
+                    End="-170,20.4968944099379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-170,20.4968944099379"
+                    Point2="-174,20.4968944099379"
+                    Point3="-174,24.4968944099379" />
+                  <mssgle:LineSegment
+                    End="-174,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-115.288359375,25.4968944099379,56.57671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\CargaDimProducto\Comando de OLE DB 1"
+          TopLeft="654.1,1126.3" />
+        <EdgeLayout
+          Id="Package\CargaDimProducto.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="555.7,1066.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192,60"
+              Start="0,0"
+              End="192,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.4968944099379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.4968944099379"
+                    Point2="0,20.4968944099379"
+                    Point3="4,20.4968944099379" />
+                  <mssgle:LineSegment
+                    End="188,20.4968944099379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="188,20.4968944099379"
+                    Point2="192,20.4968944099379"
+                    Point3="192,24.4968944099379" />
+                  <mssgle:LineSegment
+                    End="192,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.25324218749999,25.4968944099379,208.506484375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\Producto">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\TipoProducto">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\CargaDimProducto\DimProducto">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\CargaDimProducto\Origen de Producto">
     <Properties>
@@ -7355,6 +8542,220 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\CargaDimProducto\Material">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CargaDimProducto\Producto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CargaDimProducto\Dimensión de variación lenta">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{BDCED922-A79F-4A86-A79C-CC0A85CB05A9}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimProducto]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[Capacidad]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Capacidad&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[Caracteristica]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Caracteristica&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columna derivada.Salidas[Salida de columna derivada].Columnas[Categoria]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Categoria&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[CodigoProducto]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CodigoProducto&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[Color]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Color&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[Descripcion]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Descripcion&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[Estado]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Estado&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columna derivada.Salidas[Salida de columna derivada].Columnas[FechaCarga]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FechaCarga&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[FechaLlegadaAlmacen]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FechaLlegadaAlmacen&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[IdProducto]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IdProducto&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[Linea]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Linea&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columna derivada.Salidas[Salida de columna derivada].Columnas[MargenUnitario]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MargenUnitario&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[Medida]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Medida&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[NombreCategoria]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreCategoria&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[NombreMaterial]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreMaterial&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[NombreOrigen]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreOrigen&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[NombreTipoProducto]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreTipoProducto&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[PrecioAlmacen]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PrecioAlmacen&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[PrecioVenta]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PrecioVenta&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columna derivada.Salidas[Salida de columna derivada].Columnas[RangoPrecio]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;RangoPrecio&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[StockActual]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;StockActual&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columna derivada.Salidas[Salida de columna derivada].Columnas[StockCorregido]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;StockCorregido&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[StockMinimo]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;StockMinimo&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columna derivada.Salidas[Salida de columna derivada].Columnas[StockPorActualizar]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;StockPorActualizar&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[TipoBase]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;TipoBase&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Combinación de mezcla 2.Salidas[Salida de combinación de mezcla].Columnas[TipoOrigen]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;TipoOrigen&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insertar destino&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CargaDimProducto\TipoProducto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
